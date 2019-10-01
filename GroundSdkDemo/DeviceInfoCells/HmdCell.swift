@@ -30,21 +30,9 @@
 import UIKit
 import GroundSdk
 
-class CopilotCell: PeripheralProviderContentCell {
-
-    @IBOutlet weak var sourceLabel: UILabel!
-
-    private var copilot: Ref<Copilot>?
-
+class HmdCell: PeripheralProviderContentCell {
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        copilot = provider.getPeripheral(Peripherals.copilot) {  [unowned self] copilot in
-            if let copilot = copilot {
-                self.sourceLabel.text = copilot.setting.source.description
-                self.show()
-            } else {
-                self.hide()
-            }
-        }
+        self.show()
     }
 }

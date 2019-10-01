@@ -30,17 +30,17 @@
 import UIKit
 import GroundSdk
 
-class CopilotCell: PeripheralProviderContentCell {
+class PilotingControlCell: PeripheralProviderContentCell {
 
-    @IBOutlet weak var sourceLabel: UILabel!
+    private var pilotingControl: Ref<PilotingControl>?
 
-    private var copilot: Ref<Copilot>?
+    @IBOutlet weak var behaviourLabel: UILabel!
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        copilot = provider.getPeripheral(Peripherals.copilot) {  [unowned self] copilot in
-            if let copilot = copilot {
-                self.sourceLabel.text = copilot.setting.source.description
+        pilotingControl = provider.getPeripheral(Peripherals.pilotingControl) { [unowned self] pilotingControl in
+            if let pilotingControl = pilotingControl {
+                self.behaviourLabel.text = pilotingControl.behaviourSetting.value.description
                 self.show()
             } else {
                 self.hide()

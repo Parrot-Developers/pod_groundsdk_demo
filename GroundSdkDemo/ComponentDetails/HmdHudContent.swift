@@ -28,23 +28,40 @@
 //    SUCH DAMAGE.
 
 import UIKit
-import GroundSdk
 
-class CopilotCell: PeripheralProviderContentCell {
+public class HmdHudContent: UIViewController {
 
-    @IBOutlet weak var sourceLabel: UILabel!
+    @IBOutlet weak var labelTime: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
 
-    private var copilot: Ref<Copilot>?
+    private var timerDate: Timer?
+    let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        return dateFormatter
+    }()
 
-    override func set(peripheralProvider provider: PeripheralProvider) {
-        super.set(peripheralProvider: provider)
-        copilot = provider.getPeripheral(Peripherals.copilot) {  [unowned self] copilot in
-            if let copilot = copilot {
-                self.sourceLabel.text = copilot.setting.source.description
-                self.show()
-            } else {
-                self.hide()
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activeDate()
+    }
+
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timerDate?.invalidate()
+        timerDate = nil
+    }
+
+    private func activeDate() {
+        self.timerDate = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            if let self = self {
+                self.labelTime?.text = self.dateFormatter.string(from: Date())
             }
         }
+
+    }
+
+    public func setMessage(_ message: String) {
+        self.messageLabel?.text = message
     }
 }
