@@ -30,42 +30,46 @@
 import UIKit
 import GroundSdk
 
-class RemovableUserStorageCell: PeripheralProviderContentCell {
+class DriCell: PeripheralProviderContentCell {
 
-    @IBOutlet weak var fileSystemState: UILabel!
-    @IBOutlet weak var physicalState: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var capacity: UILabel!
-    @IBOutlet weak var availableSpace: UILabel!
-    @IBOutlet weak var isEncryptedLabel: UILabel!
-    private var storage: Ref<RemovableUserStorage>?
+    @IBOutlet weak var idLabel: UILabel!
 
-    var viewController: UIViewController?
+    @IBOutlet weak var switchLabel: UILabel!
+
+    @IBOutlet weak var startStopButton: UIButton!
+
+    private var dri: Ref<Dri>?
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        selectionStyle = .none
-        storage = provider.getPeripheral(Peripherals.removableUserStorage) { [unowned self] storage in
-            if let storage = storage {
-                self.fileSystemState.text = storage.fileSystemState.description
-                self.physicalState.text = storage.physicalState.description
-                self.name.text = storage.mediaInfo?.name ?? "-"
-                if let capacity = storage.mediaInfo?.capacity {
-                    self.capacity.text = ByteCountFormatter.string(fromByteCount: Int64(capacity), countStyle: .file)
+        dri = provider.getPeripheral(Peripherals.dri) {  [unowned self] dri in
+            if let dri = dri {
+                self.idLabel.text = dri.droneId?.id ?? "-"
+                if dri.mode?.value == true {
+                    self.switchLabel.text = "enabled"
+                    self.startStopButton.setTitle("Disable", for: .normal)
                 } else {
-                    self.capacity.text = "-"
+                    self.switchLabel.text = "disabled"
+                    self.startStopButton.setTitle("Enable", for: .normal)
                 }
-                if storage.availableSpace >= 0 {
-                    self.availableSpace.text = ByteCountFormatter.string(
-                        fromByteCount: Int64(storage.availableSpace), countStyle: .file)
-                } else {
-                    self.availableSpace.text = "-"
-                }
-                self.isEncryptedLabel.text = storage.isEncrypted ? "Encrypted" : "NOT encrypted"
+                self.startStopButton.isEnabled = dri.mode != nil
                 self.show()
             } else {
                 self.hide()
             }
         }
     }
+
+    @IBAction func activateOrDeactivaAction(_ sender: Any) {
+        if let dri = dri?.value {
+            if let mode = dri.mode {
+                if mode.value {
+                    mode.value = false
+                } else {
+                    mode.value = true
+                }
+            }
+        }
+    }
+
 }

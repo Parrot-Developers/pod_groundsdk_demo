@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Parrot Drones SAS
+// Copyright (C) 2020 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -29,43 +29,43 @@
 
 import UIKit
 import GroundSdk
+import MobileCoreServices
 
-class RemovableUserStorageCell: PeripheralProviderContentCell {
+class CertificateUploaderCell: PeripheralProviderContentCell {
 
-    @IBOutlet weak var fileSystemState: UILabel!
-    @IBOutlet weak var physicalState: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var capacity: UILabel!
-    @IBOutlet weak var availableSpace: UILabel!
-    @IBOutlet weak var isEncryptedLabel: UILabel!
-    private var storage: Ref<RemovableUserStorage>?
-
+    private var certificateUploader: Ref<CertificateUploader>?
     var viewController: UIViewController?
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        selectionStyle = .none
-        storage = provider.getPeripheral(Peripherals.removableUserStorage) { [unowned self] storage in
-            if let storage = storage {
-                self.fileSystemState.text = storage.fileSystemState.description
-                self.physicalState.text = storage.physicalState.description
-                self.name.text = storage.mediaInfo?.name ?? "-"
-                if let capacity = storage.mediaInfo?.capacity {
-                    self.capacity.text = ByteCountFormatter.string(fromByteCount: Int64(capacity), countStyle: .file)
-                } else {
-                    self.capacity.text = "-"
-                }
-                if storage.availableSpace >= 0 {
-                    self.availableSpace.text = ByteCountFormatter.string(
-                        fromByteCount: Int64(storage.availableSpace), countStyle: .file)
-                } else {
-                    self.availableSpace.text = "-"
-                }
-                self.isEncryptedLabel.text = storage.isEncrypted ? "Encrypted" : "NOT encrypted"
+        certificateUploader = provider.getPeripheral(
+        Peripherals.certificateUploader) { [unowned self] certificateUploader in
+            if certificateUploader != nil {
                 self.show()
             } else {
                 self.hide()
             }
         }
+    }
+
+    @IBAction func uploadAction(_ sender: Any) {
+        let importMenu = UIDocumentPickerViewController(documentTypes: [kUTTypeItem as String], in: .import)
+        importMenu.delegate = self
+        importMenu.modalPresentationStyle = .formSheet
+        self.window?.rootViewController?.present(importMenu, animated: true, completion: nil)
+    }
+}
+extension CertificateUploaderCell: UIDocumentPickerDelegate {
+    public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let myURL = urls.first else {
+            return
+        }
+        if let certificateUploader = certificateUploader?.value {
+            certificateUploader.upload(certificate: myURL.absoluteString)
+        }
+    }
+
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        viewController?.dismiss(animated: true, completion: nil)
     }
 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2019 Parrot Drones SAS
+// Copyright (C) 2020 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -30,42 +30,27 @@
 import UIKit
 import GroundSdk
 
-class RemovableUserStorageCell: PeripheralProviderContentCell {
+class LogControlCell: PeripheralProviderContentCell {
 
-    @IBOutlet weak var fileSystemState: UILabel!
-    @IBOutlet weak var physicalState: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var capacity: UILabel!
-    @IBOutlet weak var availableSpace: UILabel!
-    @IBOutlet weak var isEncryptedLabel: UILabel!
-    private var storage: Ref<RemovableUserStorage>?
-
-    var viewController: UIViewController?
+    @IBOutlet weak var logsStateLabel: UILabel!
+    private var logControl: Ref<LogControl>?
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        selectionStyle = .none
-        storage = provider.getPeripheral(Peripherals.removableUserStorage) { [unowned self] storage in
-            if let storage = storage {
-                self.fileSystemState.text = storage.fileSystemState.description
-                self.physicalState.text = storage.physicalState.description
-                self.name.text = storage.mediaInfo?.name ?? "-"
-                if let capacity = storage.mediaInfo?.capacity {
-                    self.capacity.text = ByteCountFormatter.string(fromByteCount: Int64(capacity), countStyle: .file)
-                } else {
-                    self.capacity.text = "-"
-                }
-                if storage.availableSpace >= 0 {
-                    self.availableSpace.text = ByteCountFormatter.string(
-                        fromByteCount: Int64(storage.availableSpace), countStyle: .file)
-                } else {
-                    self.availableSpace.text = "-"
-                }
-                self.isEncryptedLabel.text = storage.isEncrypted ? "Encrypted" : "NOT encrypted"
+        logControl = provider.getPeripheral(Peripherals.logControl) {  [unowned self] logControl in
+            if let logControl = logControl {
+                self.logsStateLabel.text = logControl.areLogsEnabled ? "Enabled" : "Disabled"
                 self.show()
             } else {
                 self.hide()
             }
         }
     }
+
+    @IBAction func deactivateLogsAction(_ sender: Any) {
+        if let logControl = logControl?.value {
+            _ = logControl.deactivateLogs()
+        }
+    }
+
 }
