@@ -1,3 +1,7 @@
+excluded:
+  - ${PWD}/Pods
+  - ${PWD}/GroundSdkDemo/proto
+
 line_length: 120
 
 trailing_whitespace:
