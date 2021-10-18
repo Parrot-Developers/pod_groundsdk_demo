@@ -40,9 +40,7 @@ class CopterGpControllerBackend: GamepadControllerBackend {
     }
 
     var leftThumbstickMoveHandler: GCControllerDirectionPadValueChangedHandler? {
-        return {
-            [unowned self]
-            (dpad, xValue, yValue) in
+        return { [unowned self] (_, xValue, yValue) in
 
             if let pilotingItf = self.manualPilotingItf?.value {
                 pilotingItf.set(pitch: -Int(yValue * 100))
@@ -52,9 +50,7 @@ class CopterGpControllerBackend: GamepadControllerBackend {
     }
 
     var rightThumbstickMoveHandler: GCControllerDirectionPadValueChangedHandler? {
-        return {
-            [unowned self]
-            (dpad, xValue, yValue) in
+        return { [unowned self] (_, xValue, yValue) in
 
             if let pilotingItf = self.manualPilotingItf?.value {
                 pilotingItf.set(verticalSpeed: Int(yValue * 100))
@@ -64,9 +60,7 @@ class CopterGpControllerBackend: GamepadControllerBackend {
     }
 
     var buttonAPressedHandler: GCControllerButtonValueChangedHandler? {
-        return {
-            [unowned self]
-            (gamepad, element, pressed) in
+        return { [unowned self] (_, _, pressed) in
 
             if pressed {
                 if let pilotingItf = self.manualPilotingItf?.value {

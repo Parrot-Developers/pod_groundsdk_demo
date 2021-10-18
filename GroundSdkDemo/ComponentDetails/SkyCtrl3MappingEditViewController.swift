@@ -215,8 +215,7 @@ class SkyCtrl3MappingEditViewController: UIViewController, DeviceViewController 
         if let skyCtrl3Gamepad = skyCtrl3Gamepad?.value {
             isEditingButtonEvents = !isEditingButtonEvents
             if isEditingButtonEvents {
-                skyCtrl3Gamepad.buttonEventListener = {
-                    [unowned self] (event, state) in
+                skyCtrl3Gamepad.buttonEventListener = { [unowned self] (event, state) in
                     if state == .pressed {
                         return
                     }
@@ -240,8 +239,7 @@ class SkyCtrl3MappingEditViewController: UIViewController, DeviceViewController 
         if let skyCtrl3Gamepad = skyCtrl3Gamepad?.value {
             isEditingAxisEvent = !isEditingAxisEvent
             if isEditingAxisEvent {
-                skyCtrl3Gamepad.buttonEventListener = {
-                    [unowned self] (event, state) in
+                skyCtrl3Gamepad.buttonEventListener = { [unowned self] (event, _) in
                     let axis: SkyCtrl3AxisEvent
                     switch event {
                     case .leftStickLeft,

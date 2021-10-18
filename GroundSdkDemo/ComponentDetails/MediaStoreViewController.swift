@@ -206,9 +206,12 @@ class MediaListCell: UITableViewCell {
             let streamableTxt = res.streamable == true ? " streamable" : ""
             return "\(str) [\(res.format) \(res.size)\(streamableTxt)]"
         }
-        let photoModeTxt = media.photoMode != nil ? " \(media.photoMode!.description)" : ""
+        let photoModeText = media.photoMode != nil ? " \(media.photoMode!.description)" : ""
         let thermalText = media.metadataTypes.contains(.thermal) ? " Thermal" : ""
-        detail2View.text = "\(media.type.description)\(photoModeTxt)\(resources)\(thermalText)"
+        let customIdText = media.customId != nil ? " \(media.customId!)" : ""
+        let customTitleText = media.customTitle != nil ? " \(media.customTitle!)" : ""
+        detail2View.text = "\(media.type.description)\(photoModeText)\(resources)\(thermalText)\(customIdText)"
+            + "\(customTitleText)"
         if media.userData as! Bool {
             accessoryType = .checkmark
         } else {

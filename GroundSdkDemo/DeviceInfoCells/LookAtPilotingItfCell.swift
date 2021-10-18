@@ -37,6 +37,7 @@ class LookAtPilotingItfCell: PilotingItfProviderContentCell {
     @IBOutlet weak var unavailabilityValue: UILabel!
     @IBOutlet weak var activateButton: UIButton!
     @IBOutlet weak var qualityValue: UILabel!
+    @IBOutlet weak var modeSegmentedControl: UISegmentedControl!
 
     private var pilotingItf: Ref<LookAtPilotingItf>?
 
@@ -72,6 +73,7 @@ class LookAtPilotingItfCell: PilotingItfProviderContentCell {
                 case .unavailable:
                     self?.activateButton.isEnabled = false
                 }
+                self?.modeSegmentedControl.isHidden = pilotingItf.lookAtMode.supportedModes.count <= 1
             } else {
                 self?.hide()
             }
@@ -84,6 +86,13 @@ class LookAtPilotingItfCell: PilotingItfProviderContentCell {
             } else if lookAtItf.state == .idle {
                 _ = lookAtItf.activate()
             }
+        }
+    }
+
+    @IBAction func modeDidChange(_ sender: Any) {
+        if let lookAtItf = pilotingItf?.value,
+            let lookAtMode = LookAtMode(rawValue: modeSegmentedControl.selectedSegmentIndex) {
+            lookAtItf.lookAtMode.value = lookAtMode
         }
     }
 }

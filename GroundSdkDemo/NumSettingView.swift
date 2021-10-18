@@ -93,6 +93,32 @@ import GroundSdk
         }
     }
 
+    func updateWith(value: Double, range: ClosedRange<Double>?) {
+        if let range = range {
+            sliderView.isEnabled = true
+            sliderView.minimumValue = Float(range.lowerBound)
+            sliderView.maximumValue = Float(range.upperBound)
+            sliderView.setValue(Float(value), animated: true)
+            textView.text = String(format: "%.2f / %.2f / %.2f", range.lowerBound, value, range.upperBound)
+        } else {
+            sliderView.isEnabled = false
+            textView.text = "Not Supported"
+        }
+    }
+
+    func updateWith(value: UInt, range: ClosedRange<UInt>?) {
+        if let range = range {
+            sliderView.isEnabled = true
+            sliderView.minimumValue = Float(range.lowerBound)
+            sliderView.maximumValue = Float(range.upperBound)
+            sliderView.setValue(Float(value), animated: true)
+            textView.text = String(format: "%d / %d / %d", range.lowerBound, value, range.upperBound)
+        } else {
+            sliderView.isEnabled = false
+            textView.text = "Not Supported"
+        }
+    }
+
     @IBAction func valueChanged(_ sender: UISlider) {
         sendActions(for: .valueChanged)
     }

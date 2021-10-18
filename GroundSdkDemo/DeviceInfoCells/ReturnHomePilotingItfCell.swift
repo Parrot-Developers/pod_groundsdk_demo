@@ -47,6 +47,7 @@ class ReturnHomePilotingItfCell: PilotingItfProviderContentCell {
     @IBOutlet weak var cancelAutoTriggerBt: UIButton!
     @IBOutlet weak var homeReachability: UILabel!
     @IBOutlet weak var delayValue: UILabel!
+    @IBOutlet weak var issues: UILabel!
 
     private var pilotingItf: Ref<ReturnHomePilotingItf>?
 
@@ -118,6 +119,16 @@ class ReturnHomePilotingItfCell: PilotingItfProviderContentCell {
                 } else {
                     self?.delayValue.text = "-"
                     self?.cancelAutoTriggerBt.isEnabled = false
+                }
+                if pilotingItf.unavailabilityReasons != nil {
+                    if pilotingItf.unavailabilityReasons!.isEmpty {
+                        self?.issues.text = "-"
+                    } else {
+                        self?.issues.text = pilotingItf.unavailabilityReasons!.map { $0.description }
+                        .joined(separator: ", ")
+                    }
+                } else {
+                    self?.issues.text = "not supported"
                 }
             } else {
                 self?.hide()

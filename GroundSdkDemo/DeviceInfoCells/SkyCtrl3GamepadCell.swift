@@ -68,8 +68,7 @@ class SkyCtrl3GamepadCell: PeripheralProviderContentCell {
 
                 // listeners for grabbed events
                 if !skyCtrl3Gamepad.grabbedButtons.isEmpty && skyCtrl3Gamepad.buttonEventListener == nil {
-                    skyCtrl3Gamepad.buttonEventListener = {
-                        [weak self] event, state in
+                    skyCtrl3Gamepad.buttonEventListener = { [weak self] event, state in
                         self?.buttonEvtListener.text = event.description + ": " + state.description
                     }
                 }
@@ -97,9 +96,9 @@ class SkyCtrl3GamepadCell: PeripheralProviderContentCell {
                         return $0
                     })
                 if let state = skyCtrl3Gamepad.volatileMappingSetting?.value {
-                    self?.volatileMapping.text = state ? "activated" : "Not activated"
+                    self?.volatileMapping.text = state ? "Activated" : "Not activated"
                     self?.volatileMappingButton.isHidden = false
-                    self?.volatileMapping.text = !state ? "Activate" : "Deactivate"
+                    self?.volatileMappingButton.setTitle(!state ? "Activate" : "Deactivate", for: .normal)
                 } else {
                     self?.volatileMapping.text = "Not supported"
                     self?.volatileMappingButton.isHidden = true
@@ -136,7 +135,7 @@ class SkyCtrl3GamepadCell: PeripheralProviderContentCell {
 
     @IBAction func volatileMappingAction(_ sender: UIButton) {
         if let state = skyCtrl3Gamepad?.value?.volatileMappingSetting?.value {
-            skyCtrl3Gamepad?.value?.volatileMappingSetting!.value = state
+            skyCtrl3Gamepad?.value?.volatileMappingSetting!.value = !state
         }
     }
 }

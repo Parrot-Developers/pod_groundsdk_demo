@@ -50,6 +50,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
         case axisMaxSpeed
         case controlMode
         case axisControl
+        case resetAttitude
         case correctOffsets
         case calibrate
 
@@ -59,6 +60,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
             case .axisMaxSpeed:         return "AxisMaxSpeedCell"
             case .controlMode:          return "ControlModeCell"
             case .axisControl:          return "AxisControlCell"
+            case .resetAttitude:        return "ResetAttitudeCell"
             case .correctOffsets:       return "CorrectOffsetsCell"
             case .calibrate:            return "CalibrateCell"
             }
@@ -69,6 +71,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
         case stabilization
         case maxSpeed
         case control
+        case reset
         case offsetsCorrection
         case calibration
 
@@ -77,6 +80,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
             case .stabilization:        return "Stabilization"
             case .maxSpeed:             return "Max speed"
             case .control:              return "Control"
+            case .reset:                return "Reset"
             case .offsetsCorrection:    return "Offsets correction"
             case .calibration:          return "Calibration"
             }
@@ -162,6 +166,10 @@ class GimbalViewController: UITableViewController, DeviceViewController {
                         peripheralProvider: peripheralProvider!, axis: axis, valueChanged: targetChanged)
                 }
             }
+        case .resetAttitude:
+            if let cell = cell as? GimbalResetAttitudeCell {
+                cell.update(peripheralProvider: peripheralProvider!)
+            }
         case .correctOffsets:
             break
         case .calibrate:
@@ -173,7 +181,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection sectionVal: Int) -> String? {
@@ -192,6 +200,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
         case .stabilization:        return supportedAxes.count
         case .maxSpeed:             return supportedAxes.count
         case .control:              return supportedAxes.count + 1
+        case .reset:                return 1
         case .offsetsCorrection:    return 1
         case .calibration:          return 1
         }
@@ -210,8 +219,9 @@ class GimbalViewController: UITableViewController, DeviceViewController {
         case 0: return .axisStabilization
         case 1: return .axisMaxSpeed
         case 2: return indexPath.row == 0 ? .controlMode : .axisControl
-        case 3: return .correctOffsets
-        case 4: return .calibrate
+        case 3: return .resetAttitude
+        case 4: return .correctOffsets
+        case 5: return .calibrate
         default: return nil
         }
     }
@@ -225,6 +235,7 @@ class GimbalViewController: UITableViewController, DeviceViewController {
         case .stabilization:        return supportedAxes[indexPath.row]
         case .maxSpeed:             return supportedAxes[indexPath.row]
         case .control:              return supportedAxes[indexPath.row - 1]
+        case .reset:                return nil
         case .offsetsCorrection:    return nil
         case .calibration:          return nil
         }
@@ -353,5 +364,19 @@ private class GimbalAxisControlCell: UITableViewCell {
             valueLabel.text = controlSlider.value.description
             valueChanged?(0.0)
         }
+    }
+}
+
+@objc(GimbalResetAttitudeCell)
+private class GimbalResetAttitudeCell: UITableViewCell {
+    private var gimbalRef: Ref<Gimbal>?
+
+    func update(peripheralProvider: PeripheralProvider) {
+        gimbalRef = peripheralProvider.getPeripheral(Peripherals.gimbal) { _ in
+        }
+    }
+
+    @IBAction func resetAttitude(_ sender: UIButton) {
+        gimbalRef?.value?.resetAttitude()
     }
 }

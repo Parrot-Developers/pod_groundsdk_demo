@@ -35,11 +35,13 @@
 		<false/>
 		<key>BlackboxPublicFolder</key>
 		<string></string>
-		<key>UsbDebug</key>
-		<true/>
+		<key>BlackboxBufferCapacity</key>
+		<integer>60</integer>
 		<key>BlackBoxQuotaMb</key>
 		<integer>0</integer>
 		<key>FlightLogQuotaMb</key>
+		<integer>0</integer>
+		<key>FlightCameraRecordQuotaMb</key>
 		<integer>0</integer>
 		<key>FlightDataQuotaMb</key>
 		<integer>0</integer>
@@ -51,17 +53,25 @@
 		<array>
 			<string>anafi4k</string>
 			<string>anafiThermal</string>
+			<string>anafi2</string>
 			<string>anafiUa</string>
 			<string>anafiUsa</string>
 			<string>skyCtrl3</string>
+			<string>skyCtrl4</string>
 			<string>skyCtrlUA</string>
 		</array>
 		<key>FirmwareServer</key>
 		<string>$(GSDK_INTERNAL_UPDATE_URL)</string>
+		<key>FlightLogServer</key>
+		<string>$(GSDK_INTERNAL_FLIGHTLOG_URL)</string>
+		<key>FlightCameraRecordServer</key>
+		<string>$(GSDK_INTERNAL_FLIGHTCAMERARECORD_URL)</string>
 		<key>ApplicationKey</key>
 		<string>$(GSDK_APPKEY)</string>
 		<key>DevToolbox</key>
 		<true/>
+		<key>FcrAnonymizerFqn</key>
+		<string>FcrAnonymizerDemo</string>
 	</dict>
 	<key>LSApplicationCategoryType</key>
 	<false/>
@@ -99,8 +109,6 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>camera authorization - for HMD</string>
 	<key>NSLocalNetworkUsageDescription</key>
 	<string>We need to access your local network to detect your drone over WiFi</string>
 	<key>NSBonjourServices</key>
@@ -112,5 +120,7 @@
 		<string>_arsdk-091b._udp.</string>
 		<string>_arsdk-0914._udp.</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>camera authorization - for HMD</string>
 </dict>
 </plist>

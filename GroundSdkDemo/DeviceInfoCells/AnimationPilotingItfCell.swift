@@ -116,11 +116,13 @@ class AnimationPilotingItfCell: PilotingItfProviderContentCell {
                     config = Vertical180PhotoPanoramaAnimationConfig()
                 case .sphericalPhotoPanorama:
                     config = SphericalPhotoPanoramaAnimationConfig()
+                case .superWidePhotoPanorama:
+                    config = SuperWidePhotoPanoramaAnimationConfig()
                 case .unidentified:
                     config = nil
                 }
                 if let config = config {
-                    let handler: (UIAlertAction) -> Void = { [weak self] action in
+                    let handler: (UIAlertAction) -> Void = { [weak self] _ in
                         _ = self?.pilotingItf?.value?.startAnimation(config: config)
                     }
                     alert.addAction(UIAlertAction(title: animationType.description, style: .default, handler: handler))

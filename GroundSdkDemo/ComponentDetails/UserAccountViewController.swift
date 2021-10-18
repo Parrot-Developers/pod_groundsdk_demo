@@ -38,8 +38,11 @@ class UserAccountViewController: UIViewController {
 
     @IBOutlet var accountProviderTextField: UITextField!
     @IBOutlet var userIdTextField: UITextField!
+    @IBOutlet var userTokenTextField: UITextField!
+    @IBOutlet var droneListTextField: UITextField!
     @IBOutlet var setUserButton: UIButton!
     @IBOutlet var clearButton: UIButton!
+    @IBOutlet var setDroneList: UIButton!
     @IBOutlet var lastAction: UILabel!
     @IBOutlet var segmentedCollectedPolicy: UISegmentedControl!
 
@@ -56,6 +59,10 @@ class UserAccountViewController: UIViewController {
 
     @IBAction func setUserAccount(_ sender: UIButton) {
         doSetUser()
+    }
+
+    @IBAction func setDroneList(_ sender: UIButton) {
+        doSetDroneList()
     }
 
     @IBAction func clearUser(_ sender: Any) {
@@ -79,9 +86,10 @@ class UserAccountViewController: UIViewController {
 
     private func doClear() {
         if let userAccount = userAccountRef?.value {
-            userAccount.clear(anonymousDataPolicy: AnonymousDataPolicy.deny)
+            userAccount.clear(dataUploadPolicy: DataUploadPolicy.deny)
             accountProviderTextField.text = ""
             userIdTextField.text = ""
+            userTokenTextField.text = ""
             editingChanged(self)
             lastAction.text = "last action = clear action (anonymous: false)"
         }
@@ -91,21 +99,45 @@ class UserAccountViewController: UIViewController {
         if let userAccount = userAccountRef?.value {
             let providerString = accountProviderTextField.text ?? ""
             let idString = userIdTextField.text ?? ""
-
-            userAccount.set(accountProvider: providerString, accountId: idString, accountlessPersonalDataPolicy:
-                segmentedCollectedPolicy.selectedSegmentIndex == 0 ?
-                    AccountlessPersonalDataPolicy.denyUpload : AccountlessPersonalDataPolicy.allowUpload)
+            let token = userTokenTextField.text ?? ""
+            let droneList = droneListTextField.text ?? ""
+            var dataPolicy: DataUploadPolicy = .deny
+            switch segmentedCollectedPolicy.selectedSegmentIndex {
+            case 0:
+                dataPolicy = .deny
+            case 1:
+                dataPolicy = .anonymous
+            case 2:
+                dataPolicy = .noGps
+            case 3:
+                dataPolicy = .full
+            default:
+                break
+            }
+            userAccount.set(accountProvider: providerString, accountId: idString,
+                dataUploadPolicy: dataPolicy,
+                oldDataPolicy: segmentedCollectedPolicy.selectedSegmentIndex == 0 ?
+                                OldDataPolicy.denyUpload : OldDataPolicy.allowUpload,
+                token: token, droneList: droneList)
             lastAction.text = "last action = set accountProvider and accountId"
+        }
+    }
+
+    private func doSetDroneList() {
+        if let userAccount = userAccountRef?.value {
+            let droneList = droneListTextField.text ?? ""
+            userAccount.set(droneList: droneList)
+            lastAction.text = "last action = set drone list \(droneList)"
         }
     }
 
     private func doSetAnonymous(_ value: Bool) {
         if let userAccount = userAccountRef?.value {
-            userAccount.clear(anonymousDataPolicy: value ? AnonymousDataPolicy.allow : AnonymousDataPolicy.deny)
+            userAccount.clear(dataUploadPolicy: value ? DataUploadPolicy.full : DataUploadPolicy.deny)
             accountProviderTextField.text = ""
             userIdTextField.text = ""
             editingChanged(self)
-            lastAction.text = "last action = clear / anonymousDataPolicy: \(value)"
+            lastAction.text = "last action = clear / dataUploadPolicy: \(value)"
         }
     }
 }

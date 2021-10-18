@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gxU-Hk-h39">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gxU-Hk-h39">
     <device id="retina5_5" orientation="landscape" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,6 +60,12 @@
                                             <action selector="takeOffLand:" destination="gxU-Hk-h39" eventType="touchUpInside" id="9HH-pa-gtU"/>
                                         </connections>
                                     </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_flight_handland_48pt" translatesAutoresizingMaskIntoConstraints="NO" id="nZ9-qT-Enu" userLabel="Hand Land Image">
+                                        <rect key="frame" x="264" y="4" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="nZ9-qT-Enu" secondAttribute="height" multiplier="1:1" id="hgw-gh-2wn"/>
+                                        </constraints>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Vk1-VD-FH2" userLabel="right StackView insttruments">
                                         <rect key="frame" x="392" y="3" width="296" height="42"/>
                                         <subviews>
@@ -130,8 +137,11 @@
                                     <constraint firstAttribute="bottom" secondItem="Vk1-VD-FH2" secondAttribute="bottom" constant="3" id="6qx-Vj-guz"/>
                                     <constraint firstItem="di9-wZ-WRq" firstAttribute="centerY" secondItem="4bn-6c-9Jk" secondAttribute="centerY" id="B8b-6u-var"/>
                                     <constraint firstItem="Vk1-VD-FH2" firstAttribute="top" secondItem="4bn-6c-9Jk" secondAttribute="top" constant="3" id="Lvt-ct-fTB"/>
+                                    <constraint firstItem="nZ9-qT-Enu" firstAttribute="top" secondItem="4bn-6c-9Jk" secondAttribute="top" constant="4" id="LyE-2X-dLi"/>
                                     <constraint firstItem="Vk1-VD-FH2" firstAttribute="centerY" secondItem="4bn-6c-9Jk" secondAttribute="centerY" id="MHY-1p-9zb"/>
+                                    <constraint firstItem="4cZ-ER-hG9" firstAttribute="leading" secondItem="nZ9-qT-Enu" secondAttribute="trailing" constant="40" id="RVl-y0-TAC"/>
                                     <constraint firstItem="Wq1-bI-OPj" firstAttribute="centerX" secondItem="4bn-6c-9Jk" secondAttribute="centerX" id="S3u-ez-EFm"/>
+                                    <constraint firstAttribute="bottom" secondItem="nZ9-qT-Enu" secondAttribute="bottom" constant="4" id="SwY-aO-t3l"/>
                                     <constraint firstItem="Wq1-bI-OPj" firstAttribute="leading" secondItem="Roe-Tu-GVn" secondAttribute="trailing" constant="10" id="UDz-Ys-Wls"/>
                                     <constraint firstItem="aAd-sW-Wid" firstAttribute="leading" secondItem="4bn-6c-9Jk" secondAttribute="leading" constant="5" id="XLa-wY-kDi"/>
                                     <constraint firstItem="di9-wZ-WRq" firstAttribute="leading" secondItem="Vk1-VD-FH2" secondAttribute="trailing" id="aFg-UC-ezz"/>
@@ -149,7 +159,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6q-Sl-N4C" userLabel="Top bar">
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="30"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSp-P2-rMv">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSp-P2-rMv">
                                         <rect key="frame" x="5" y="0.0" width="37" height="30"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
@@ -303,7 +313,7 @@
                                     <action selector="zoomVelocityDidEndEditing:" destination="gxU-Hk-h39" eventType="touchUpInside" id="eGn-wl-6VY"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je4-Hg-tRz" userLabel="Emergency Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Je4-Hg-tRz" userLabel="Emergency Button">
                                 <rect key="frame" x="668" y="32" width="48" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="48" id="zEa-sJ-Lem"/>
@@ -315,7 +325,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="yhK-ab-GAc" firstAttribute="leading" secondItem="wN1-nk-oDQ" secondAttribute="trailing" constant="5" id="0Sa-IO-mm9"/>
                             <constraint firstItem="Dt7-3b-R5O" firstAttribute="top" secondItem="vHD-SY-yh8" secondAttribute="bottom" id="13s-Dc-0iC"/>
@@ -362,6 +372,7 @@
                         <outlet property="flyingIndicatorsLabel" destination="Toi-9Y-fAY" id="fms-ax-SeS"/>
                         <outlet property="gpsImageView" destination="aAd-sW-Wid" id="caL-yh-D9x"/>
                         <outlet property="gpsLabel" destination="Roe-Tu-GVn" id="1ZV-qu-rsI"/>
+                        <outlet property="handLandImage" destination="nZ9-qT-Enu" id="Bui-Ys-ceb"/>
                         <outlet property="joysticksView" destination="5ya-5h-sMc" id="AnN-Z3-Rl1"/>
                         <outlet property="returnHomeButton" destination="di9-wZ-WRq" id="meA-c0-jEa"/>
                         <outlet property="speedometerLabel" destination="9VQ-ob-VTN" id="TLD-kS-W6U"/>
@@ -378,8 +389,14 @@
             <point key="canvasLocation" x="2200.271739130435" y="-1094.2028985507247"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="GqM-cT-rna">
+            <size key="intrinsicContentSize" width="48" height="48"/>
+        </designable>
+    </designables>
     <resources>
         <image name="ic_emergency" width="48" height="48"/>
+        <image name="ic_flight_handland_48pt" width="48" height="48"/>
         <image name="ic_flight_takeoff_48pt" width="48" height="48"/>
         <image name="ic_gps_not_fixed" width="48" height="48"/>
         <image name="ic_heading" width="48" height="48"/>
@@ -388,5 +405,8 @@
         <image name="icn_bar_distance" width="24" height="14"/>
         <image name="icn_bar_gspeed_h" width="43" height="20"/>
         <image name="stop_poi" width="48" height="48"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

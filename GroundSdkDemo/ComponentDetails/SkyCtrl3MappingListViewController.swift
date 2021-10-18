@@ -81,6 +81,8 @@ class SkyCtrl3MappingListViewController: UIViewController, DeviceViewController 
             switch supportedDrone {
             case .anafi4k:
                 image = #imageLiteral(resourceName: "anafi.png")
+            case .anafi2:
+                image = #imageLiteral(resourceName: "anafi.png")
             case .anafiThermal:
                 image = #imageLiteral(resourceName: "anafi.png")
             case .anafiUa:

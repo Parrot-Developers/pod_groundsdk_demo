@@ -269,28 +269,28 @@
                                             <constraint firstItem="NAv-hA-PPM" firstAttribute="leading" secondItem="BeZ-ZB-TBN" secondAttribute="leading" constant="20" id="vIB-4z-zyu"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdB-0G-c27">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-aL-tW5">
                                         <rect key="frame" x="0.0" y="567" width="375" height="36"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File system state:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifK-95-PnV">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File system state:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eZ-rS-LRu">
                                                 <rect key="frame" x="10" y="0.0" width="133" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-AW-Ky1">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8n-9C-4k7">
                                                 <rect key="frame" x="146" y="0.0" width="40.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Physical state:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZp-aW-30u">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Physical state:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3p-sk-7aW">
                                                 <rect key="frame" x="10" y="20.5" width="110" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDd-NM-cSv">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MC-jY-vO7">
                                                 <rect key="frame" x="123" y="20.5" width="40.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -299,14 +299,14 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="xZp-aW-30u" firstAttribute="top" secondItem="ifK-95-PnV" secondAttribute="bottom" id="2Ht-uP-Wy1"/>
-                                            <constraint firstItem="xZp-aW-30u" firstAttribute="leading" secondItem="TdB-0G-c27" secondAttribute="leading" constant="10" id="7hQ-9K-Kub"/>
-                                            <constraint firstItem="eDd-NM-cSv" firstAttribute="leading" secondItem="xZp-aW-30u" secondAttribute="trailing" constant="3" id="Clj-tl-Tus"/>
-                                            <constraint firstItem="VfE-AW-Ky1" firstAttribute="centerY" secondItem="ifK-95-PnV" secondAttribute="centerY" id="Dgt-uy-847"/>
-                                            <constraint firstItem="ifK-95-PnV" firstAttribute="leading" secondItem="TdB-0G-c27" secondAttribute="leading" constant="10" id="TAi-GM-BqD"/>
-                                            <constraint firstItem="VfE-AW-Ky1" firstAttribute="leading" secondItem="ifK-95-PnV" secondAttribute="trailing" constant="3" id="UvJ-LD-6vz"/>
-                                            <constraint firstItem="ifK-95-PnV" firstAttribute="top" secondItem="TdB-0G-c27" secondAttribute="top" id="ZLG-0o-ylp"/>
-                                            <constraint firstItem="eDd-NM-cSv" firstAttribute="centerY" secondItem="xZp-aW-30u" secondAttribute="centerY" id="qBI-Cv-wE7"/>
+                                            <constraint firstItem="3MC-jY-vO7" firstAttribute="centerY" secondItem="S3p-sk-7aW" secondAttribute="centerY" id="1QA-xX-X0z"/>
+                                            <constraint firstItem="4eZ-rS-LRu" firstAttribute="leading" secondItem="d9y-aL-tW5" secondAttribute="leading" constant="10" id="FdJ-1d-a0B"/>
+                                            <constraint firstItem="W8n-9C-4k7" firstAttribute="leading" secondItem="4eZ-rS-LRu" secondAttribute="trailing" constant="3" id="L1N-Uw-KIR"/>
+                                            <constraint firstItem="S3p-sk-7aW" firstAttribute="leading" secondItem="d9y-aL-tW5" secondAttribute="leading" constant="10" id="Oaf-GN-nOC"/>
+                                            <constraint firstItem="4eZ-rS-LRu" firstAttribute="top" secondItem="d9y-aL-tW5" secondAttribute="top" id="VEk-tc-lpX"/>
+                                            <constraint firstItem="S3p-sk-7aW" firstAttribute="top" secondItem="4eZ-rS-LRu" secondAttribute="bottom" id="as9-ra-1WX"/>
+                                            <constraint firstItem="3MC-jY-vO7" firstAttribute="leading" secondItem="S3p-sk-7aW" secondAttribute="trailing" constant="3" id="ofP-qE-ou8"/>
+                                            <constraint firstItem="W8n-9C-4k7" firstAttribute="centerY" secondItem="4eZ-rS-LRu" secondAttribute="centerY" id="uS0-jV-V3i"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -330,14 +330,14 @@
                         <outlet property="decryptButton" destination="rQh-VI-JDp" id="oro-xO-KmO"/>
                         <outlet property="decryptionUsageSegmentedControl" destination="NAv-hA-PPM" id="kmV-k0-wdx"/>
                         <outlet property="encryptionSwitch" destination="efc-Cf-dCV" id="Xdq-No-UgA"/>
-                        <outlet property="fileSystemStateLabel" destination="VfE-AW-Ky1" id="xs3-e9-jTD"/>
+                        <outlet property="fileSystemStateLabel" destination="W8n-9C-4k7" id="Qfh-65-c6E"/>
                         <outlet property="formatButton" destination="DwM-F0-rFG" id="nXl-0E-IDo"/>
                         <outlet property="formattingNameTextField" destination="em2-0c-HcM" id="p4d-A2-b2j"/>
                         <outlet property="formattingProgressView" destination="o6z-0q-V6k" id="JMG-4g-vmH"/>
                         <outlet property="formattingStep" destination="SbB-XO-1wy" id="aLU-mO-Sw9"/>
                         <outlet property="formattingTypesSegmentedControl" destination="mLg-xw-Ivc" id="Q7w-aU-br4"/>
                         <outlet property="formattingWithEncryptionPasswordTextField" destination="OOO-bM-AB0" id="Fok-r0-gpG"/>
-                        <outlet property="physicalStateLabel" destination="eDd-NM-cSv" id="rl6-Wc-MI2"/>
+                        <outlet property="physicalStateLabel" destination="3MC-jY-vO7" id="Qdv-Ze-4ql"/>
                         <outlet property="uuidLabel" destination="kFi-Pa-wc8" id="phV-eG-sJb"/>
                         <outlet property="viewFormattingState" destination="cAx-PD-7ci" id="CHl-5M-Th0"/>
                         <outlet property="viewFormattingType" destination="LOb-BK-UbJ" id="Dq3-Mm-5GY"/>

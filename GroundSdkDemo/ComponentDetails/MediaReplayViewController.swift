@@ -69,16 +69,17 @@ class MediaReplayViewController: UIViewController {
             let track = resource.getAvailableTracks()
             let source = MediaReplaySourceFactory.videoTrackOf(resource: resource,
                                                                track: (track != nil ? track!.first! : .defaultVideo))
-            mediaReplay = streamServer.value?.replay(source: source) { [weak self] stream in
-                self?.stopBtn.isEnabled = stream?.state != .stopped
-                self?.playPauseBtn.title = stream?.playState != .playing ? "Play" : "Pause"
-                self?.streamView.setStream(stream: stream)
+            if let source = source {
+                mediaReplay = streamServer.value?.replay(source: source) { [weak self] stream in
+                    self?.stopBtn.isEnabled = stream?.state != .stopped
+                    self?.playPauseBtn.title = stream?.playState != .playing ? "Play" : "Pause"
+                    self?.streamView.setStream(stream: stream)
 
-                self?.durationLabel.text = self?.timeFormatter.string(from: stream?.duration ?? 0)
-                self?.timeSlider.maximumValue = Float(stream?.duration ?? 0)
-                self?.refreshStreamPosition()
+                    self?.durationLabel.text = self?.timeFormatter.string(from: stream?.duration ?? 0)
+                    self?.timeSlider.maximumValue = Float(stream?.duration ?? 0)
+                    self?.refreshStreamPosition()
+                }
             }
-
          }
     }
 

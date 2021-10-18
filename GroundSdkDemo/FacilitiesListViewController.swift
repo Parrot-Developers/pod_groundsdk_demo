@@ -43,6 +43,7 @@ class FacilitiesListViewController: UITableViewController {
         addCell("autoConnection")
         addCell("crashReporter")
         addCell("flightLogReporter")
+        addCell("flightCameraRecordReporter")
         addCell("firmwareManager")
         addCell("blackBoxReporter")
         addCell("userLocation")

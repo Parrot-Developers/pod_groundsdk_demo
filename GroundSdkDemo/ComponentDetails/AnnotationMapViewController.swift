@@ -32,7 +32,7 @@ import GroundSdk
 import MapKit
 
 /// The MapAnnotationDelegate will be triggered when a new move destination is chosen
-public protocol AnnotationMapDelegate: class {
+public protocol AnnotationMapDelegate: AnyObject {
     func destinationDidChange(moveLocation: CLLocationCoordinate2D?)
 }
 

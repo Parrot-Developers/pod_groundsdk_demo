@@ -148,8 +148,7 @@ class GamepadController {
 // Gamepad handler extension
 extension GamepadController {
     var leftThumbstickMoveHandler: GCControllerDirectionPadValueChangedHandler {
-        return {
-            [unowned self](dpad, xValue, yValue) in
+        return { [unowned self] (dpad, xValue, yValue) in
             for backend in self.backends {
                 backend.leftThumbstickMoveHandler?(dpad, xValue, yValue)
             }
@@ -157,8 +156,7 @@ extension GamepadController {
     }
 
     var rightThumbstickMoveHandler: GCControllerDirectionPadValueChangedHandler {
-        return {
-            [unowned self](dpad, xValue, yValue) in
+        return { [unowned self] (dpad, xValue, yValue) in
             for backend in self.backends {
                 backend.rightThumbstickMoveHandler?(dpad, xValue, yValue)
             }
@@ -166,8 +164,7 @@ extension GamepadController {
     }
 
     var buttonAPressedHandler: GCControllerButtonValueChangedHandler {
-        return {
-            [unowned self](gamepad, element, pressed) in
+        return { [unowned self] (gamepad, element, pressed) in
             for backend in self.backends {
                 backend.buttonAPressedHandler?(gamepad, element, pressed)
             }
@@ -175,8 +172,7 @@ extension GamepadController {
     }
 
     var buttonBPressedHandler: GCControllerButtonValueChangedHandler {
-        return {
-            [unowned self](gamepad, element, pressed) in
+        return { [unowned self] (gamepad, element, pressed) in
             for backend in self.backends {
                 backend.buttonBPressedHandler?(gamepad, element, pressed)
             }
@@ -184,8 +180,7 @@ extension GamepadController {
     }
 
     var buttonXPressedHandler: GCControllerButtonValueChangedHandler {
-        return {
-            [unowned self](gamepad, element, pressed) in
+        return { [unowned self] (gamepad, element, pressed) in
             for backend in self.backends {
                 backend.buttonXPressedHandler?(gamepad, element, pressed)
             }
@@ -193,8 +188,7 @@ extension GamepadController {
     }
 
     var buttonYPressedHandler: GCControllerButtonValueChangedHandler {
-        return {
-            [unowned self](gamepad, element, pressed) in
+        return { [unowned self] (gamepad, element, pressed) in
             for backend in self.backends {
                 backend.buttonYPressedHandler?(gamepad, element, pressed)
             }

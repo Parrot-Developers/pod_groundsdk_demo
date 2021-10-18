@@ -33,6 +33,7 @@ import GroundSdk
 class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DeviceViewController {
 
     @IBOutlet weak var modelLabel: UILabel!
+    @IBOutlet weak var shutDownLabel: UILabel!
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var forgetButton: UIButton!
     @IBOutlet weak var connectButton: UIButton!
@@ -94,16 +95,22 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 } else {
                     self.connectButton.setTitle("Disconnect", for: UIControl.State())
                 }
-
+                if state!.durationBeforeShutDown == 0 {
+                    self.shutDownLabel.text = "No shutdown planned"
+                } else {
+                    self.shutDownLabel.text = "Shudown in \(Int(state!.durationBeforeShutDown))s"
+                }
             }
 
             // Instruments
             addCell("batteryInfo", section: instrumentSection)
             addCell("compass", section: instrumentSection)
+            addCell("cellularLinkStatus", section: instrumentSection)
             // Peripheral
             addCell("dronefinder", section: peripheralSection)
             addCell("virtualGamepad", section: peripheralSection)
             addCell("skyCtrl3Gamepad", section: peripheralSection)
+            addCell("skyCtrl4Gamepad", section: peripheralSection)
             addCell("systemInfo", section: peripheralSection)
             addCell("updater", section: peripheralSection)
             addCell("crashReporter", section: peripheralSection)
@@ -111,6 +118,8 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
             addCell("wifiAccessPoint", section: peripheralSection)
             addCell("magnetometer", section: peripheralSection)
             addCell("copilot", section: peripheralSection)
+            addCell("radioControl", section: peripheralSection)
+            addCell("microhard", section: peripheralSection)
         }
     }
 

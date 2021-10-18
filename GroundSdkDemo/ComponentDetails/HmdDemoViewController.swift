@@ -287,11 +287,8 @@ class HmdDemoViewController: HmdViewController, DeviceViewController {
 }
 
 extension HmdDemoViewController: Overlayer {
-    func overlay(renderPos: UnsafeRawPointer, contentPos: UnsafeRawPointer, histogram: Histogram?) {
-        guard let histogram = histogram else {
-            return
-        }
-        if let histogramLuma = histogram.histogramLuma {
+    func overlay(overlayContext: OverlayContext) {
+        if let histogramLuma = overlayContext.histogram?.histogramLuma {
             let maxIndex = histogramLuma.lastIndex(of: histogramLuma.max() ?? 0.0) ?? 0
             if maxIndex != lastMaxIndex {
                 lastMaxIndex = maxIndex

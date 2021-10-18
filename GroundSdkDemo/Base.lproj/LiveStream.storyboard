@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Iee-D2-c9p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Iee-D2-c9p">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -93,10 +93,10 @@
                                         <rect key="frame" x="0.0" y="60.5" width="375" height="340.5"/>
                                     </glkView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9pT-No-hFw">
-                                        <rect key="frame" x="0.0" y="406" width="375" height="109"/>
+                                        <rect key="frame" x="0.0" y="406" width="375" height="73"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="RlI-39-OfC">
-                                                <rect key="frame" x="0.0" y="39" width="199" height="31"/>
+                                                <rect key="frame" x="0.0" y="21" width="199" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streaming enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEg-nv-CcV">
                                                         <rect key="frame" x="0.0" y="5.5" width="144" height="20.5"/>
@@ -113,7 +113,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="u43-aU-KV8">
-                                                <rect key="frame" x="274.5" y="39" width="100.5" height="31"/>
+                                                <rect key="frame" x="274.5" y="21" width="100.5" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zebra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8g-cA-uvg">
                                                         <rect key="frame" x="0.0" y="5.5" width="45.5" height="20.5"/>
@@ -132,7 +132,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="lN9-DM-YBa">
-                                        <rect key="frame" x="0.0" y="520" width="375" height="31"/>
+                                        <rect key="frame" x="0.0" y="484" width="375" height="31"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="vQj-BK-SsI">
                                                 <rect key="frame" x="0.0" y="0.0" width="184.5" height="31"/>
@@ -171,7 +171,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Xe2-ce-uuL">
-                                        <rect key="frame" x="0.0" y="556" width="375" height="31"/>
+                                        <rect key="frame" x="0.0" y="520" width="375" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scale Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5a-XB-gsk">
                                                 <rect key="frame" x="0.0" y="0.0" width="84" height="31"/>
@@ -192,7 +192,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7Vb-e9-h12">
-                                        <rect key="frame" x="0.0" y="592" width="375" height="31"/>
+                                        <rect key="frame" x="0.0" y="556" width="375" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Padding Fill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zE-Xd-6KF">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="31"/>
@@ -209,6 +209,30 @@
                                                 </segments>
                                                 <connections>
                                                     <action selector="setPaddingFill:" destination="fCW-Mq-rgq" eventType="valueChanged" id="7rM-N5-lma"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="k1l-wG-eCg">
+                                        <rect key="frame" x="0.0" y="592" width="375" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id7-Ry-GNl">
+                                                <rect key="frame" x="0.0" y="0.0" width="52" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-ru-UMF" userLabel="front, right, left, disp, vertical">
+                                                <rect key="frame" x="60" y="0.0" width="315" height="32"/>
+                                                <segments>
+                                                    <segment title="front"/>
+                                                    <segment title="Left"/>
+                                                    <segment title="Right"/>
+                                                    <segment title="Disp"/>
+                                                    <segment title="Vertical"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="setLiveSource:" destination="fCW-Mq-rgq" eventType="valueChanged" id="sTh-8f-Ksb"/>
                                                 </connections>
                                             </segmentedControl>
                                         </subviews>
@@ -230,6 +254,7 @@
                         <outlet property="cameraLivePlayStateLabel" destination="NFV-hh-XWL" id="860-yw-W8d"/>
                         <outlet property="cameraLiveStateLabel" destination="yom-hC-CSj" id="Ku1-1p-fVT"/>
                         <outlet property="histogramsSwitch" destination="0Hf-Hj-b7s" id="bXn-77-aF8"/>
+                        <outlet property="liveSourceView" destination="F3c-ru-UMF" id="i98-GI-T2e"/>
                         <outlet property="lumaLabel" destination="GJF-Q0-6H9" id="uEl-PJ-jiA"/>
                         <outlet property="paddingFillView" destination="cDk-tt-nUU" id="Gcc-eE-a6l"/>
                         <outlet property="scaleTypeView" destination="jfm-J9-FTt" id="ey7-L0-CkF"/>

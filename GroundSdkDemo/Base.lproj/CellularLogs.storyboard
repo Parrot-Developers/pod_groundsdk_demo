@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZUA-cu-KN4">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cellular Logs View Controller-->
+        <scene sceneID="DoL-rC-olP">
+            <objects>
+                <viewController id="LxW-A5-JTI" customClass="CellularLogsViewController" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aIY-df-0YD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hu4-he-TN8">
+                                <rect key="frame" x="16" y="44" width="343" height="603"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="w50-kf-kkL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="w50-kf-kkL" firstAttribute="bottom" secondItem="hu4-he-TN8" secondAttribute="bottom" constant="20" id="4AL-rr-6PY"/>
+                            <constraint firstItem="hu4-he-TN8" firstAttribute="top" secondItem="w50-kf-kkL" secondAttribute="top" id="EKO-lH-E0X"/>
+                            <constraint firstItem="hu4-he-TN8" firstAttribute="trailing" secondItem="aIY-df-0YD" secondAttribute="trailingMargin" id="QWP-AE-sOl"/>
+                            <constraint firstItem="hu4-he-TN8" firstAttribute="leading" secondItem="aIY-df-0YD" secondAttribute="leadingMargin" id="USn-2Z-tk8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XzP-pO-RHb"/>
+                    <connections>
+                        <outlet property="cellularTextView" destination="hu4-he-TN8" id="kjX-KI-8aS"/>
+                        <segue destination="Cjc-pb-b28" kind="unwind" identifier="exit" unwindAction="showDefaultDetailWithUnwindSegue:" id="lok-wS-smp"/>
+                        <segue destination="Cjc-pb-b28" kind="unwind" unwindAction="showDefaultDetailWithUnwindSegue:" id="PcE-zY-bxv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F81-uw-tQB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Cjc-pb-b28" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3056.8000000000002" y="1459.52023988006"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UOc-5G-5C2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUA-cu-KN4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fNX-KE-5qc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LxW-A5-JTI" kind="relationship" relationship="rootViewController" id="06O-Kw-PDw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXg-l9-z2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2302" y="1460"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -404,8 +404,8 @@ class LiveStreamController: UITableViewController, DeviceViewController {
 
                 case .autoExposureMeteringMode:
                     target.initialize(data: ChooseEnumViewController.Data(
-                        dataSource: [CameraAutoExposureMeteringMode.standard,
-                                     CameraAutoExposureMeteringMode.centerTop].sorted(),
+                        dataSource: [CameraAutoExposureMeteringMode.standard.description,
+                                     CameraAutoExposureMeteringMode.centerTop.description].sorted(),
                         selectedValue: camera.exposureSettings.autoExposureMeteringMode.description,
                         itemDidSelect: { [unowned self] value in
                             self.camera?.value?.exposureSettings.autoExposureMeteringMode =

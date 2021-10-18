@@ -41,7 +41,7 @@ class ReturnHomePilotingItfViewController: UIViewController, DeviceViewControlle
     private let groundSdk = GroundSdk()
     private var droneUid: String?
     private var pilotingItf: Ref<ReturnHomePilotingItf>?
-
+    private var arrayPreferredTarget =  [Int: ReturnHomeTarget]()
     func setDeviceUid(_ uid: String) {
         droneUid = uid
     }
@@ -53,6 +53,17 @@ class ReturnHomePilotingItfViewController: UIViewController, DeviceViewControlle
                 if let pilotingItf = pilotingItf {
                     self?.minAltitude.updateWith(doubleSetting: pilotingItf.minAltitude)
                     self?.autoStartDisconnectDelay.updateWith(intSetting: pilotingItf.autoStartOnDisconnectDelay)
+
+                    self?.preferredTarget.removeAllSegments()
+                    self?.arrayPreferredTarget.removeAll()
+                    for element in ReturnHomeTarget.allCases {
+                        self?.arrayPreferredTarget[element.rawValue] = element
+                    }
+                    for i in 0...((self?.arrayPreferredTarget.count)! - 1) {
+                        self?.preferredTarget.insertSegment(withTitle: self?.arrayPreferredTarget[i]!.description,
+                            at: i, animated: false)
+                    }
+
                     self?.preferredTarget.selectedSegmentIndex = pilotingItf.preferredTarget.target.rawValue
                     self?.preferredTarget.isEnabled = !pilotingItf.preferredTarget.updating
                     self?.endingBehavior.selectedSegmentIndex =

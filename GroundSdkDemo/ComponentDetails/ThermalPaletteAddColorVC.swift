@@ -30,7 +30,7 @@
 import UIKit
 import GroundSdk
 
-protocol ThermalPaletteAddColorDelegate: class {
+protocol ThermalPaletteAddColorDelegate: AnyObject {
     func addColor(thermalColor: ThermalColor)
     func removeColor(thermalColor: ThermalColor)
 }

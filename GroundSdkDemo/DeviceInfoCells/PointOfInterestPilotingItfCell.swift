@@ -38,6 +38,7 @@ class PointOfInterestPilotingItfCell: PilotingItfProviderContentCell {
     @IBOutlet weak var longitudeValue: UILabel!
     @IBOutlet weak var altitudeValue: UILabel!
     @IBOutlet weak var modeValue: UILabel!
+    @IBOutlet weak var availabilityIssues: UILabel!
 
     @IBOutlet weak var deactivateButton: UIButton!
 
@@ -54,6 +55,15 @@ class PointOfInterestPilotingItfCell: PilotingItfProviderContentCell {
                 self?.longitudeValue.text = pilotingItf.currentPointOfInterest?.longitude.description ?? "-"
                 self?.altitudeValue.text = pilotingItf.currentPointOfInterest?.altitude.description ?? "-"
                 self?.modeValue.text = pilotingItf.currentPointOfInterest?.mode.description ?? "-"
+                if pilotingItf.availabilityIssues == nil {
+                    self?.availabilityIssues.text = "Availability Issues: notSupported"
+                } else if pilotingItf.availabilityIssues!.isEmpty {
+                    self?.availabilityIssues.text = "Availability Issues: -"
+                } else {
+                    self?.availabilityIssues.text = "Availability Issues: "
+                        + pilotingItf.availabilityIssues!.map { $0.description }
+                    .joined(separator: ", ")
+                }
             } else {
                 self?.hide()
             }

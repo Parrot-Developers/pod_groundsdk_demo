@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ZUA-cu-KN4">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="UOc-5G-5C2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZUA-cu-KN4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fNX-KE-5qc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DCM-qh-KqA" kind="relationship" relationship="rootViewController" id="5TI-co-mK0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXg-l9-z2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2302" y="1460"/>
+        </scene>
+        <!--Gimbal calibration Scene-->
+        <scene sceneID="TPK-yR-TjA">
+            <objects>
+                <viewController id="DCM-qh-KqA" userLabel="Gimbal calibration Scene" customClass="FrontStereoGimbalCalibrationVC" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IhR-ge-A6V"/>
+                        <viewControllerLayoutGuide type="bottom" id="ySM-V6-Va4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IJt-q5-Aiu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="vGc-cK-dlA">
+                                <rect key="frame" x="16" y="72" width="343" height="164"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qbx-M3-HBH">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calibration state" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1L-V0-Bob">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="none" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-HE-be5" userLabel="Calibration process state value">
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="ENC-TX-gxE"/>
+                                            <constraint firstItem="Qi7-HE-be5" firstAttribute="width" secondItem="n1L-V0-Bob" secondAttribute="width" id="qRb-3f-ZhE"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="82U-qJ-OU7">
+                                        <rect key="frame" x="0.0" y="67" width="343" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calibrated" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBn-s1-uO9">
+                                                <rect key="frame" x="0.0" y="0.0" width="79" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="false" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cY-CB-HVL" userLabel="Calibrated value">
+                                                <rect key="frame" x="264" y="0.0" width="79" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="6cY-CB-HVL" firstAttribute="width" secondItem="fBn-s1-uO9" secondAttribute="width" id="AJr-k1-7J9"/>
+                                            <constraint firstAttribute="height" constant="40" id="pMh-UG-mmv"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kg-1a-zxm">
+                                        <rect key="frame" x="0.0" y="134" width="343" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daJ-6I-C99">
+                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="30"/>
+                                                <state key="normal" title="Start calibration"/>
+                                                <connections>
+                                                    <action selector="startPushed:" destination="DCM-qh-KqA" eventType="touchUpInside" id="U4d-Nz-vO9"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8P-ei-fu4">
+                                                <rect key="frame" x="171.5" y="0.0" width="171.5" height="30"/>
+                                                <state key="normal" title="Cancel calibration"/>
+                                                <connections>
+                                                    <action selector="cancelPushed:" destination="DCM-qh-KqA" eventType="touchUpInside" id="Yqg-f7-XYY"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="G8P-ei-fu4" firstAttribute="width" secondItem="daJ-6I-C99" secondAttribute="width" id="fbF-hT-PCt"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vGc-cK-dlA" firstAttribute="top" secondItem="IhR-ge-A6V" secondAttribute="bottom" constant="28" id="DQD-qS-hAS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vGc-cK-dlA" secondAttribute="trailing" id="XY1-9D-c1L"/>
+                            <constraint firstItem="vGc-cK-dlA" firstAttribute="leading" secondItem="IJt-q5-Aiu" secondAttribute="leadingMargin" id="YTa-TC-gh3"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Calibration" id="auK-l1-NID" userLabel="Calibration"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="calibrated" destination="6cY-CB-HVL" id="VqK-cT-mAS"/>
+                        <outlet property="calibrationProcessState" destination="Qi7-HE-be5" id="Vah-kL-aTI"/>
+                        <segue destination="H3C-cf-hX8" kind="unwind" unwindAction="showDefaultDetailWithUnwindSegue:" id="SeP-0E-66c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obW-EC-DYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="H3C-cf-hX8" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3212" y="1460"/>
+        </scene>
+    </scenes>
+</document>

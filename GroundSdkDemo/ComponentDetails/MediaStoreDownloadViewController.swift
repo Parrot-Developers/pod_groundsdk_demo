@@ -98,7 +98,7 @@ class MediaStoreDownloadViewController: UIViewController, MediaListViewControlle
     }
 
     @IBAction func downloadInDoc() {
-        download(destination: .document(directoryName : "medias"))
+        download(destination: .document(directoryName: "medias"))
     }
 
     @IBAction func downloadInDir() {

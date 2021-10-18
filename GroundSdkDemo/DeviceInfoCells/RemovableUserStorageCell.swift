@@ -38,6 +38,8 @@ class RemovableUserStorageCell: PeripheralProviderContentCell {
     @IBOutlet weak var capacity: UILabel!
     @IBOutlet weak var availableSpace: UILabel!
     @IBOutlet weak var isEncryptedLabel: UILabel!
+    @IBOutlet weak var hasCheckErrorLabel: UILabel!
+
     private var storage: Ref<RemovableUserStorage>?
 
     var viewController: UIViewController?
@@ -62,6 +64,7 @@ class RemovableUserStorageCell: PeripheralProviderContentCell {
                     self.availableSpace.text = "-"
                 }
                 self.isEncryptedLabel.text = storage.isEncrypted ? "Encrypted" : "NOT encrypted"
+                self.hasCheckErrorLabel.text = storage.hasCheckError?.description ?? "NOT supported"
                 self.show()
             } else {
                 self.hide()

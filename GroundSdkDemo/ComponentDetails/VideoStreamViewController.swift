@@ -39,6 +39,7 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
     @IBOutlet weak var lumaLabel: UILabel!
     @IBOutlet weak var scaleTypeView: UISegmentedControl!
     @IBOutlet weak var paddingFillView: UISegmentedControl!
+    @IBOutlet weak var liveSourceView: UISegmentedControl!
 
     @IBOutlet weak var cameraLivePlayPauseBtn: UIButton!
     @IBOutlet weak var cameraLivePlayStateLabel: UILabel!
@@ -67,7 +68,7 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
     }
 
     private func initStream() {
-        if let drone = groundSdk.getDrone(uid: droneUid!) {
+        if let droneUid = droneUid, let drone = groundSdk.getDrone(uid: droneUid) {
             streamServer = drone.getPeripheral(Peripherals.streamServer) { [weak self] streamServer in
                 if let streamServer = streamServer {
                     self?.startStreamSwitch.isOn = streamServer.enabled
@@ -75,7 +76,25 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
             }
         }
         if let streamServer = streamServer {
-            cameraLive = streamServer.value?.live { [weak self] stream in
+
+            let source = { () -> CameraLiveSource in
+                switch self.liveSourceView.selectedSegmentIndex {
+                case 0:
+                    return CameraLiveSource.frontCamera
+                case 1:
+                    return CameraLiveSource.frontStereoCameraLeft
+                case 2:
+                    return CameraLiveSource.frontStereoCameraRight
+                case 3:
+                    return CameraLiveSource.disparity
+                case 4:
+                    return CameraLiveSource.verticalCamera
+                default :
+                    return CameraLiveSource.frontCamera
+                }
+            }()
+
+            cameraLive = streamServer.value?.live(source: source) { [weak self] stream in
                 self?.cameraLivePlayPauseBtn.setTitle(stream?.playState == .playing ? "Pause" : "Play", for: .normal)
                 self?.cameraLiveStateLabel.text = stream?.state.description
                 self?.cameraLivePlayStateLabel.text = stream?.playState.description
@@ -119,6 +138,11 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
         streamView.renderingPaddingFill = StreamView.PaddingFill(rawValue: sender.selectedSegmentIndex) ?? .none
     }
 
+    @IBAction func setLiveSource(_ sender: UISegmentedControl) {
+        deinitStream()
+        initStream()
+    }
+
     @IBAction func playPauseCameraLive(_ sender: UIButton) {
         if let cameraLiveRef = cameraLive, let stream = cameraLiveRef.value {
             if stream.playState == .playing {
@@ -138,11 +162,8 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
 
 extension VideoStreamViewController: Overlayer {
 
-    func overlay(renderPos: UnsafeRawPointer, contentPos: UnsafeRawPointer, histogram: Histogram?) {
-        guard let histogram = histogram else {
-            return
-        }
-        if let histogramLuma = histogram.histogramLuma {
+    func overlay(overlayContext: OverlayContext) {
+        if let histogramLuma = overlayContext.histogram?.histogramLuma {
             let maxIndex = histogramLuma.lastIndex(of: histogramLuma.max() ?? 0.0) ?? 0
             if maxIndex != lastMaxIndex {
                 lastMaxIndex = maxIndex
@@ -151,6 +172,7 @@ extension VideoStreamViewController: Overlayer {
                 }
             }
         } else {
+            lastMaxIndex = 0
             DispatchQueue.main.async { [weak self] in
                 self?.lumaLabel.text = "?"
             }

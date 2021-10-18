@@ -34,7 +34,7 @@ class ChooseEnumViewController: UITableViewController {
 
     struct Data {
         let dataSource: [CustomStringConvertible]!
-        let selectedValue: String!
+        let selectedValue: String?
         let itemDidSelect: ((CustomStringConvertible) -> Void)!
     }
 

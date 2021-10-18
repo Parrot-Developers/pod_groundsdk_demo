@@ -76,7 +76,8 @@ class DroneFinderViewController: UITableViewController, DeviceViewController {
             cell.textLabel?.text = entry.name
             cell.detailTextLabel?.text =
                 "\(entry.uid) \(entry.model) \(entry.known ? "Known" : "") " +
-                "\(entry.rssi) dBm \(entry.connectionSecurity.description)"
+                "\(entry.rssi) dBm \(entry.connectionSecurity.description) " +
+                "wifi: \(entry.wifiVisibility) cellular: \(entry.cellularOnLine)"
         }
         return cell
     }

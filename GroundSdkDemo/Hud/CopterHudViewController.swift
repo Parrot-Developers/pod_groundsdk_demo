@@ -81,6 +81,7 @@ class CopterHudViewController: UIViewController, DeviceViewController {
 
     @IBOutlet weak var flyingIndicatorsLabel: UILabel!
     @IBOutlet weak var alarmsLabel: UILabel!
+    @IBOutlet weak var handLandImage: UIImageView!
     @IBOutlet weak var emergencyButton: UIButton!
     @IBOutlet weak var takoffLandButton: UIButton!
     @IBOutlet weak var stopPoiButton: UIButton!
@@ -155,7 +156,6 @@ class CopterHudViewController: UIViewController, DeviceViewController {
         dropFacilities()
         dropAllInstruments()
         GamepadController.sharedInstance.droneUid = nil
-        streamServer = nil
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -169,6 +169,7 @@ class CopterHudViewController: UIViewController, DeviceViewController {
     private func resetAllInstrumentsViews() {
         updateFlyingIndicatorLabel(nil)
         updateAlarmsLabel(nil)
+        updateHandLandImage(nil)
         updateReturnHomeButton(nil)
         updateAltimeter(nil)
         updateHeading(nil)
@@ -181,6 +182,7 @@ class CopterHudViewController: UIViewController, DeviceViewController {
     private func initDroneRefs(_ drone: Drone) {
         flyingIndicators = drone.getInstrument(Instruments.flyingIndicators) { [unowned self] flyingIndicators in
             self.updateFlyingIndicatorLabel(flyingIndicators)
+            self.updateHandLandImage(flyingIndicators)
         }
 
         alarms = drone.getInstrument(Instruments.alarms) { [unowned self] alarms in
@@ -250,16 +252,21 @@ class CopterHudViewController: UIViewController, DeviceViewController {
     }
 
     private func dropAllInstruments() {
-       flyingIndicators = nil
-       alarms = nil
-       pilotingItf = nil
-       returnHomePilotingItf = nil
-       gps = nil
-       altimeter = nil
-       compass = nil
-       speedometer = nil
-       batteryInfo = nil
-       attitudeIndicator = nil
+        flyingIndicators = nil
+        alarms = nil
+        pilotingItf = nil
+        pointOfInterestItf = nil
+        returnHomePilotingItf = nil
+        lookAtPilotingItf = nil
+        gps = nil
+        altimeter = nil
+        compass = nil
+        speedometer = nil
+        batteryInfo = nil
+        attitudeIndicator = nil
+        camera = nil
+        streamServer = nil
+        cameraLive = nil
     }
 
     @IBAction func dismiss(_ sender: AnyObject) {
@@ -376,6 +383,14 @@ class CopterHudViewController: UIViewController, DeviceViewController {
             alarmsLabel.attributedText = text
         } else {
             alarmsLabel.text = ""
+        }
+    }
+
+    private func updateHandLandImage(_ flyingIndicators: FlyingIndicators?) {
+        if let flyingIndicators = flyingIndicators {
+            handLandImage.isHidden = !flyingIndicators.isHandLanding
+        } else {
+            handLandImage.isHidden = true
         }
     }
 

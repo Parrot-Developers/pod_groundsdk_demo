@@ -40,9 +40,7 @@ class ReturnHomeGpControllerBackend: GamepadControllerBackend {
     }
 
     var buttonYPressedHandler: GCControllerButtonValueChangedHandler? {
-        return {
-            [unowned self]
-            (gamepad, element, pressed) in
+        return { [unowned self] (_, _, pressed) in
 
             if pressed {
                 if let pilotingItf = self.returnHomePilotingItf?.value {

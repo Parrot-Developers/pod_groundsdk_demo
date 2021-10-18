@@ -34,6 +34,7 @@ class FlightIndicatorsCell: InstrumentProviderContentCell {
     @IBOutlet var state: UILabel!
     @IBOutlet var landedState: UILabel!
     @IBOutlet var flyingState: UILabel!
+    @IBOutlet var handLanding: UILabel!
 
     private var flyingIndicator: Ref<FlyingIndicators>?
 
@@ -46,11 +47,13 @@ class FlightIndicatorsCell: InstrumentProviderContentCell {
                 self.state.text = flyingIndicators.state.description
                 self.landedState.text = flyingIndicators.landedState.description
                 self.flyingState.text = flyingIndicators.flyingState.description
+                self.handLanding.text = "\(flyingIndicators.isHandLanding)"
             } else {
                 self.hide()
                 self.state.text = "-"
                 self.landedState.text = "-"
                 self.flyingState.text = "-"
+                self.handLanding.text = "-"
             }
         }
     }

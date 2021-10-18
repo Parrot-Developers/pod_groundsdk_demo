@@ -270,14 +270,6 @@
 	<dict>
 		<key>overrides</key>
 		<dict>
-			<key>Gimbal-main</key>
-			<dict>
-				<key>stabilizedAxes</key>
-				<array>
-					<string>roll</string>
-					<string>pitch</string>
-				</array>
-			</dict>
 			<key>Camera-main0</key>
 			<dict>
 				<key>maxZoomSpeed</key>

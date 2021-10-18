@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVC-yV-1Qs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVC-yV-1Qs">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="32" width="667" height="968"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cPJ-lc-e5V" userLabel="Account Fields">
-                                        <rect key="frame" x="8" y="48" width="651" height="398.5"/>
+                                        <rect key="frame" x="8" y="28" width="651" height="539.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" text="Note: this utility only allows to define the data related to the user account, the current values are not displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ong-LE-OXY">
                                                 <rect key="frame" x="0.0" y="0.0" width="651" height="33.5"/>
@@ -32,13 +33,13 @@
                                                 <rect key="frame" x="0.0" y="63.5" width="651" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Provider:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIa-nh-b0I">
-                                                        <rect key="frame" x="0.0" y="7" width="136.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="7" width="135.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GyS-9G-ub6">
-                                                        <rect key="frame" x="156.5" y="0.0" width="494.5" height="34"/>
+                                                        <rect key="frame" x="155.5" y="0.0" width="495.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                                         <connections>
@@ -52,13 +53,13 @@
                                                 <rect key="frame" x="0.0" y="127.5" width="651" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Id:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GsZ-VW-Lo0">
-                                                        <rect key="frame" x="0.0" y="7" width="136.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="7" width="135.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wYv-eb-qfe">
-                                                        <rect key="frame" x="156.5" y="0.0" width="494.5" height="34"/>
+                                                        <rect key="frame" x="155.5" y="0.0" width="495.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" textContentType="username"/>
                                                         <connections>
@@ -68,51 +69,101 @@
                                                     </textField>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Jen-9X-IGU">
-                                                <rect key="frame" x="0.0" y="191.5" width="651" height="40"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ips-i7-vZD" userLabel="Id">
+                                                <rect key="frame" x="0.0" y="191.5" width="651" height="34"/>
                                                 <subviews>
-                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="GHi-Sn-pFG">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y0-KQ-lhG">
+                                                        <rect key="frame" x="0.0" y="7" width="135.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gpe-rN-PWC">
+                                                        <rect key="frame" x="155.5" y="0.0" width="495.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                                        <connections>
+                                                            <action selector="editingChanged:" destination="mKM-oK-Vvb" eventType="editingChanged" id="FIK-uQ-Ymu"/>
+                                                            <outlet property="delegate" destination="mKM-oK-Vvb" id="sHb-k2-SaI"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="NwR-to-01Y" userLabel="drone list">
+                                                <rect key="frame" x="0.0" y="255.5" width="651" height="34"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drone List:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5w-DY-9PG">
+                                                        <rect key="frame" x="0.0" y="7" width="135.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-hS-HRs">
+                                                        <rect key="frame" x="155.5" y="0.0" width="495.5" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                                        <connections>
+                                                            <action selector="editingChanged:" destination="mKM-oK-Vvb" eventType="editingChanged" id="FB7-qo-8fE"/>
+                                                            <outlet property="delegate" destination="mKM-oK-Vvb" id="Iac-cQ-mQT"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Jen-9X-IGU">
+                                                <rect key="frame" x="0.0" y="319.5" width="651" height="40"/>
+                                                <subviews>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="3" translatesAutoresizingMaskIntoConstraints="NO" id="GHi-Sn-pFG">
                                                         <rect key="frame" x="0.0" y="0.0" width="651" height="41"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="xwi-eW-prt"/>
                                                         </constraints>
                                                         <segments>
-                                                            <segment title="Deny Accountless Personal Data"/>
-                                                            <segment title="Allow Accountless Personal Data"/>
+                                                            <segment title="Deny"/>
+                                                            <segment title="Anonymous"/>
+                                                            <segment title="No GPS"/>
+                                                            <segment title="Full"/>
                                                         </segments>
                                                     </segmentedControl>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hJY-W6-uMy">
-                                                <rect key="frame" x="0.0" y="261.5" width="651" height="30"/>
+                                                <rect key="frame" x="0.0" y="389.5" width="651" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-xA-Mib">
-                                                        <rect key="frame" x="0.0" y="0.0" width="325.5" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-xA-Mib">
+                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="30"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                                         <state key="normal" title="Set User Account"/>
                                                         <connections>
                                                             <action selector="setUserAccount:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="OnJ-9W-Xlp"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-1z-WsK">
-                                                        <rect key="frame" x="325.5" y="0.0" width="325.5" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhG-1z-WsK">
+                                                        <rect key="frame" x="217" y="0.0" width="217" height="30"/>
                                                         <state key="normal" title="Clear"/>
                                                         <connections>
                                                             <action selector="clearUser:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="mim-rg-yeZ"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vew-Ge-RHe">
+                                                        <rect key="frame" x="434" y="0.0" width="217" height="30"/>
+                                                        <state key="normal" title="Set drone list"/>
+                                                        <connections>
+                                                            <action selector="setDroneList:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="cjM-fn-BLd"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gzo-Wd-dol">
-                                                <rect key="frame" x="0.0" y="321.5" width="651" height="30"/>
+                                                <rect key="frame" x="0.0" y="449.5" width="651" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCR-zO-LyR">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCR-zO-LyR">
                                                         <rect key="frame" x="0.0" y="0.0" width="325.5" height="30"/>
                                                         <state key="normal" title="Allow Anonymous Data"/>
                                                         <connections>
                                                             <action selector="AllowAnonymousAction:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="Xn6-HC-IcF"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-oi-sXU">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-oi-sXU">
                                                         <rect key="frame" x="325.5" y="0.0" width="325.5" height="30"/>
                                                         <state key="normal" title="Refuse Anonymous Data"/>
                                                         <connections>
@@ -122,19 +173,27 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iDl-Va-3ap" userLabel="Id">
-                                                <rect key="frame" x="0.0" y="381.5" width="651" height="17"/>
+                                                <rect key="frame" x="0.0" y="509.5" width="651" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last action: none" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxW-nc-5fk">
-                                                        <rect key="frame" x="0.0" y="0.0" width="651" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="651" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="dB0-RE-823"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Q43-nF-49P"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="wYv-eb-qfe" firstAttribute="width" secondItem="GyS-9G-ub6" secondAttribute="width" id="2wh-AI-mIs"/>
+                                            <constraint firstItem="gpe-rN-PWC" firstAttribute="width" secondItem="wYv-eb-qfe" secondAttribute="width" id="8ea-Q0-OfR"/>
                                             <constraint firstAttribute="trailing" secondItem="kOX-l7-ciA" secondAttribute="trailing" id="Gdz-YM-Dah"/>
                                             <constraint firstAttribute="trailing" secondItem="55F-ME-UwU" secondAttribute="trailing" id="JkO-aR-BLE"/>
                                             <constraint firstAttribute="trailing" secondItem="hJY-W6-uMy" secondAttribute="trailing" id="KZl-PZ-1am"/>
@@ -142,6 +201,7 @@
                                             <constraint firstItem="55F-ME-UwU" firstAttribute="leading" secondItem="cPJ-lc-e5V" secondAttribute="leading" id="Tgp-Yr-VaS"/>
                                             <constraint firstItem="hJY-W6-uMy" firstAttribute="leading" secondItem="cPJ-lc-e5V" secondAttribute="leading" id="WGv-e3-lmz"/>
                                             <constraint firstItem="iDl-Va-3ap" firstAttribute="leading" secondItem="cPJ-lc-e5V" secondAttribute="leading" id="akm-wt-vmd"/>
+                                            <constraint firstItem="9VQ-hS-HRs" firstAttribute="width" secondItem="GyS-9G-ub6" secondAttribute="width" id="rsW-la-yek"/>
                                             <constraint firstAttribute="trailing" secondItem="iDl-Va-3ap" secondAttribute="trailing" id="uoY-N2-qmm"/>
                                         </constraints>
                                     </stackView>
@@ -149,18 +209,18 @@
                                 <constraints>
                                     <constraint firstItem="cPJ-lc-e5V" firstAttribute="leading" secondItem="3mn-Vp-m2c" secondAttribute="leadingMargin" id="Trn-3E-A4N"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="cPJ-lc-e5V" secondAttribute="trailing" id="flT-Uh-UtH"/>
-                                    <constraint firstItem="cPJ-lc-e5V" firstAttribute="top" secondItem="3mn-Vp-m2c" secondAttribute="topMargin" constant="40" id="r7X-xy-jbE"/>
+                                    <constraint firstItem="cPJ-lc-e5V" firstAttribute="top" secondItem="3mn-Vp-m2c" secondAttribute="topMargin" constant="20" id="r7X-xy-jbE"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="i7l-AY-tA6"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i7l-AY-tA6" firstAttribute="trailing" secondItem="3mn-Vp-m2c" secondAttribute="trailing" id="CTj-HJ-vM7"/>
                             <constraint firstItem="i7l-AY-tA6" firstAttribute="bottom" secondItem="3mn-Vp-m2c" secondAttribute="bottom" id="FOj-Tr-iZH"/>
                             <constraint firstItem="3mn-Vp-m2c" firstAttribute="top" secondItem="i7l-AY-tA6" secondAttribute="top" id="HGA-J5-w74"/>
                             <constraint firstItem="3mn-Vp-m2c" firstAttribute="leading" secondItem="i7l-AY-tA6" secondAttribute="leading" id="iK3-kw-AAj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="i7l-AY-tA6"/>
                     </view>
                     <navigationItem key="navigationItem" title="User Account" id="Wbt-9g-c0a" userLabel="User Account"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -168,10 +228,13 @@
                     <connections>
                         <outlet property="accountProviderTextField" destination="GyS-9G-ub6" id="xrn-CK-j8w"/>
                         <outlet property="clearButton" destination="fhG-1z-WsK" id="Ueb-j2-WLk"/>
+                        <outlet property="droneListTextField" destination="9VQ-hS-HRs" id="ECM-O4-Ljo"/>
                         <outlet property="lastAction" destination="NxW-nc-5fk" id="hhz-9g-nbE"/>
                         <outlet property="segmentedCollectedPolicy" destination="GHi-Sn-pFG" id="B24-hI-2tX"/>
+                        <outlet property="setDroneList" destination="Vew-Ge-RHe" id="hIe-Aj-ewh"/>
                         <outlet property="setUserButton" destination="9Az-xA-Mib" id="j3P-aA-2xI"/>
                         <outlet property="userIdTextField" destination="wYv-eb-qfe" id="Jh8-R7-5Wl"/>
+                        <outlet property="userTokenTextField" destination="gpe-rN-PWC" id="A4v-aH-Iwn"/>
                         <segue destination="5sE-fd-8R5" kind="unwind" identifier="exit" unwindAction="showDefaultDetailWithUnwindSegue:" id="zZC-v4-RCD"/>
                     </connections>
                 </viewController>
@@ -199,4 +262,9 @@
             <point key="canvasLocation" x="2029.5999999999999" y="-120.08995502248877"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
