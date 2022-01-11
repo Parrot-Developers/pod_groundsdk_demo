@@ -42,13 +42,12 @@ class FlightCameraRecorderCell: PeripheralProviderContentCell {
         super.set(peripheralProvider: provider)
         flightCameraRecorder = provider.getPeripheral(Peripherals.flightCameraRecorder) { [unowned self] fcr in
             if let flightCameraRecorder = fcr {
-                if flightCameraRecorder.activePipelines.supportedValues.isSubset(of:
-                    flightCameraRecorder.activePipelines.value) {
-                    self.switchLabel.text = "enabled"
-                    self.startStopButton.setTitle("Disable", for: .normal)
-                } else {
+                if flightCameraRecorder.activePipelines.value.isEmpty {
                     self.switchLabel.text = "disabled"
                     self.startStopButton.setTitle("Enable", for: .normal)
+                } else {
+                    self.switchLabel.text = "enabled"
+                    self.startStopButton.setTitle("Disable", for: .normal)
                 }
                 self.show()
             } else {
@@ -59,13 +58,12 @@ class FlightCameraRecorderCell: PeripheralProviderContentCell {
 
     @IBAction func activateOrDeactivaAction(_ sender: Any) {
         if let flightCameraRecorder = flightCameraRecorder?.value {
-            if flightCameraRecorder.activePipelines.supportedValues.isSubset(of:
-                flightCameraRecorder.activePipelines.value) {
-                // De activate all
-                flightCameraRecorder.activePipelines.value = []
-            } else {
+            if flightCameraRecorder.activePipelines.value.isEmpty {
                 // Activate all supported
                 flightCameraRecorder.activePipelines.value = flightCameraRecorder.activePipelines.supportedValues
+            } else {
+                // Deactivate all
+                flightCameraRecorder.activePipelines.value = []
             }
         }
     }

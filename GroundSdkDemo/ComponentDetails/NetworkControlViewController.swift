@@ -37,6 +37,7 @@ class NetworkControlViewController: UITableViewController, DeviceViewController 
     private var networkControl: Ref<NetworkControl>?
     @IBOutlet weak var routingPolicy: UILabel!
     @IBOutlet weak var maxCellularBitrate: NumSettingView!
+    @IBOutlet weak var directConnectionMode: UILabel!
 
     func setDeviceUid(_ uid: String) {
         droneUid = uid
@@ -47,9 +48,9 @@ class NetworkControlViewController: UITableViewController, DeviceViewController 
         if let drone = groundSdk.getDrone(uid: droneUid!) {
             networkControl = drone.getPeripheral(Peripherals.networkControl) { [weak self] networkControl in
                 if let networkControl = networkControl, let `self` = self {
-                    // routing poilicy
                     self.routingPolicy.text = networkControl.routingPolicy.policy.description
                     self.maxCellularBitrate.updateWith(intSetting: networkControl.maxCellularBitrate)
+                    self.directConnectionMode.text = networkControl.directConnection.mode.description
                 } else {
                     self?.performSegue(withIdentifier: "exit", sender: self)
                 }
@@ -58,20 +59,44 @@ class NetworkControlViewController: UITableViewController, DeviceViewController 
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let networkControl = networkControl?.value, let target = segue.destination as? ChooseEnumViewController {
-            target.initialize(data: ChooseEnumViewController.Data(
-                dataSource: [NetworkControlRoutingPolicy](networkControl.routingPolicy.supportedPolicies),
-                selectedValue: networkControl.routingPolicy.policy.description,
-                itemDidSelect: { [unowned self] value in
-                    self.networkControl?.value?.routingPolicy.policy = value as! NetworkControlRoutingPolicy
-                }
-            ))
+        if let cell = sender as? UITableViewCell,
+           let reuseIdentifier = cell.reuseIdentifier,
+           let networkControl = networkControl?.value,
+           let target = segue.destination as? ChooseEnumViewController {
+            switch reuseIdentifier {
+            case "routingPolicy":
+                target.initialize(data: ChooseEnumViewController.Data(
+                    dataSource: [NetworkControlRoutingPolicy](networkControl.routingPolicy.supportedPolicies),
+                    selectedValue: networkControl.routingPolicy.policy.description,
+                    itemDidSelect: { [unowned self] value in
+                        self.networkControl?.value?.routingPolicy.policy = value as! NetworkControlRoutingPolicy
+                    }
+                ))
+            case "directConnectionMode":
+                target.initialize(data: ChooseEnumViewController.Data(
+                    dataSource: [NetworkDirectConnectionMode](networkControl.directConnection.supportedModes),
+                    selectedValue: networkControl.directConnection.mode.description,
+                    itemDidSelect: { [unowned self] value in
+                        self.networkControl?.value?.directConnection.mode = value as! NetworkDirectConnectionMode
+                    }
+                ))
+            default:
+                return
+            }
         }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 && indexPath.row == 0 {
-            performSegue(withIdentifier: "selectEnumValue", sender: self)
+        let cell = tableView.cellForRow(at: indexPath)
+        if let reuseIdentifier = cell?.reuseIdentifier {
+            let segueIdentifier: String
+            switch reuseIdentifier {
+            case "routingPolicy", "directConnectionMode":
+                segueIdentifier = "selectEnumValue"
+            default:
+                return
+            }
+            performSegue(withIdentifier: segueIdentifier, sender: cell)
         }
     }
 

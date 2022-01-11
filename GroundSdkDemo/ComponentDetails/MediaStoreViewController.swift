@@ -39,6 +39,7 @@ class MediaStoreViewController: UITableViewController, DeviceViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var playButton: UIBarButtonItem!
     @IBOutlet weak var downloadButton: UIBarButtonItem!
+    @IBOutlet weak var uploadButton: UIBarButtonItem!
 
     private let groundSdk = GroundSdk()
     private var mediaStoreRef: Ref<MediaStore>?
@@ -132,6 +133,7 @@ class MediaStoreViewController: UITableViewController, DeviceViewController {
         let enabled = firstSelectedMedia != nil
         deleteButton.isEnabled = enabled
         downloadButton.isEnabled = enabled
+        uploadButton.isEnabled = enabled
 
         var streamable = false
         if let firstSelectedMedia = firstSelectedMedia {
@@ -204,7 +206,7 @@ class MediaListCell: UITableViewCell {
         detail1View.text = media.runUid
         let resources = media.resources.reduce("") {str, res in
             let streamableTxt = res.streamable == true ? " streamable" : ""
-            return "\(str) [\(res.format) \(res.size)\(streamableTxt)]"
+            return "\(str) [\(res.type) \(res.format) \(res.size)\(streamableTxt)]"
         }
         let photoModeText = media.photoMode != nil ? " \(media.photoMode!.description)" : ""
         let thermalText = media.metadataTypes.contains(.thermal) ? " Thermal" : ""

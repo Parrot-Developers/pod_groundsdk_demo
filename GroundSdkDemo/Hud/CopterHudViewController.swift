@@ -240,6 +240,9 @@ class CopterHudViewController: UIViewController, DeviceViewController {
                 self.zoomVelocitySlider.isHidden = !zoom.isAvailable
             }
         }
+        guard TARGET_OS_SIMULATOR == 0 else {
+            return
+        }
         streamServer = drone.getPeripheral(Peripherals.streamServer) { streamServer in
             streamServer?.enabled = true
         }

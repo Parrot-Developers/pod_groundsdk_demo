@@ -39,6 +39,7 @@ class NetworkControlCell: PeripheralProviderContentCell {
     @IBOutlet weak var linkQualityLabel: UILabel!
     @IBOutlet weak var linksLabel: UILabel!
     @IBOutlet weak var maxCellularBitrateLabel: UILabel!
+    @IBOutlet weak var directConnectionModeLabel: UILabel!
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
@@ -53,6 +54,7 @@ class NetworkControlCell: PeripheralProviderContentCell {
                     self.linksLabel.text = networkControl.links.map { $0.debugDescription }.joined(separator: ", ")
                 }
                 self.maxCellularBitrateLabel.text = networkControl.maxCellularBitrate.displayString
+                self.directConnectionModeLabel.text = networkControl.directConnection.mode.description
                 self.show()
             } else {
                 self.hide()

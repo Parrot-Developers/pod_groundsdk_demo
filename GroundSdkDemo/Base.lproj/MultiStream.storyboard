@@ -80,7 +80,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4dR-Pw-BQP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Chf-bX-c0Y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="307.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="307"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="scQ-xx-ed5">
@@ -93,14 +93,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="183.5" height="30"/>
                                                 <state key="normal" title="Play"/>
                                                 <connections>
-                                                    <action selector="playPauseCameraLive:" destination="SUg-ST-psO" eventType="touchUpInside" id="BP7-gz-0lu"/>
+                                                    <action selector="playPauseStream:" destination="SUg-ST-psO" eventType="touchUpInside" id="Rsi-vd-ha4"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5qe-Oq-4LH">
                                                 <rect key="frame" x="191.5" y="0.0" width="183.5" height="30"/>
                                                 <state key="normal" title="Stop"/>
                                                 <connections>
-                                                    <action selector="stopCameraLive:" destination="SUg-ST-psO" eventType="touchUpInside" id="ZfG-ei-ovg"/>
+                                                    <action selector="stopStream:" destination="SUg-ST-psO" eventType="touchUpInside" id="x3R-Dt-Wcv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -135,19 +135,19 @@
                                         </subviews>
                                     </stackView>
                                     <glkView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" enableSetNeedsDisplay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cs3-aI-Hv6" customClass="GSStreamView">
-                                        <rect key="frame" x="0.0" y="60.5" width="375" height="175.5"/>
+                                        <rect key="frame" x="0.0" y="60.5" width="375" height="176"/>
                                     </glkView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QXg-EW-A7h">
-                                        <rect key="frame" x="0.0" y="241" width="375" height="30.5"/>
+                                        <rect key="frame" x="0.0" y="241.5" width="375" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Streaming enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wg8-hr-jfH">
-                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="183.5" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M75-1C-LOf">
-                                                <rect key="frame" x="191.5" y="0.0" width="185.5" height="30.5"/>
+                                                <rect key="frame" x="191.5" y="0.0" width="185.5" height="31"/>
                                                 <connections>
                                                     <action selector="startStream:" destination="SUg-ST-psO" eventType="valueChanged" id="2Di-DY-moU"/>
                                                 </connections>
@@ -155,27 +155,21 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DQn-Wo-ktx">
-                                        <rect key="frame" x="0.0" y="276.5" width="375" height="31"/>
+                                        <rect key="frame" x="0.0" y="277.5" width="375" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnZ-6w-vEe">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="E9O-6K-nIY" userLabel="front, right, left, disp, vertical">
-                                                <rect key="frame" x="60" y="0.0" width="315" height="32"/>
-                                                <segments>
-                                                    <segment title="front"/>
-                                                    <segment title="Left"/>
-                                                    <segment title="Right"/>
-                                                    <segment title="Disp"/>
-                                                    <segment title="Vertical"/>
-                                                </segments>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vG-18-ods" userLabel="source">
+                                                <rect key="frame" x="60" y="0.0" width="315" height="30"/>
+                                                <state key="normal" title="Front"/>
                                                 <connections>
-                                                    <action selector="setLiveSource:" destination="SUg-ST-psO" eventType="valueChanged" id="zhQ-lq-a3m"/>
+                                                    <action selector="selectSource:" destination="SUg-ST-psO" eventType="touchUpInside" id="kPj-K6-RhJ"/>
                                                 </connections>
-                                            </segmentedControl>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -191,11 +185,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="1Bi-fH-FM7"/>
                     <connections>
-                        <outlet property="cameraLivePlayPauseBtn" destination="5AU-NJ-0Bv" id="apz-sj-yhW"/>
-                        <outlet property="cameraLivePlayStateLabel" destination="Dz3-Uu-m3f" id="4Kj-qK-Fi7"/>
-                        <outlet property="cameraLiveStateLabel" destination="a4Z-q1-VjL" id="i9C-wg-lao"/>
-                        <outlet property="liveSourceView" destination="E9O-6K-nIY" id="Tus-nQ-1Bp"/>
+                        <outlet property="sourceSelectionBtn" destination="4vG-18-ods" id="nuy-8Y-WZR"/>
                         <outlet property="startStreamSwitch" destination="M75-1C-LOf" id="n0Q-Vn-Q0h"/>
+                        <outlet property="streamPlayPauseBtn" destination="5AU-NJ-0Bv" id="GVp-lE-Yx2"/>
+                        <outlet property="streamPlayStateLabel" destination="Dz3-Uu-m3f" id="4Kj-qK-Fi7"/>
+                        <outlet property="streamStateLabel" destination="a4Z-q1-VjL" id="i9C-wg-lao"/>
+                        <outlet property="streamStopBtn" destination="5qe-Oq-4LH" id="R4B-K0-B5g"/>
                         <outlet property="streamView" destination="Cs3-aI-Hv6" id="PeA-qH-9tz"/>
                     </connections>
                 </viewController>

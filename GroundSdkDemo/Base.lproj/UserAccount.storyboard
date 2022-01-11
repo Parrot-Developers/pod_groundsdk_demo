@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVC-yV-1Qs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVC-yV-1Qs">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="32" width="667" height="968"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="cPJ-lc-e5V" userLabel="Account Fields">
-                                        <rect key="frame" x="8" y="28" width="651" height="539.5"/>
+                                        <rect key="frame" x="8" y="28" width="651" height="600.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="751" verticalHuggingPriority="751" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" text="Note: this utility only allows to define the data related to the user account, the current values are not displayed." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ong-LE-OXY">
                                                 <rect key="frame" x="0.0" y="0.0" width="651" height="33.5"/>
@@ -126,8 +126,22 @@
                                                     </segmentedControl>
                                                 </subviews>
                                             </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjr-WY-mYX" userLabel="Private mode">
+                                                <rect key="frame" x="0.0" y="389.5" width="651" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private mode:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVI-Se-oup" userLabel="Private mode">
+                                                        <rect key="frame" x="0.0" y="0.0" width="602" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IiF-KN-bdx" userLabel="Private switch">
+                                                        <rect key="frame" x="602" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hJY-W6-uMy">
-                                                <rect key="frame" x="0.0" y="389.5" width="651" height="30"/>
+                                                <rect key="frame" x="0.0" y="450.5" width="651" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="9Az-xA-Mib">
                                                         <rect key="frame" x="0.0" y="0.0" width="217" height="30"/>
@@ -154,26 +168,33 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gzo-Wd-dol">
-                                                <rect key="frame" x="0.0" y="449.5" width="651" height="30"/>
+                                                <rect key="frame" x="0.0" y="510.5" width="651" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCR-zO-LyR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="325.5" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="30"/>
                                                         <state key="normal" title="Allow Anonymous Data"/>
                                                         <connections>
                                                             <action selector="AllowAnonymousAction:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="Xn6-HC-IcF"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fb4-oi-sXU">
-                                                        <rect key="frame" x="325.5" y="0.0" width="325.5" height="30"/>
+                                                        <rect key="frame" x="217" y="0.0" width="217" height="30"/>
                                                         <state key="normal" title="Refuse Anonymous Data"/>
                                                         <connections>
                                                             <action selector="ResuseAnonymousAction:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="O3R-pC-MJs"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raq-0l-TTe" userLabel="Set private mode">
+                                                        <rect key="frame" x="434" y="0.0" width="217" height="30"/>
+                                                        <state key="normal" title="Set private mode"/>
+                                                        <connections>
+                                                            <action selector="setPrivateMode:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="6pV-4m-S5d"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iDl-Va-3ap" userLabel="Id">
-                                                <rect key="frame" x="0.0" y="509.5" width="651" height="30"/>
+                                                <rect key="frame" x="0.0" y="570.5" width="651" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="last action: none" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NxW-nc-5fk">
                                                         <rect key="frame" x="0.0" y="0.0" width="651" height="30"/>
@@ -230,6 +251,7 @@
                         <outlet property="clearButton" destination="fhG-1z-WsK" id="Ueb-j2-WLk"/>
                         <outlet property="droneListTextField" destination="9VQ-hS-HRs" id="ECM-O4-Ljo"/>
                         <outlet property="lastAction" destination="NxW-nc-5fk" id="hhz-9g-nbE"/>
+                        <outlet property="privateModeSwitch" destination="IiF-KN-bdx" id="FMT-OK-cY4"/>
                         <outlet property="segmentedCollectedPolicy" destination="GHi-Sn-pFG" id="B24-hI-2tX"/>
                         <outlet property="setDroneList" destination="Vew-Ge-RHe" id="hIe-Aj-ewh"/>
                         <outlet property="setUserButton" destination="9Az-xA-Mib" id="j3P-aA-2xI"/>

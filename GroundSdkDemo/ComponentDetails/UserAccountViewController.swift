@@ -45,6 +45,7 @@ class UserAccountViewController: UIViewController {
     @IBOutlet var setDroneList: UIButton!
     @IBOutlet var lastAction: UILabel!
     @IBOutlet var segmentedCollectedPolicy: UISegmentedControl!
+    @IBOutlet var privateModeSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,10 @@ class UserAccountViewController: UIViewController {
         doSetAnonymous(false)
     }
 
+    @IBAction func setPrivateMode(_ sender: Any) {
+        doSetPrivateMode()
+    }
+
     @IBAction func editingChanged(_ sender: Any) {
         lastAction.text = ""
         let providerString = accountProviderTextField.text ?? ""
@@ -101,19 +106,7 @@ class UserAccountViewController: UIViewController {
             let idString = userIdTextField.text ?? ""
             let token = userTokenTextField.text ?? ""
             let droneList = droneListTextField.text ?? ""
-            var dataPolicy: DataUploadPolicy = .deny
-            switch segmentedCollectedPolicy.selectedSegmentIndex {
-            case 0:
-                dataPolicy = .deny
-            case 1:
-                dataPolicy = .anonymous
-            case 2:
-                dataPolicy = .noGps
-            case 3:
-                dataPolicy = .full
-            default:
-                break
-            }
+            let dataPolicy = getSelectedUploadPolicy()
             userAccount.set(accountProvider: providerString, accountId: idString,
                 dataUploadPolicy: dataPolicy,
                 oldDataPolicy: segmentedCollectedPolicy.selectedSegmentIndex == 0 ?
@@ -138,6 +131,28 @@ class UserAccountViewController: UIViewController {
             userIdTextField.text = ""
             editingChanged(self)
             lastAction.text = "last action = clear / dataUploadPolicy: \(value)"
+        }
+    }
+
+    private func doSetPrivateMode() {
+        if let userAccount = userAccountRef?.value {
+            userAccount.set(privateMode: privateModeSwitch.isOn, dataUploadPolicy: getSelectedUploadPolicy())
+            lastAction.text = "last action = set private mode"
+        }
+    }
+
+    private func getSelectedUploadPolicy() -> DataUploadPolicy {
+        switch segmentedCollectedPolicy.selectedSegmentIndex {
+        case 0:
+            return .deny
+        case 1:
+            return .anonymous
+        case 2:
+            return .noGps
+        case 3:
+            return .full
+        default:
+            return .deny
         }
     }
 }

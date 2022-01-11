@@ -32,6 +32,7 @@ import GroundSdk
 
 class CellularViewController: UIViewController, DeviceViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var modemStatusLabel: UILabel!
     @IBOutlet weak var imeiLabel: UILabel!
     @IBOutlet weak var simStatusLabel: UILabel!
@@ -92,6 +93,7 @@ class CellularViewController: UIViewController, DeviceViewController {
                     self?.isPinCodeRequestedLabel.text = cellular.isPinCodeRequested ? "yes" : "no"
                     self?.pinRemainingTriesLabel.text = "\(cellular.pinRemainingTries)"
                     self?.resetStateLabel.text = "\(cellular.resetState)"
+                    self?.tableView.reloadData()
                 } else {
                     self?.performSegue(withIdentifier: "exit", sender: self)
                 }
@@ -153,29 +155,23 @@ class CellularViewController: UIViewController, DeviceViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if cellular?.value != nil, let target = segue.destination
-            as? ChooseEnumViewController, indexPathSelected != nil {
-            var arrayValues = [String]()
+        if let cellular = cellular?.value,
+           let target = segue.destination as? ChooseEnumViewController,
+           indexPathSelected != nil {
             if indexPathSelected!.section == 0 {
-                for elements in CellularMode.allCases {
-                    arrayValues.append(elements.description)
-                }
                 target.title = "Mode"
                 target.initialize(data: ChooseEnumViewController.Data(
-                    dataSource: arrayValues,
-                    selectedValue: nil,
+                    dataSource: CellularMode.allCases,
+                    selectedValue: cellular.mode.value.description,
                     itemDidSelect: { [unowned self] value in
                         self.cellular?.value?.mode.value = value as! CellularMode
                     }
                 ))
             } else {
-                for elements in CellularNetworkMode.allCases {
-                    arrayValues.append(elements.description)
-                }
                 target.title = "Network Mode"
                 target.initialize(data: ChooseEnumViewController.Data(
-                    dataSource: arrayValues,
-                    selectedValue: nil,
+                    dataSource: CellularNetworkMode.allCases,
+                    selectedValue: cellular.networkMode.value.description,
                     itemDidSelect: { [unowned self] value in
                         self.cellular?.value?.networkMode.value = value as! CellularNetworkMode
                     }

@@ -75,6 +75,7 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
                         + " customId: \(recoveryInfo.customId)"
                         + " item: \(recoveryInfo.latestMissionItemExecuted)"
                         + " time: \(recoveryInfo.runningTime)s"
+                        + " resourceId: \(recoveryInfo.resourceId)"
                 } else {
                     self.recoveryInfoLabel.text = "-"
                 }

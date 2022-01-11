@@ -35,16 +35,13 @@ class StereoVisionSensorCell: PeripheralProviderContentCell {
     private var stereoVisionSensor: Ref<StereoVisionSensor>?
 
     @IBOutlet weak var calibratedLabel: UILabel!
-    @IBOutlet weak var calibrationStepCountLabel: UILabel!
-    @IBOutlet weak var calibrationAspectRatioLabel: UILabel!
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
+        selectionStyle = .none
         stereoVisionSensor = provider.getPeripheral(Peripherals.stereoVisionSensor) { [unowned self] sensor in
             if let sensor = sensor {
                 self.calibratedLabel.text = "\(sensor.isCalibrated)"
-                self.calibrationStepCountLabel.text = "\(sensor.calibrationStepCount)"
-                self.calibrationAspectRatioLabel.text = "\(sensor.aspectRatio)"
                 self.show()
             } else {
                 self.hide()

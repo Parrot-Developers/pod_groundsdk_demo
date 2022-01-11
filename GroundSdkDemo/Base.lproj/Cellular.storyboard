@@ -414,6 +414,7 @@
                         <outlet property="simIccidLabel" destination="Bei-LU-Yyo" id="mwo-tn-gdh"/>
                         <outlet property="simImsiLabel" destination="Oed-Tj-Cri" id="apE-zr-nMI"/>
                         <outlet property="simStatusLabel" destination="wJc-H5-qhV" id="6RS-v4-Nw6"/>
+                        <outlet property="tableView" destination="NN6-xE-D1G" id="hXG-Ac-Ubd"/>
                         <outlet property="technologyLabel" destination="XQU-st-ZJq" id="cj4-gv-Tfa"/>
                         <segue destination="GGk-uh-afI" kind="show" identifier="selectEnumValue" id="Gay-XK-54x"/>
                         <segue destination="Cjc-pb-b28" kind="unwind" identifier="exit" unwindAction="showDefaultDetailWithUnwindSegue:" id="lok-wS-smp"/>
