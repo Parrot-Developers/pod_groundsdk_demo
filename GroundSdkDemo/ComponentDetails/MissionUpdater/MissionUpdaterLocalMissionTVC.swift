@@ -41,6 +41,10 @@ class MissionUpdaterOverwriteCell: UITableViewCell {
     @IBOutlet weak var overwriteSwitch: UISwitch!
 }
 
+class MissionUpdaterPostponeCell: UITableViewCell {
+    @IBOutlet weak var postponeSwitch: UISwitch!
+}
+
 class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController {
     private let groundSdk = GroundSdk()
     private var droneUid: String?
@@ -49,6 +53,7 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
     private var missionUpdater: MissionUpdater?
     private var missionUploadTag: Int?
     private var overwriteBool: Bool = true
+    private var postponeValue: Bool = false
 
     func setDeviceUid(_ uid: String) {
         droneUid = uid
@@ -82,6 +87,12 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: "OverwriteCell", for: indexPath)
             if let cell = cell as? MissionUpdaterOverwriteCell {
                 cell.overwriteSwitch.isOn = overwriteBool
+            }
+            return cell
+        } else if indexPath.section == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PostponeCell", for: indexPath)
+            if let cell = cell as? MissionUpdaterPostponeCell {
+                cell.postponeSwitch.isOn = postponeValue
             }
             return cell
         } else {
@@ -138,11 +149,15 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
         let finalPath = missionsFolderPath.appendingPathComponent(value)
 
         missionUploadTag = sender.tag
-        _ = missionUpdater?.upload(filePath: finalPath, overwrite: overwriteBool)
+        _ = missionUpdater?.upload(filePath: finalPath, overwrite: overwriteBool, postpone: postponeValue)
 
     }
 
     @IBAction func overwrite(_ sender: UISwitch) {
         overwriteBool = sender.isOn
+    }
+
+    @IBAction func postpone(_ sender: UISwitch) {
+        postponeValue = sender.isOn
     }
 }

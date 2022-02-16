@@ -49,6 +49,7 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
     @IBOutlet weak var interpreterType: UISegmentedControl!
     @IBOutlet weak var clearRecoveryInfoBt: UIButton!
     @IBOutlet weak var stopBt: UIButton!
+    @IBOutlet weak var cleanBeforeRecoveryBt: UIButton!
 
     var viewController: UIViewController?
 
@@ -85,13 +86,16 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
                     self.activationBt.isEnabled = true
                     self.activationBt.setTitle("Deactivate", for: .normal)
                     self.activationAtItemBt.isEnabled = false
+                    self.cleanBeforeRecoveryBt.isEnabled = false
                 case .idle:
                     self.activationBt.isEnabled = true
                     self.activationBt.setTitle("Activate", for: .normal)
                     self.activationAtItemBt.isEnabled = pilotingItf.activateAtMissionItemSupported
+                    self.cleanBeforeRecoveryBt.isEnabled = true
                 case .unavailable:
                     self.activationBt.isEnabled = false
                     self.activationAtItemBt.isEnabled = false
+                    self.cleanBeforeRecoveryBt.isEnabled = true
                 }
 
                 if pilotingItf.state != .unavailable && pilotingItf.isPaused {
@@ -171,11 +175,12 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
             }
             alert.addAction(UIAlertAction(title: "Activate", style: .default) { [unowned self] _ in
                 let missionItemTextField = alert.textFields![0] as UITextField
-                let missionItem = Int(missionItemTextField.text ?? "0") ?? 0
+                var missionItemInt = Int(missionItemTextField.text ?? "0") ?? 0
+                missionItemInt = missionItemInt < 0 ? 0 : missionItemInt
                 _ = pilotingItf.activate(restart: false,
                                          interpreter: self.interpreterType.selectedSegmentIndex == 0 ?
                                             .legacy : .standard,
-                                         missionItem: missionItem)
+                                         missionItem: UInt(missionItemInt))
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             if let presenter = alert.popoverPresentationController {
@@ -198,11 +203,13 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
             }
             alert.addAction(UIAlertAction(title: "Restart", style: .default) { [unowned self] _ in
                 let missionItemTextField = alert.textFields![0] as UITextField
-                let missionItem = Int(missionItemTextField.text ?? "0") ?? 0
+                var missionItemInt = Int(missionItemTextField.text ?? "0") ?? 0
+                missionItemInt = missionItemInt < 0 ? 0 : missionItemInt
+
                 _ = pilotingItf.activate(restart: true,
-                                         interpreter: self.interpreterType.selectedSegmentIndex == 0 ?
+                                         interpreter: interpreterType.selectedSegmentIndex == 0 ?
                                             .legacy : .standard,
-                                         missionItem: missionItem)
+                                         missionItem: UInt(missionItemInt))
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             if let presenter = alert.popoverPresentationController {
@@ -220,5 +227,39 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
 
     @IBAction func stopPushed(_ sender: Any) {
         _ = pilotingItf?.value?.stop()
+    }
+
+    @IBAction func cleanBeforeRecoveryPushed(_ sender: Any) {
+        if let pilotingItf = pilotingItf?.value,
+           pilotingItf.state != .active {
+            let alert = UIAlertController(title: "Clean before recovery", message: nil,
+                                          preferredStyle: .alert)
+            alert.addTextField { textField in
+                textField.placeholder = "Custom ID"
+                textField.text = pilotingItf.recoveryInfo?.customId ?? ""
+                textField.keyboardType = .default
+            }
+               alert.addTextField { textField in
+                   textField.placeholder = "Resource ID"
+                   textField.text = pilotingItf.recoveryInfo?.resourceId ?? ""
+                   textField.keyboardType = .default
+               }
+            alert.addAction(UIAlertAction(title: "Clean", style: .default) { _ in
+                let customIdTextField = alert.textFields![0] as UITextField
+                let customId = customIdTextField.text ?? ""
+                let resourceIdTextField = alert.textFields![1] as UITextField
+                let resourceId = resourceIdTextField.text ?? ""
+                _ = pilotingItf.cleanBeforeRecovery(customId: customId, resourceId: resourceId) { result in
+                    print("cleanBeforeRecovery completed with result \(result.description)")
+                }
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            if let presenter = alert.popoverPresentationController {
+                presenter.sourceView = self
+                presenter.sourceRect = self.bounds
+            }
+
+            viewController?.present(alert, animated: true, completion: nil)
+        }
     }
 }

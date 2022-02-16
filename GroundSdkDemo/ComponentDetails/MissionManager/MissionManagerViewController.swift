@@ -103,6 +103,11 @@ class MissionManagerViewController: UITableViewController, DeviceViewController,
                         cell.unloadButton.isEnabled = false
                         cell.loadButton.isEnabled = true
                         cell.activateButton.isEnabled = false
+                    case .activating:
+                        cell.stateLabel?.text = "activating"
+                        cell.unloadButton.isEnabled = false
+                        cell.loadButton.isEnabled = false
+                        cell.activateButton.isEnabled = false
                     }
                     if missionManager?.suggestedActivation != nil {
                         cell.nameLabel.textColor = .green
