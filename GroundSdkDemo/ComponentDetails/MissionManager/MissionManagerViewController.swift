@@ -114,13 +114,15 @@ class MissionManagerViewController: UITableViewController, DeviceViewController,
                     } else {
                         cell.nameLabel.textColor = cell.descriptionLabel.textColor
                     }
+                    cell.uidLabel.text = String(mission.uid)
                     cell.nameLabel.text = mission.name
                     cell.descriptionLabel.text = mission.description
-                    cell.uidLabel.text = String(mission.uid)
+                    cell.versionLabel.text = mission.version
                     cell.firmwareMinVersionLabel.text = mission.minTargetVersion?.description ?? ""
                     cell.firmwareMaxVersionLabel.text = mission.maxTargetVersion?.description ?? ""
-                    cell.nameLabel.text = mission.name
-                    cell.unavailabilityReasonsLabel.text = mission.unavailabilityReason.description
+                    cell.targetModelLabel.text = mission.targetModelId?.description ?? ""
+                    cell.stateLabel.text = mission.state.description
+                    cell.unavailabilityReasonLabel.text = mission.unavailabilityReason.description
                     cell.mission = mission
                     cell.delegate = self
                 }

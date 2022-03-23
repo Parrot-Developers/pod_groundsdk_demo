@@ -38,13 +38,15 @@ protocol MissionManagerDelegate: AnyObject {
 
 class MissionManagerDetailCell: UITableViewCell {
 
+    @IBOutlet weak var uidLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var uidLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var firmwareMinVersionLabel: UILabel!
     @IBOutlet weak var firmwareMaxVersionLabel: UILabel!
+    @IBOutlet weak var targetModelLabel: UILabel!
     @IBOutlet weak var stateLabel: UILabel!
-    @IBOutlet weak var unavailabilityReasonsLabel: UILabel!
+    @IBOutlet weak var unavailabilityReasonLabel: UILabel!
     @IBOutlet weak var loadButton: UIButton!
     @IBOutlet weak var unloadButton: UIButton!
     @IBOutlet weak var activateButton: UIButton!

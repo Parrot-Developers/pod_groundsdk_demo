@@ -61,8 +61,9 @@ class AlarmsCell: InstrumentProviderContentCell {
                     case .critical:
                         color = critical
                     }
-
-                    text.append(NSMutableAttributedString(string: kind.description + " ", attributes: color))
+                    let timer = alarm.timer != nil ? " (\(String(describing: alarm.timer)))" : ""
+                    text.append(NSMutableAttributedString(string: kind.description + timer + " ",
+                                                          attributes: color))
                 }
                 self.label.attributedText = text
 

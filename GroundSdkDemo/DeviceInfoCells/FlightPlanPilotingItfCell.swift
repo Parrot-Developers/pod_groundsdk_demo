@@ -46,7 +46,10 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
     @IBOutlet weak var restartBt: UIButton!
     @IBOutlet weak var activationAtItemBt: UIButton!
     @IBOutlet weak var restartAtItemBt: UIButton!
+    @IBOutlet weak var activationAtItemV2Bt: UIButton!
+    @IBOutlet weak var restartAtItemV2Bt: UIButton!
     @IBOutlet weak var interpreterType: UISegmentedControl!
+    @IBOutlet weak var disconnectionPolicyType: UISegmentedControl!
     @IBOutlet weak var clearRecoveryInfoBt: UIButton!
     @IBOutlet weak var stopBt: UIButton!
     @IBOutlet weak var cleanBeforeRecoveryBt: UIButton!
@@ -58,59 +61,69 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
     override func set(pilotingItfProvider provider: PilotingItfProvider) {
         super.set(pilotingItfProvider: provider)
         pilotingItf = provider.getPilotingItf(PilotingItfs.flightPlan) { [weak self] pilotingItf in
-            if let `self` = self, let pilotingItf = pilotingItf {
-                self.show()
-                self.stateLabel.text = "\(pilotingItf.state)"
-                self.unavailabilityReasonsLabel.text = pilotingItf.unavailabilityReasons.map { $0.description }
-                    .joined(separator: ", ")
-                self.latestActivationErrorLabel.text = pilotingItf.latestActivationError.description
-                self.latestUploadStateLabel.text = pilotingItf.latestUploadState.description
-                self.flightPlanFileIsKnownLabel.text = pilotingItf.flightPlanFileIsKnown ? "true" : "false"
-                self.isPausedLabel.text = pilotingItf.isPaused ? "true" : "false"
-                self.latestMissionItemExecutedLabel.text = pilotingItf.latestMissionItemExecuted?.description ?? "-"
-                self.latestMissionItemSkippedLabel.text = pilotingItf.latestMissionItemSkipped?.description ?? "-"
-                self.flightPlanIdLabel.text = pilotingItf.flightPlanId?.description ?? "-"
-
-                if let recoveryInfo = pilotingItf.recoveryInfo {
-                    self.recoveryInfoLabel.text = "ID: \(recoveryInfo.id)"
-                        + " customId: \(recoveryInfo.customId)"
-                        + " item: \(recoveryInfo.latestMissionItemExecuted)"
-                        + " time: \(recoveryInfo.runningTime)s"
-                        + " resourceId: \(recoveryInfo.resourceId)"
-                } else {
-                    self.recoveryInfoLabel.text = "-"
-                }
-
-                switch pilotingItf.state {
-                case .active:
-                    self.activationBt.isEnabled = true
-                    self.activationBt.setTitle("Deactivate", for: .normal)
-                    self.activationAtItemBt.isEnabled = false
-                    self.cleanBeforeRecoveryBt.isEnabled = false
-                case .idle:
-                    self.activationBt.isEnabled = true
-                    self.activationBt.setTitle("Activate", for: .normal)
-                    self.activationAtItemBt.isEnabled = pilotingItf.activateAtMissionItemSupported
-                    self.cleanBeforeRecoveryBt.isEnabled = true
-                case .unavailable:
-                    self.activationBt.isEnabled = false
-                    self.activationAtItemBt.isEnabled = false
-                    self.cleanBeforeRecoveryBt.isEnabled = true
-                }
-
-                if pilotingItf.state != .unavailable && pilotingItf.isPaused {
-                    self.restartBt.isEnabled = true
-                    self.restartAtItemBt.isEnabled = pilotingItf.activateAtMissionItemSupported
-                } else {
-                    self.restartBt.isEnabled = false
-                    self.restartAtItemBt.isEnabled = false
-                }
-
-                self.clearRecoveryInfoBt.isEnabled = pilotingItf.recoveryInfo != nil
-                self.stopBt.isEnabled = pilotingItf.state == .active || pilotingItf.isPaused
-            } else {
+            guard let self = self, let pilotingItf = pilotingItf else {
                 self?.hide()
+                return
             }
+            self.show()
+            self.stateLabel.text = "\(pilotingItf.state)"
+            self.unavailabilityReasonsLabel.text = pilotingItf.unavailabilityReasons.map { $0.description }
+            .joined(separator: ", ")
+            self.latestActivationErrorLabel.text = pilotingItf.latestActivationError.description
+            self.latestUploadStateLabel.text = pilotingItf.latestUploadState.description
+            self.flightPlanFileIsKnownLabel.text = pilotingItf.flightPlanFileIsKnown ? "true" : "false"
+            self.isPausedLabel.text = pilotingItf.isPaused ? "true" : "false"
+            self.latestMissionItemExecutedLabel.text = pilotingItf.latestMissionItemExecuted?.description ?? "-"
+            self.latestMissionItemSkippedLabel.text = pilotingItf.latestMissionItemSkipped?.description ?? "-"
+            self.flightPlanIdLabel.text = pilotingItf.flightPlanId?.description ?? "-"
+            self.activationAtItemV2Bt.titleLabel?.numberOfLines = 2
+            self.restartAtItemV2Bt.titleLabel?.numberOfLines = 2
+            self.activationAtItemV2Bt.titleLabel?.textAlignment = .center
+            self.restartAtItemV2Bt.titleLabel?.textAlignment = .center
+
+            if let recoveryInfo = pilotingItf.recoveryInfo {
+                self.recoveryInfoLabel.text = "ID: \(recoveryInfo.id)"
+                + " customId: \(recoveryInfo.customId)"
+                + " item: \(recoveryInfo.latestMissionItemExecuted)"
+                + " time: \(recoveryInfo.runningTime)s"
+                + " resourceId: \(recoveryInfo.resourceId)"
+            } else {
+                self.recoveryInfoLabel.text = "-"
+            }
+
+            switch pilotingItf.state {
+            case .active:
+                self.activationBt.setTitle("Deactivate", for: .normal)
+                self.activationBt.isEnabled = true
+                self.activationAtItemBt.isEnabled = false
+                self.activationAtItemV2Bt.isEnabled = false
+                self.cleanBeforeRecoveryBt.isEnabled = false
+            case .idle:
+                self.activationBt.setTitle("Activate", for: .normal)
+                self.activationBt.isEnabled = true
+                self.activationAtItemBt.isEnabled = pilotingItf.activateAtMissionItemSupported
+                self.activationAtItemV2Bt.isEnabled = pilotingItf.activateAtMissionItemV2Supported
+                self.cleanBeforeRecoveryBt.isEnabled = true
+            case .unavailable:
+                self.activationBt.isEnabled = false
+                self.activationAtItemBt.isEnabled = false
+                self.activationAtItemV2Bt.isEnabled = false
+                self.cleanBeforeRecoveryBt.isEnabled = true
+            }
+
+            if pilotingItf.state != .unavailable && pilotingItf.isPaused {
+                self.restartBt.isEnabled = true
+                self.restartAtItemBt.isEnabled = pilotingItf.activateAtMissionItemSupported
+                self.restartAtItemV2Bt.isEnabled = pilotingItf.activateAtMissionItemV2Supported
+            } else {
+                self.restartBt.isEnabled = false
+                self.restartAtItemBt.isEnabled = false
+                self.restartAtItemV2Bt.isEnabled = false
+            }
+
+            self.disconnectionPolicyType.isEnabled = pilotingItf.activateAtMissionItemV2Supported
+            self.clearRecoveryInfoBt.isEnabled = pilotingItf.recoveryInfo != nil
+            self.stopBt.isEnabled = pilotingItf.state == .active || pilotingItf.isPaused
         }
     }
 
@@ -210,6 +223,72 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
                                          interpreter: interpreterType.selectedSegmentIndex == 0 ?
                                             .legacy : .standard,
                                          missionItem: UInt(missionItemInt))
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            if let presenter = alert.popoverPresentationController {
+                presenter.sourceView = self
+                presenter.sourceRect = self.bounds
+            }
+
+            viewController?.present(alert, animated: true, completion: nil)
+        }
+    }
+
+
+    @IBAction func activateAtItemV2Pushed(_ sender: Any) {
+        if let pilotingItf = pilotingItf?.value,
+           pilotingItf.state == .idle && pilotingItf.activateAtMissionItemV2Supported {
+            let alert = UIAlertController(title: "Activate at mission item", message: nil,
+                                          preferredStyle: .alert)
+            alert.addTextField { textField in
+                textField.placeholder = "Mission item index"
+                textField.keyboardType = .numberPad
+            }
+            alert.addAction(UIAlertAction(title: "Activate", style: .default) { [unowned self] _ in
+                let missionItemTextField = alert.textFields![0] as UITextField
+                let missionItemInt = UInt(missionItemTextField.text ?? "0") ?? 0
+                let interpreter: FlightPlanInterpreter =
+                self.interpreterType.selectedSegmentIndex == 0 ? .legacy : .standard
+                let disconnectionPolicy: FlightPlanDisconnectionPolicy =
+                self.disconnectionPolicyType.selectedSegmentIndex == 0 ? .returnToHome : .continue
+
+                _ = pilotingItf.activate(restart: false,
+                                         interpreter: interpreter,
+                                         missionItem: missionItemInt,
+                                         disconnectionPolicy: disconnectionPolicy)
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            if let presenter = alert.popoverPresentationController {
+                presenter.sourceView = self
+                presenter.sourceRect = self.bounds
+            }
+
+            viewController?.present(alert, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func restartAtItemV2Pushed(_ sender: Any) {
+        if let pilotingItf = pilotingItf?.value,
+           pilotingItf.state == .idle && pilotingItf.activateAtMissionItemV2Supported {
+            let alert = UIAlertController(title: "Restart at mission item", message: nil,
+                                          preferredStyle: .alert)
+            alert.addTextField { textField in
+                textField.placeholder = "Mission item index"
+                textField.keyboardType = .numberPad
+            }
+            alert.addAction(UIAlertAction(title: "Restart", style: .default) { [unowned self] _ in
+                let missionItemTextField = alert.textFields![0] as UITextField
+                let missionItemInt = UInt(missionItemTextField.text ?? "0") ?? 0
+                let interpreter: FlightPlanInterpreter =
+                self.interpreterType.selectedSegmentIndex == 0 ? .legacy : .standard
+                let disconnectionPolicy: FlightPlanDisconnectionPolicy =
+                self.disconnectionPolicyType.selectedSegmentIndex == 0 ? .returnToHome : .continue
+
+                _ = pilotingItf.activate(restart: true,
+                                         interpreter: interpreter,
+                                         missionItem: missionItemInt,
+                                         disconnectionPolicy: disconnectionPolicy
+                )
             })
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
             if let presenter = alert.popoverPresentationController {

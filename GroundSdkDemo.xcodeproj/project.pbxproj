@@ -210,6 +210,8 @@
 		9BF5448922BA2D7C00452895 /* CopilotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5448822BA2D7C00452895 /* CopilotCell.swift */; };
 		9BF5448B22BA3C3900452895 /* Copilot.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BF5448A22BA3C3900452895 /* Copilot.storyboard */; };
 		9BF5448D22BA3D1D00452895 /* CopilotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5448C22BA3D1D00452895 /* CopilotViewController.swift */; };
+		9D93087B27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */; };
+		9D93087D27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */; };
 		9DDE426A2721D4A10062567A /* MediaStoreUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE42692721D4A10062567A /* MediaStoreUploadViewController.swift */; };
 		F708932F2534A32D0036AF2B /* SecureElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708932E2534A32D0036AF2B /* SecureElementCell.swift */; };
 		F70A52852525CE830042D96B /* FlightCameraRecorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A52842525CE830042D96B /* FlightCameraRecorderCell.swift */; };
@@ -505,6 +507,8 @@
 		9BF5448822BA2D7C00452895 /* CopilotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopilotCell.swift; sourceTree = "<group>"; };
 		9BF5448A22BA3C3900452895 /* Copilot.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Copilot.storyboard; path = Base.lproj/Copilot.storyboard; sourceTree = "<group>"; };
 		9BF5448C22BA3D1D00452895 /* CopilotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopilotViewController.swift; sourceTree = "<group>"; };
+		9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SkyCtrlCellularLogs.storyboard; sourceTree = "<group>"; };
+		9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCtrlCellularLogsViewController.swift; sourceTree = "<group>"; };
 		9DDE42692721D4A10062567A /* MediaStoreUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaStoreUploadViewController.swift; sourceTree = "<group>"; };
 		CF81A475B11244A11059F474 /* Pods-GroundSdkDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundSdkDemo.debug.xcconfig"; path = "Target Support Files/Pods-GroundSdkDemo/Pods-GroundSdkDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F708932E2534A32D0036AF2B /* SecureElementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureElementCell.swift; sourceTree = "<group>"; };
@@ -642,6 +646,7 @@
 				7C32DDDF1F03AE8300B9E8F9 /* Camera.storyboard */,
 				F782717124B4C8E3003F6D5E /* Cellular.storyboard */,
 				68DA8DAB26BD91240003CED1 /* CellularLogs.storyboard */,
+				9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */,
 				9BF5448A22BA3C3900452895 /* Copilot.storyboard */,
 				682B3A5723DEDDCD001C5D25 /* DevToolbox.storyboard */,
 				680D279E257A779A004EC407 /* Dri.storyboard */,
@@ -823,6 +828,7 @@
 				9B5EBEAF2459830500812D7C /* InternalUserStorageViewController.swift */,
 				7C32DDE11F03B1C700B9E8F9 /* LiveStreamController.swift */,
 				68DA8DA926BD8A1A0003CED1 /* CellularLogsViewController.swift */,
+				9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */,
 				F87D5A421FFFF353005AF079 /* MagnetometerWith1StepCalibrationVC.swift */,
 				F8DB46461D33F6EA00297E15 /* MagnetometerWith3StepCalibrationVC.swift */,
 				6899F3F524AF2DD40068073A /* MainCamera2EditorViewController.swift */,
@@ -1082,6 +1088,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D93087B27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard in Resources */,
 				020B171F208A0E6900CB64A8 /* TargetTracker.storyboard in Resources */,
 				02CE447C208E1A3A007B9F9F /* SkyCtrl3MappingList.storyboard in Resources */,
 				F7FA4D9E2487CAA8002A8E7D /* FrontStereoGimbal.storyboard in Resources */,
@@ -1344,6 +1351,7 @@
 				9BF5448D22BA3D1D00452895 /* CopilotViewController.swift in Sources */,
 				681A967522147CFF00172594 /* ThermalStreamCell.swift in Sources */,
 				2DE1986B272C4AF500C19B3D /* vmeta.pb.swift in Sources */,
+				9D93087D27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift in Sources */,
 				02D39E1E207E0DD200494EC4 /* LookAtPilotingItfCell.swift in Sources */,
 				9B60AE5E24B3250C00296A2F /* ObstacleAvoidanceCell.swift in Sources */,
 				7CA1C9951C807D5000FE9ED4 /* AppDelegate.swift in Sources */,

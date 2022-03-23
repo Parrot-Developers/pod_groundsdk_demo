@@ -2405,18 +2405,18 @@
                                             <outlet property="unavailabilityValue" destination="HIv-ft-zBP" id="dby-ph-eQr"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightPlan" rowHeight="431" id="jAy-Zi-zIA" userLabel="flightPlan" customClass="FlightPlanPilotingItfCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="3696.5" width="375" height="431"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightPlan" rowHeight="520" id="jAy-Zi-zIA" userLabel="flightPlan" customClass="FlightPlanPilotingItfCell" customModule="GroundSdkDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="3696.5" width="375" height="520"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="jAy-Zi-zIA" id="chQ-ha-HkQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="431"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="520"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-hM-06A">
-                                                    <rect key="frame" x="20" y="11" width="335" height="409"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aNa-hM-06A">
+                                                    <rect key="frame" x="20" y="11" width="335" height="509"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FlightPlan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDC-QW-Xui">
-                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="23"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="3W0-n0-aqP"/>
                                                             </constraints>
@@ -2424,8 +2424,9 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lsU-iL-ecq">
-                                                            <rect key="frame" x="0.0" y="25" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="lsU-iL-ecq" userLabel="state">
+                                                            <rect key="frame" x="0.0" y="21.5" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLu-MR-g2k" userLabel="State">
                                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="20.5"/>
@@ -2441,8 +2442,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-Qg-yWs">
-                                                            <rect key="frame" x="0.0" y="47.5" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="mgi-Qg-yWs" userLabel="unavailabilityReasons">
+                                                            <rect key="frame" x="0.0" y="43" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unavailability reasons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3c-cU-E4D" userLabel="Unavailability">
                                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="20.5"/>
@@ -2458,8 +2460,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="6EJ-kT-KcE">
-                                                            <rect key="frame" x="0.0" y="70" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="6EJ-kT-KcE" userLabel="activationError">
+                                                            <rect key="frame" x="0.0" y="64.5" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activation error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sdf-mi-DG3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="117" height="20.5"/>
@@ -2475,8 +2478,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="k0F-cV-8Ek">
-                                                            <rect key="frame" x="0.0" y="92.5" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="k0F-cV-8Ek" userLabel="uploadState">
+                                                            <rect key="frame" x="0.0" y="86" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload state" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjU-vM-pTo" userLabel="UploadState">
                                                                     <rect key="frame" x="0.0" y="0.0" width="97" height="20.5"/>
@@ -2492,8 +2496,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dld-hM-t66">
-                                                            <rect key="frame" x="0.0" y="115" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="dld-hM-t66" userLabel="fileState">
+                                                            <rect key="frame" x="0.0" y="107.5" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File is known" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huX-6C-RcZ" userLabel="FileIsKnown">
                                                                     <rect key="frame" x="0.0" y="0.0" width="97" height="20.5"/>
@@ -2509,8 +2514,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="3u9-7l-8AB">
-                                                            <rect key="frame" x="0.0" y="137.5" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="3u9-7l-8AB" userLabel="pausedState">
+                                                            <rect key="frame" x="0.0" y="129" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is paused" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-Af-Nng" userLabel="IsPaused">
                                                                     <rect key="frame" x="0.0" y="0.0" width="73.5" height="20.5"/>
@@ -2526,8 +2532,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="uUy-Bi-agR">
-                                                            <rect key="frame" x="0.0" y="160" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="uUy-Bi-agR" userLabel="missionItem">
+                                                            <rect key="frame" x="0.0" y="150.5" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission Item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXL-4E-fpR" userLabel="MissionItem">
                                                                     <rect key="frame" x="0.0" y="0.0" width="96" height="20.5"/>
@@ -2543,8 +2550,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="f9V-f9-HCX">
-                                                            <rect key="frame" x="0.0" y="182.5" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="f9V-f9-HCX" userLabel="missionItemSkipped">
+                                                            <rect key="frame" x="0.0" y="172" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission Item Skipped" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tz8-9n-UF1">
                                                                     <rect key="frame" x="0.0" y="0.0" width="162.5" height="20.5"/>
@@ -2560,8 +2568,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fb5-Q9-W7H">
-                                                            <rect key="frame" x="0.0" y="205" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="fb5-Q9-W7H" userLabel="flightPlanId">
+                                                            <rect key="frame" x="0.0" y="193.5" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flight Plan ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYF-cS-00T">
                                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
@@ -2577,8 +2586,9 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8o7-2i-Imw">
-                                                            <rect key="frame" x="0.0" y="227.5" width="335" height="20.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="8o7-2i-Imw" userLabel="recoveryInfo">
+                                                            <rect key="frame" x="0.0" y="215" width="335" height="20.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recovery info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWN-LD-yh0">
                                                                     <rect key="frame" x="0.0" y="0.0" width="103.5" height="20.5"/>
@@ -2594,10 +2604,11 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kae-4x-KY5">
-                                                            <rect key="frame" x="0.0" y="250" width="335" height="31"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="kae-4x-KY5" userLabel="interpreter">
+                                                            <rect key="frame" x="0.0" y="236.5" width="335" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interpreter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKb-Hv-21M" userLabel="MissionItem">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interpreter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKb-Hv-21M" userLabel="label">
                                                                     <rect key="frame" x="0.0" y="0.0" width="81" height="31"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -2612,18 +2623,38 @@
                                                                 </segmentedControl>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="c8h-3N-Rl2">
-                                                            <rect key="frame" x="0.0" y="283" width="335" height="30"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" id="GGL-1Z-Sav" userLabel="disconnectionPolicy">
+                                                            <rect key="frame" x="0.0" y="268.5" width="335" height="31"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Disconnection Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkQ-8L-snu" userLabel="label">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="31"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-mn-BMw" userLabel="policyType">
+                                                                    <rect key="frame" x="155" y="0.0" width="180" height="32"/>
+                                                                    <segments>
+                                                                        <segment title="returnToHome"/>
+                                                                        <segment title="continue"/>
+                                                                    </segments>
+                                                                </segmentedControl>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="c8h-3N-Rl2" userLabel="upload/clear">
+                                                            <rect key="frame" x="0.0" y="300.5" width="335" height="84.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GcL-y5-CYz">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="84.5"/>
                                                                     <state key="normal" title="Upload"/>
                                                                     <connections>
                                                                         <action selector="uploadPushed:" destination="jAy-Zi-zIA" eventType="touchUpInside" id="6LK-Gp-17K"/>
                                                                     </connections>
                                                                 </button>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qu2-ji-iN6">
-                                                                    <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
+                                                                    <rect key="frame" x="167.5" y="0.0" width="167.5" height="84.5"/>
                                                                     <state key="normal" title="Clear recovery info"/>
                                                                     <connections>
                                                                         <action selector="clearRecoveryInfoPushed:" destination="jAy-Zi-zIA" eventType="touchUpInside" id="oyK-vh-FZc"/>
@@ -2631,8 +2662,9 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cxH-CL-EdM">
-                                                            <rect key="frame" x="0.0" y="315" width="335" height="30"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="cxH-CL-EdM" userLabel="activate/restart">
+                                                            <rect key="frame" x="0.0" y="386" width="335" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-gz-wOE">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
@@ -2650,8 +2682,9 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ANR-HZ-h3W">
-                                                            <rect key="frame" x="0.0" y="347" width="335" height="30"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="ANR-HZ-h3W" userLabel="activate/restart at item">
+                                                            <rect key="frame" x="0.0" y="417" width="335" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GSQ-ZJ-bfF">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
@@ -2669,8 +2702,30 @@
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yqB-qP-Z6j">
-                                                            <rect key="frame" x="0.0" y="379" width="335" height="30"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="KB1-4A-WvK" userLabel="activate/restart at item v2">
+                                                            <rect key="frame" x="0.0" y="448" width="335" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9O-Nj-Pee" userLabel="Activate at item v2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
+                                                                    <state key="normal" title="Activate w/ disconnection policy"/>
+                                                                    <connections>
+                                                                        <action selector="activateAtItemV2Pushed:" destination="jAy-Zi-zIA" eventType="touchUpInside" id="ate-vi-yTw"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLh-Rd-anA" userLabel="Restart At Item v2">
+                                                                    <rect key="frame" x="167.5" y="0.0" width="167.5" height="30"/>
+                                                                    <state key="normal" title="Restart w/ disconnection policy"/>
+                                                                    <connections>
+                                                                        <action selector="restartAtItemV2Pushed:" destination="jAy-Zi-zIA" eventType="touchUpInside" id="iz5-hQ-GM8"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <viewLayoutGuide key="safeArea" id="iDA-8b-3JM"/>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" id="yqB-qP-Z6j" userLabel="stop/clean">
+                                                            <rect key="frame" x="0.0" y="479" width="335" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-BS-vII">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="30"/>
@@ -2693,15 +2748,18 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aNa-hM-06A" firstAttribute="leading" secondItem="chQ-ha-HkQ" secondAttribute="leadingMargin" id="GIL-2L-bgD"/>
+                                                <constraint firstAttribute="bottom" secondItem="aNa-hM-06A" secondAttribute="bottomMargin" id="Tq9-w9-DJu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="aNa-hM-06A" secondAttribute="trailing" id="sYK-kD-ucS"/>
                                                 <constraint firstItem="aNa-hM-06A" firstAttribute="top" secondItem="chQ-ha-HkQ" secondAttribute="topMargin" id="x4C-JF-VIF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activationAtItemBt" destination="GSQ-ZJ-bfF" id="0x2-gn-Ccx"/>
+                                            <outlet property="activationAtItemV2Bt" destination="F9O-Nj-Pee" id="SGx-xN-X2B"/>
                                             <outlet property="activationBt" destination="bgC-gz-wOE" id="val-29-Fj7"/>
                                             <outlet property="cleanBeforeRecoveryBt" destination="god-D2-b7t" id="Ksr-If-gw7"/>
                                             <outlet property="clearRecoveryInfoBt" destination="qu2-ji-iN6" id="pWa-zb-2SC"/>
+                                            <outlet property="disconnectionPolicyType" destination="Fah-mn-BMw" id="ec4-5b-JqQ"/>
                                             <outlet property="flightPlanFileIsKnownLabel" destination="Q8e-GI-9YO" id="OKE-Ss-gyC"/>
                                             <outlet property="flightPlanIdLabel" destination="Hi7-Fe-sZB" id="mi7-5z-XQo"/>
                                             <outlet property="interpreterType" destination="B9D-9X-Rae" id="SAM-pc-07C"/>
@@ -2712,6 +2770,7 @@
                                             <outlet property="latestUploadStateLabel" destination="Sld-ZW-dJs" id="h2s-Y8-2wX"/>
                                             <outlet property="recoveryInfoLabel" destination="Q4r-Ip-fc1" id="vNK-r0-J9g"/>
                                             <outlet property="restartAtItemBt" destination="s5D-ku-ccu" id="ccU-Qh-f28"/>
+                                            <outlet property="restartAtItemV2Bt" destination="bLh-Rd-anA" id="XJf-GB-aIL"/>
                                             <outlet property="restartBt" destination="bWM-Rt-Arp" id="zfE-Xz-F1o"/>
                                             <outlet property="stateLabel" destination="MVq-oU-9Hr" id="44K-gU-cvX"/>
                                             <outlet property="stopBt" destination="HLp-BS-vII" id="x8L-Qf-1O9"/>
@@ -2719,7 +2778,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="geofence" rowHeight="160" id="YFY-9t-HFo" userLabel="Geofence" customClass="GeofenceCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4127.5" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="4216.5" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YFY-9t-HFo" id="5Wh-UY-Dmm">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
@@ -2838,7 +2897,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="animation" rowHeight="260" id="qqq-0y-5uq" userLabel="animation" customClass="AnimationPilotingItfCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4287.5" width="375" height="260"/>
+                                        <rect key="frame" x="0.0" y="4376.5" width="375" height="260"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="qqq-0y-5uq" id="wvN-YU-rgp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
@@ -2994,7 +3053,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="magnetometer" rowHeight="80" id="cgG-ZJ-yke" userLabel="magnetometer" customClass="MagnetometerCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4547.5" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="4636.5" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="cgG-ZJ-yke" id="6mI-Jz-OnY">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -3052,7 +3111,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="liveStream" rowHeight="78" id="emV-rm-V5E" customClass="StreamServerCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4627.5" width="375" height="78"/>
+                                        <rect key="frame" x="0.0" y="4716.5" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="emV-rm-V5E" id="PcV-le-jCa">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
@@ -3105,7 +3164,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="multiStream" rowHeight="48" id="6cg-gC-jl0" userLabel="multiStream" customClass="MultiStreamCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4705.5" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="4794.5" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6cg-gC-jl0" id="uhO-d8-fuo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -3139,7 +3198,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="thermalStream" rowHeight="48" id="rAa-nE-ir2" customClass="ThermalStreamCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4753.5" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="4842.5" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rAa-nE-ir2" id="qCY-rL-kx8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -3173,7 +3232,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="hmd" rowHeight="48" id="aLZ-wt-WiP" userLabel="hmd" customClass="HmdCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4801.5" width="375" height="48"/>
+                                        <rect key="frame" x="0.0" y="4890.5" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aLZ-wt-WiP" id="oFN-mp-BCR">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -3207,7 +3266,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="camera" rowHeight="200" id="7yd-Nu-xjj" userLabel="camera" customClass="CameraCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="4849.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="4938.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="7yd-Nu-xjj" id="8tX-8O-pu4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -3333,7 +3392,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="thermal" rowHeight="224" id="13r-Zu-u2k" userLabel="thermal" customClass="ThermalCameraCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5049.5" width="375" height="224"/>
+                                        <rect key="frame" x="0.0" y="5138.5" width="375" height="224"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="13r-Zu-u2k" id="v5Z-IK-OJ4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
@@ -3477,7 +3536,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="blendedThermal" rowHeight="224" id="GRt-xE-2Zd" userLabel="blendedThermal" customClass="BlendedThermalCameraCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5273.5" width="375" height="224"/>
+                                        <rect key="frame" x="0.0" y="5362.5" width="375" height="224"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="GRt-xE-2Zd" id="5K7-rQ-5g2">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
@@ -3620,7 +3679,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCamera2" rowHeight="232" id="rm5-jG-KxO" userLabel="mainCamera2" customClass="MainCamera2Cell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5497.5" width="375" height="232"/>
+                                        <rect key="frame" x="0.0" y="5586.5" width="375" height="232"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rm5-jG-KxO" id="ZbL-lS-uDW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="232"/>
@@ -3793,7 +3852,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="antiflickering" rowHeight="86" id="VaX-TS-yIQ" userLabel="antiflickering" customClass="AntiflickerCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5729.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="5818.5" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VaX-TS-yIQ" id="zzB-zN-TA1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
@@ -3858,7 +3917,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="preciseHome" rowHeight="86" id="7DI-HF-xjY" userLabel="preciseHome" customClass="PreciseHomeCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5815.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="5904.5" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7DI-HF-xjY" id="qUa-4K-sZ7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
@@ -3923,7 +3982,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="thermalControl" rowHeight="86" id="PiN-uL-oCw" userLabel="thermalControl" customClass="ThermalControlCell" customModule="GroundSdkDemo">
-                                        <rect key="frame" x="0.0" y="5901.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="5990.5" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PiN-uL-oCw" id="pch-5k-Ft1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
@@ -3988,7 +4047,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pilotingControl" rowHeight="86" id="Xfp-sV-wBU" userLabel="pilotingControl" customClass="PilotingControlCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5987.5" width="375" height="86"/>
+                                        <rect key="frame" x="0.0" y="6076.5" width="375" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xfp-sV-wBU" id="Rdj-MM-lns">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
@@ -4035,7 +4094,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gimbal" rowHeight="254" id="K5y-RN-Rc8" customClass="GimbalCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6073.5" width="375" height="254"/>
+                                        <rect key="frame" x="0.0" y="6162.5" width="375" height="254"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="K5y-RN-Rc8" id="qra-VJ-cfb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="254"/>
@@ -4226,7 +4285,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="frontStereoGimbal" rowHeight="80" id="qRq-mN-ysV" customClass="FrontStereoGimbalCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6327.5" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="6416.5" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="qRq-mN-ysV" id="afI-16-Hg5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -4273,7 +4332,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="stereoVisionSensor" rowHeight="80" id="DCu-Bu-OSq" userLabel="stereoVisionSensor" customClass="StereoVisionSensorCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6407.5" width="375" height="80"/>
+                                        <rect key="frame" x="0.0" y="6496.5" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DCu-Bu-OSq" id="zOx-ZK-Jfq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
@@ -4319,7 +4378,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="updater" rowHeight="350" id="pMN-F6-GGH" userLabel="Updater" customClass="UpdaterCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6487.5" width="375" height="350"/>
+                                        <rect key="frame" x="0.0" y="6576.5" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pMN-F6-GGH" id="E0e-or-vyp">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
@@ -4507,7 +4566,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="crashReporter" rowHeight="120" id="mxp-g9-bWG" userLabel="CrashReportDownloader" customClass="CrashReportDownloadCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6837.5" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="6926.5" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mxp-g9-bWG" id="zY4-UA-G5Y">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -4590,7 +4649,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="systemInfo" rowHeight="197" id="a4f-U9-3au" userLabel="SystemInfo" customClass="SystemInfoCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6957.5" width="375" height="197"/>
+                                        <rect key="frame" x="0.0" y="7046.5" width="375" height="197"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="a4f-U9-3au" id="dku-hq-FFB">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="197"/>
@@ -4767,7 +4826,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="copterMotors" rowHeight="135" id="v4v-HL-f7T" userLabel="copterMotors" customClass="CopterMotorsCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7154.5" width="375" height="135"/>
+                                        <rect key="frame" x="0.0" y="7243.5" width="375" height="135"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="v4v-HL-f7T" id="3r2-ma-mxT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="135"/>
@@ -4884,7 +4943,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="beeper" rowHeight="100" id="WYA-KE-jkT" userLabel="Beeper" customClass="BeeperCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7289.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="7378.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="WYA-KE-jkT" id="Rcm-NY-tYL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -4947,7 +5006,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="leds" rowHeight="100" id="f97-Fc-Emn" userLabel="Leds" customClass="LedsCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7389.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="7478.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="f97-Fc-Emn" id="Gx2-JK-dv5">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -5010,7 +5069,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dri" rowHeight="169" id="HVL-Ah-PQc" userLabel="Dri" customClass="DriCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7489.5" width="375" height="169"/>
+                                        <rect key="frame" x="0.0" y="7578.5" width="375" height="169"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="HVL-Ah-PQc" id="IKR-NL-jWl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="169"/>
@@ -5128,7 +5187,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="logControl" rowHeight="100" id="Tvx-Uc-FoL" userLabel="LogControl" customClass="LogControlCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7658.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="7747.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Tvx-Uc-FoL" id="ItC-kv-iag">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -5189,7 +5248,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="certificateUploader" rowHeight="100" id="00x-ft-W0i" userLabel="CertificateUploader" customClass="CertificateUploaderCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7758.5" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="7847.5" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="00x-ft-W0i" id="nbG-D3-F8D">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
@@ -5231,7 +5290,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellular" rowHeight="329" id="Jdi-7l-7O7" userLabel="Cellular" customClass="CellularCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="7858.5" width="375" height="329"/>
+                                        <rect key="frame" x="0.0" y="7947.5" width="375" height="329"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Jdi-7l-7O7" id="VKT-Gm-qEd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="329"/>
@@ -5479,7 +5538,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mediaStore" rowHeight="160" id="bfk-DZ-WB6" userLabel="MediaStore" customClass="MediaStoreCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8187.5" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="8276.5" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bfk-DZ-WB6" id="mwn-qG-148">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
@@ -5601,7 +5660,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wifiScanner" rowHeight="150" id="qw5-Dl-DlQ" userLabel="WifiScanner" customClass="WifiScannerCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8347.5" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="8436.5" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qw5-Dl-DlQ" id="FPk-cf-tIg">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -5660,7 +5719,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wifiAccessPoint" rowHeight="210" id="TaB-SY-YtX" userLabel="WifiAccessPoint" customClass="WifiAccessPointCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8497.5" width="375" height="210"/>
+                                        <rect key="frame" x="0.0" y="8586.5" width="375" height="210"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TaB-SY-YtX" id="xNB-C3-0xo">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
@@ -5847,7 +5906,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="removableUserStorage" rowHeight="200" id="IxC-OC-slS" userLabel="RemovableUserStorage" customClass="RemovableUserStorageCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8707.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="8796.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IxC-OC-slS" id="dPe-Wy-t4Q">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -6003,7 +6062,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="internalUserStorage" rowHeight="200" id="0Fp-Pk-sTa" userLabel="InternalUserStorage" customClass="InternalUserStorageCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="8907.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="8996.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Fp-Pk-sTa" id="SP4-Cd-LXu">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -6159,7 +6218,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="targetTracker" rowHeight="150" id="mCs-0M-ZYl" userLabel="TargetTracker" customClass="TargetTrackerCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9107.5" width="375" height="150"/>
+                                        <rect key="frame" x="0.0" y="9196.5" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="mCs-0M-ZYl" id="5T4-Pd-Rhs">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
@@ -6241,7 +6300,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightDataDownloader" rowHeight="120" id="2WM-cj-fJ2" userLabel="FlightData" customClass="FlightDataDownloaderCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9257.5" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="9346.5" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="2WM-cj-fJ2" id="hde-aU-oay">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -6326,7 +6385,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightLogDownloader" rowHeight="120" id="asG-hJ-lYM" userLabel="FlightLog" customClass="FlightLogDownloadCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9377.5" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="9466.5" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="asG-hJ-lYM" id="z9q-G0-FmI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -6411,7 +6470,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightCameraRecordDownloader" rowHeight="120" id="FaD-6y-s9V" userLabel="FlightCameraRecord" customClass="FlightCameraRecordDownloadCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9497.5" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="9586.5" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="FaD-6y-s9V" id="Xo3-aD-Ix6">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -6496,7 +6555,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="batteryGaugeFirmwareUpdater" rowHeight="160" id="Tt3-zk-6rl" userLabel="BatteryGaugeFirmwareUpdater" customClass="BatteryGaugeUpdaterCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9617.5" width="375" height="160"/>
+                                        <rect key="frame" x="0.0" y="9706.5" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Tt3-zk-6rl" id="5eG-Lk-qhA">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
@@ -6595,7 +6654,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="devToolbox" rowHeight="124" id="bRI-ye-SF6" userLabel="DevToolbox" customClass="DevToolboxCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9777.5" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="9866.5" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="bRI-ye-SF6" id="d8c-qc-5Lk">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
@@ -6681,7 +6740,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="missions" rowHeight="124" id="7Xt-fW-S42" userLabel="Missions" customClass="MissionManagerCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="9901.5" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="9990.5" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="7Xt-fW-S42" id="7ZM-kX-HXL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
@@ -6767,7 +6826,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="missionUpdater" rowHeight="68" id="LHq-Dw-GWf" userLabel="Mission Updater" customClass="MissionUpdaterCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10025.5" width="375" height="68"/>
+                                        <rect key="frame" x="0.0" y="10114.5" width="375" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="LHq-Dw-GWf" id="H0R-u2-5DL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
@@ -6799,7 +6858,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="missionHelloDrone" rowHeight="124" id="Fa0-JA-Fog" userLabel="MissionHelloDrone" customClass="MissionHelloDroneCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10093.5" width="375" height="124"/>
+                                        <rect key="frame" x="0.0" y="10182.5" width="375" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Fa0-JA-Fog" id="jJF-hb-the">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
@@ -6867,16 +6926,16 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="obstacleAvoidance" rowHeight="190" id="FaI-Gd-5zA" userLabel="Obstacle avoidance" customClass="ObstacleAvoidanceCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10217.5" width="375" height="190"/>
+                                        <rect key="frame" x="0.0" y="10306.5" width="375" height="190"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="FaI-Gd-5zA" id="SWL-md-p0T">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-sV-cli">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="E6g-sV-cli">
                                                     <rect key="frame" x="20" y="11" width="335" height="104"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Obstacle avoidance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkp-bb-NU1">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obstacle avoidance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkp-bb-NU1">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="GmK-mS-q0Q"/>
@@ -6885,10 +6944,10 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BHi-GX-sty">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="BHi-GX-sty">
                                                             <rect key="frame" x="0.0" y="26" width="335" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Preferred Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jD1-Qt-AoE">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preferred Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jD1-Qt-AoE">
                                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -6896,10 +6955,10 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-mx-4Z8">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-mx-4Z8">
                                                             <rect key="frame" x="0.0" y="49.5" width="335" height="31"/>
                                                             <subviews>
-                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-3e-Kmg">
+                                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xzd-3e-Kmg">
                                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="32"/>
                                                                     <segments>
                                                                         <segment title="disabled"/>
@@ -6911,16 +6970,16 @@
                                                                 </segmentedControl>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mrC-0O-hZs">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mrC-0O-hZs">
                                                             <rect key="frame" x="0.0" y="83.5" width="335" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONt-CN-hqY">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONt-CN-hqY">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="active" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxE-Um-iID" userLabel="state Label">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="active" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxE-Um-iID" userLabel="state Label">
                                                                     <rect key="frame" x="167.5" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -6943,16 +7002,16 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="networkControl" rowHeight="204" id="pQ8-RX-MEn" userLabel="NetworkControl" customClass="NetworkControlCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10407.5" width="375" height="204"/>
+                                        <rect key="frame" x="0.0" y="10496.5" width="375" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="pQ8-RX-MEn" id="NML-hO-dmK">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gH7-UF-1mV">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="gH7-UF-1mV">
                                                     <rect key="frame" x="20" y="11" width="335" height="178.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Network Control" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-3Y-ThB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Control" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-3Y-ThB">
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="23"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="23" id="wN0-H4-pWJ"/>
@@ -6961,16 +7020,16 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-y7-cot">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-y7-cot">
                                                             <rect key="frame" x="0.0" y="25" width="335" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Routing policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-uy-WV9">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Routing policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhG-uy-WV9">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="automatic" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lO-nG-OXE">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="automatic" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lO-nG-OXE">
                                                                     <rect key="frame" x="167.5" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -6978,16 +7037,16 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-hg-Pxx">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Ao-hg-Pxx">
                                                             <rect key="frame" x="0.0" y="47.5" width="335" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfX-Kg-iYs">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfX-Kg-iYs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="cellular" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUB-rz-cJQ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="cellular" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUB-rz-cJQ">
                                                                     <rect key="frame" x="167.5" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -6995,16 +7054,16 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-z1-wbP">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-z1-wbP">
                                                             <rect key="frame" x="0.0" y="70" width="335" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Link quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-sj-cbF">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvI-sj-cbF">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAj-X2-tPa">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAj-X2-tPa">
                                                                     <rect key="frame" x="167.5" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -7012,16 +7071,16 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-Cb-oJA">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yYX-Cb-oJA">
                                                             <rect key="frame" x="0.0" y="92.5" width="335" height="41"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuU-w6-CCn">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Links" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuU-w6-CCn">
                                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgY-zo-9CU" userLabel="Links Info">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgY-zo-9CU" userLabel="Links Info">
                                                                     <rect key="frame" x="0.0" y="20.5" width="335" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -7029,16 +7088,16 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nOY-YU-d1j">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nOY-YU-d1j">
                                                             <rect key="frame" x="0.0" y="135.5" width="335" height="20.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Max cellular bitrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnH-7G-XLW">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max cellular bitrate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnH-7G-XLW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mo-te-L4M">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mo-te-L4M">
                                                                     <rect key="frame" x="167.5" y="0.0" width="167.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -7046,7 +7105,7 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l76-Kp-UhB">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l76-Kp-UhB">
                                                             <rect key="frame" x="0.0" y="158" width="335" height="20.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Direct connection mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggf-L7-auu" userLabel="Direct connection mode">
@@ -7083,7 +7142,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="flightCameraRecorder" rowHeight="130" id="Tlf-zQ-d6h" userLabel="FlightCameraRecorder" customClass="FlightCameraRecorderCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10611.5" width="375" height="130"/>
+                                        <rect key="frame" x="0.0" y="10700.5" width="375" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Tlf-zQ-d6h" id="Eyn-40-Y4s">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
@@ -7146,7 +7205,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="secureElement" rowHeight="200" id="xSw-Z1-bWO" customClass="SecureElementCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="10741.5" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="10830.5" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="xSw-Z1-bWO" id="iNM-SW-Ezv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>

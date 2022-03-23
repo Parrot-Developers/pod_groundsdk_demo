@@ -106,6 +106,7 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
             addCell("batteryInfo", section: instrumentSection)
             addCell("compass", section: instrumentSection)
             addCell("cellularLinkStatus", section: instrumentSection)
+            addCell("cellularLogs", section: instrumentSection)
             // Peripheral
             addCell("dronefinder", section: peripheralSection)
             addCell("virtualGamepad", section: peripheralSection)

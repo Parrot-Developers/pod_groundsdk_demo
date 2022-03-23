@@ -74,12 +74,13 @@ class MissionUpdaterViewController: UITableViewController, DeviceViewController,
             let cell = tableView.dequeueReusableCell(withIdentifier: "MissionUpdaterDetailCell", for: indexPath)
             if let cell = cell as? MissionUpdaterDetailCell {
                 if let mission = missionUpdater?.missions[self.arrayKey[indexPath.row]] {
+                    cell.uidLabel.text = String(mission.uid)
                     cell.nameLabel.text = mission.name
                     cell.descriptionLabel.text = mission.description
-                    cell.uidLabel.text = String(mission.uid)
+                    cell.versionLabel.text = mission.version
                     cell.firmwareMinVersionLabel.text = mission.minTargetVersion?.description ?? ""
                     cell.firmwareMaxVersionLabel.text = mission.maxTargetVersion?.description ?? ""
-                    cell.nameLabel.text = mission.name
+                    cell.targetModelLabel.text = mission.targetModelId?.description ?? ""
                     cell.mission = mission
                     cell.delegate = self
                 }

@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Parrot Drones SAS
+// Copyright (C) 2021 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -29,43 +29,35 @@
 
 import UIKit
 import GroundSdk
+import SwiftProtobuf
 
-class FlightCameraRecorderCell: PeripheralProviderContentCell {
+class SkyCtrlCellularLogsViewController: UIViewController, DeviceViewController {
 
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var switchLabel: UILabel!
-    @IBOutlet weak var startStopButton: UIButton!
+    @IBOutlet weak var cellularTextView: UITextView!
 
-    private var flightCameraRecorder: Ref<FlightCameraRecorder>?
+    private let groundSdk = GroundSdk()
+    private var deviceUid: String?
+    private var cellularLogsRef: Ref<CellularLogs>?
 
-    override func set(peripheralProvider provider: PeripheralProvider) {
-        super.set(peripheralProvider: provider)
-        flightCameraRecorder = provider.getPeripheral(Peripherals.flightCameraRecorder) { [unowned self] fcr in
-            if let flightCameraRecorder = fcr {
-                if flightCameraRecorder.pipelines.id == 0 {
-                    self.switchLabel.text = "disabled"
-                    self.startStopButton.setTitle("Enable", for: .normal)
+    func setDeviceUid(_ uid: String) {
+        deviceUid = uid
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        if let remoteControl = groundSdk.getRemoteControl(uid: deviceUid!) {
+            cellularLogsRef = remoteControl.getInstrument(Instruments.cellularLogs) {  [weak self] cellularLogs in
+                if let cellularLogs = cellularLogs,
+                   let cellularTextView = self?.cellularTextView {
+                    let cellularText = cellularLogs.messages.joined(separator: "\n")
+                    cellularTextView.text = cellularText
+                    let range = NSRange(location: cellularTextView.text.count - 1, length: 0)
+                    cellularTextView.scrollRangeToVisible(range)
                 } else {
-                    self.switchLabel.text = "enabled"
-                    self.startStopButton.setTitle("Disable", for: .normal)
-                }
-                self.show()
-            } else {
-                self.hide()
+                   self?.performSegue(withIdentifier: "exit", sender: self)
+               }
             }
         }
     }
-
-    @IBAction func activateOrDeactivaAction(_ sender: Any) {
-        if let flightCameraRecorder = flightCameraRecorder?.value {
-            if flightCameraRecorder.pipelines.id == 0 {
-                // Activate all supported
-                flightCameraRecorder.pipelines.id = UInt64.max
-            } else {
-                // Deactivate all
-                flightCameraRecorder.pipelines.id = 0
-            }
-        }
-    }
-
 }

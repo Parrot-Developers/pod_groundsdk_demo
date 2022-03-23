@@ -36,11 +36,13 @@ protocol MissionUpdaterDelegate: AnyObject {
 
 class MissionUpdaterDetailCell: UITableViewCell {
 
+    @IBOutlet weak var uidLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var uidLabel: UILabel!
+    @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var firmwareMinVersionLabel: UILabel!
     @IBOutlet weak var firmwareMaxVersionLabel: UILabel!
+    @IBOutlet weak var targetModelLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
 
     weak var delegate: MissionUpdaterDelegate?
