@@ -1,7 +1,3 @@
-excluded:
-  - ${PWD}/Pods
-  - ${PWD}/GroundSdkDemo/proto
-
 line_length: 120
 
 trailing_whitespace:
@@ -21,3 +17,9 @@ disabled_rules:
   - fallthrough
   - nesting
   - redundant_string_enum_value
+  - inclusive_language
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - GroundSdkDemo/proto
+  - Pods
+
