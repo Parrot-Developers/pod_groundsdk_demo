@@ -35,12 +35,28 @@ import GroundSdk
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var logRecorder: RotatingLogRecorder?
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let svc = self.window?.rootViewController as? UISplitViewController {
             svc.preferredDisplayMode = .allVisible
             svc.delegate = self
         }
+
+        // Enable binary log and system log.
+        let logDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("log")
+        if !FileManager.default.fileExists(atPath: logDir.path) {
+            do {
+                try FileManager.default.createDirectory(at: logDir, withIntermediateDirectories: true)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        let binConfig = LogBinRecorderConfig(logDir)
+        logRecorder = ULog.redirectToLogBin(config: binConfig)
+        ULog.redirectToSystemLog(enabled: true)
+
         return true
     }
 
@@ -57,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
+        logRecorder = nil
     }
 
     func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String,
@@ -75,6 +92,7 @@ extension AppDelegate: UISplitViewControllerDelegate {
 }
 
 extension UINavigationController {
+
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return visibleViewController!.supportedInterfaceOrientations
     }

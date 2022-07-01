@@ -30,27 +30,18 @@
 import UIKit
 import GroundSdk
 
-class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DeviceViewController {
+class RcInfoViewController: DeviceInfoViewController<RemoteControl> {
 
-    @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var shutDownLabel: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
-    @IBOutlet weak var forgetButton: UIButton!
-    @IBOutlet weak var connectButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var appActionLabel: UILabel!
+    @IBOutlet weak var appActionLabelHeightConstraint: NSLayoutConstraint!
+    private var appActionLabelHeight: CGFloat = 0
 
-    private let groundSdk = GroundSdk()
-    internal var rcUid: String?
-    private var remoteControl: RemoteControl?
-    private var nameRef: Ref<String>?
-    private var stateRef: Ref<DeviceState>?
+    private var remoteControl: RemoteControl? {
+        provider
+    }
 
-    private var notificationCenterObserver: Any?
-
-    private let sections = ["Instruments", "Peripheral"]
-    private let instrumentSection = 0
-    private let peripheralSection = 1
+    private var gsdkActionGamePadObserverToken: NSObjectProtocol?
 
     private enum ToastState {
         case hidden
@@ -62,18 +53,14 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private var appActionLabelState = ToastState.hidden
     private var appActionHideTimer: Timer?
 
-    private var cells = [[DeviceContentCell](), [DeviceContentCell]()]
-
-    func setDeviceUid(_ uid: String) {
-        rcUid = uid
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        appActionLabel.isHidden = true
 
-        if let rcUid = self.rcUid {
-            remoteControl = groundSdk.getRemoteControl(uid: rcUid) { [weak self] _ in
+        appActionLabelHeight = appActionLabelHeightConstraint.constant
+        appActionLabelHeightConstraint.constant = 0
+
+        if let rcUid = deviceUid {
+            provider = groundSdk.getRemoteControl(uid: rcUid) { [weak self] _ in
                 _ = self?.navigationController?.popViewController(animated: true)
             }
         }
@@ -81,60 +68,32 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if let remoteControl = remoteControl {
             // header
             modelLabel.text = remoteControl.model.description
-            nameRef = remoteControl.getName {[unowned self] name in
+            nameRef = remoteControl.getName { [unowned self] name in
                 self.title = name!
             }
-            stateRef = remoteControl.getState {[unowned self] state in
+            stateRef = remoteControl.getState { [unowned self] state in
                 // state is never nil
-                self.stateLabel.text = state!.description
-
-                self.forgetButton.isEnabled = state!.canBeForgotten
-                self.connectButton.isEnabled = state!.canBeConnected || state!.canBeDisconnected
-                if state!.connectionState == .disconnected {
-                    self.connectButton.setTitle("Connect", for: UIControl.State())
-                } else {
-                    self.connectButton.setTitle("Disconnect", for: UIControl.State())
-                }
-                if state!.durationBeforeShutDown == 0 {
-                    self.shutDownLabel.text = "No shutdown planned"
-                } else {
-                    self.shutDownLabel.text = "Shudown in \(Int(state!.durationBeforeShutDown))s"
-                }
+                self.setState(state!)
             }
+        }
+    }
 
-            // Instruments
-            addCell("batteryInfo", section: instrumentSection)
-            addCell("compass", section: instrumentSection)
-            addCell("cellularLinkStatus", section: instrumentSection)
-            addCell("cellularLogs", section: instrumentSection)
-            // Peripheral
-            addCell("dronefinder", section: peripheralSection)
-            addCell("virtualGamepad", section: peripheralSection)
-            addCell("skyCtrl3Gamepad", section: peripheralSection)
-            addCell("skyCtrl4Gamepad", section: peripheralSection)
-            addCell("systemInfo", section: peripheralSection)
-            addCell("updater", section: peripheralSection)
-            addCell("crashReporter", section: peripheralSection)
-            addCell("flightLogDownloader", section: peripheralSection)
-            addCell("wifiAccessPoint", section: peripheralSection)
-            addCell("magnetometer", section: peripheralSection)
-            addCell("copilot", section: peripheralSection)
-            addCell("radioControl", section: peripheralSection)
-            addCell("microhard", section: peripheralSection)
+    override func setState(_ state: DeviceState) {
+        super.setState(state)
+
+        if state.durationBeforeShutDown == 0 {
+            shutDownLabel.text = "No shutdown planned"
+        } else {
+            shutDownLabel.text = "Shudown in \(Int(state.durationBeforeShutDown))s"
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if remoteControl == nil {
-            _ = self.navigationController?.popViewController(animated: animated)
-        }
-        notificationCenterObserver = NotificationCenter.default.addObserver(
+        gsdkActionGamePadObserverToken = NotificationCenter.default.addObserver(
             forName: NSNotification.Name.GsdkActionGamepadAppAction, object: nil, queue: nil,
             using: { [unowned self] notification in
                 if self.appActionLabelState == .hidden {
-                    self.appActionLabel.isHidden = false
-                    self.appActionLabel.frame.origin.y = self.view.frame.size.height
+                    self.appActionLabelHeightConstraint.constant = 0
                 } else if self.appActionLabelState == .hidding {
                     self.appActionLabel.layer.removeAllAnimations()
                 }
@@ -155,58 +114,40 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if self.appActionLabelState == .hidden || self.appActionLabelState == .hidding {
                     self.appActionLabelState = .showing
                     UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseIn, animations: {
-                        self.appActionLabel.frame.origin.y =
-                            self.view.frame.size.height - self.appActionLabel.frame.size.height
+                        self.appActionLabelHeightConstraint.constant = self.appActionLabelHeight
                     }, completion: { _ in
                         self.appActionLabelState = .shown
                     })
                 }
-        })
+            })
+
+        super.viewWillAppear(animated)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if let notificationCenterObserver = notificationCenterObserver {
-            NotificationCenter.default.removeObserver(notificationCenterObserver)
-        }
+
+        gsdkActionGamePadObserverToken.map { NotificationCenter.default.removeObserver($0) }
+        gsdkActionGamePadObserverToken = nil
     }
 
     @objc
     private func hideAppActionLabel() {
-        self.appActionLabelState = .hidding
+        appActionLabelState = .hidding
         UIView.animate(withDuration: 0.7, delay: 0.0, options: .curveEaseOut, animations: {
-            self.appActionLabel.frame.origin.y = self.view.frame.size.height
+            self.appActionLabelHeightConstraint.constant = 0
         }, completion: { finished in
             if finished {
                 self.appActionLabelState = .hidden
-                self.appActionLabel.isHidden = true
             }
         })
     }
 
-    private func addCell(_ identifier: String, section: Int) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier)
-        if let cell = cell as? DeviceContentCell {
-            if let instrumentCell = cell as? InstrumentProviderContentCell {
-                instrumentCell.initContent(provider: remoteControl!, tableView: tableView)
-            } else if let peripheralCell = cell as? PeripheralProviderContentCell {
-                peripheralCell.initContent(provider: remoteControl!, tableView: tableView)
-            }
-
-            // cell-type specific actions
-            if let magnetometerCell = cell as? MagnetometerCell {
-                magnetometerCell.viewController = self
-            }
-
-            cells[section].append(cell)
-        }
-    }
-
-    @IBAction func forget(_ sender: UIButton) {
+    @IBAction override func forget(_ sender: UIButton) {
         _ = remoteControl?.forget()
     }
 
-    @IBAction func connectDisconnect(_ sender: UIButton) {
+    @IBAction override func connectDisconnect(_ sender: UIButton) {
         if let connectionState = stateRef?.value?.connectionState {
             if connectionState == DeviceState.ConnectionState.disconnected {
                 _ = remoteControl?.connect()
@@ -214,47 +155,5 @@ class RcInfoViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 _ = remoteControl?.disconnect()
             }
         }
-    }
-
-    @IBAction func showDefaultDetail(unwindSegue: UIStoryboardSegue) {
-        if let splitViewController = self.splitViewController, splitViewController.isCollapsed {
-            _ = self.navigationController?.popViewController(animated: true)
-        } else {
-            self.performSegue(withIdentifier: "showDefault", sender: self)
-        }
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if let viewController = ((segue.destination as? UINavigationController)?.topViewController
-            ?? segue.destination) as? DeviceViewController, let rcUid = rcUid {
-            viewController.setDeviceUid(rcUid)
-        }
-    }
-
-    // MARK: UITableViewDataSource
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section]
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cells[section].count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return cells[indexPath.section][indexPath.row]
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell = cells[indexPath.section][indexPath.row]
-        if !cell.visible {
-            return 0
-        }
-        return cell.height
     }
 }

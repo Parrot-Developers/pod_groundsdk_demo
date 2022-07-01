@@ -35,6 +35,7 @@ class AltimeterCell: InstrumentProviderContentCell {
     @IBOutlet weak var takeOffRelativeAltitude: UILabel!
     @IBOutlet weak var groundRelativeAltitude: UILabel!
     @IBOutlet weak var absoluteAltitude: UILabel!
+    @IBOutlet weak var terrainData: UILabel!
     @IBOutlet weak var verticalSpeed: UILabel!
     private var altimeter: Ref<Altimeter>?
 
@@ -57,6 +58,11 @@ class AltimeterCell: InstrumentProviderContentCell {
                     self.absoluteAltitude.text = String(format: "%.2f", absoluteAltitude)
                 } else {
                     self.absoluteAltitude.text = "Unavailable"
+                }
+                if let terrainData = altimeter.terrainData {
+                    self.terrainData.text = terrainData.description
+                } else {
+                    self.terrainData.text = "Unavailable"
                 }
                 if let verticalSpeed = altimeter.verticalSpeed {
                     self.verticalSpeed.text = String(format: "%.2f", verticalSpeed)

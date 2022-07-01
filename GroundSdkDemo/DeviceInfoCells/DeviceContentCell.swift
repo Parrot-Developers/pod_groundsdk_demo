@@ -31,33 +31,49 @@ import Foundation
 import UIKit
 import GroundSdk
 
+protocol DeviceContentCellDelegate: AnyObject {
+    func deviceContentCellVisibilityChanged(atIndexPath indexPath: IndexPath)
+}
+
 class DeviceContentCell: UITableViewCell {
-    weak var tableView: UITableView?
-    var height: CGFloat = 0
-    var visible = false
-    func initContent(tableView: UITableView) {
-        height = self.bounds.size.height
-        self.tableView = tableView
+    weak var delegate: DeviceContentCellDelegate?
+    var identifier: String = ""
+    private var indexPath: IndexPath = IndexPath(row: 0, section: 0)
+
+    @IBOutlet private var bottomConstraint: NSLayoutConstraint?
+
+    private(set) var isVisible = false
+
+    func initContent(forIndexPath indexPath: IndexPath, delegate: DeviceContentCellDelegate) {
+        self.delegate = delegate
+        self.indexPath = indexPath
+        assert(bottomConstraint != nil, "You have forgotten to link the bottom constraint of the"
+               + " main vertical stack view in the storyboard editor")
     }
 
     func show() {
-        if !visible {
-            visible = true
-            tableView?.reloadData()
+        if !isVisible {
+            isVisible = true
+            bottomConstraint?.isActive = true
+            delegate?.deviceContentCellVisibilityChanged(atIndexPath: indexPath)
         }
     }
 
     func hide() {
-        if visible {
-            visible = false
-            tableView?.reloadData()
+        if isVisible {
+            isVisible = false
+            bottomConstraint?.isActive = false
+            delegate?.deviceContentCellVisibilityChanged(atIndexPath: indexPath)
         }
     }
 }
 
 class PilotingItfProviderContentCell: DeviceContentCell {
-    func initContent(provider: PilotingItfProvider, tableView: UITableView) {
-        super.initContent(tableView: tableView)
+
+    func initContent(forIndexPath indexPath: IndexPath,
+                     provider: PilotingItfProvider,
+                     delegate: DeviceContentCellDelegate) {
+        initContent(forIndexPath: indexPath, delegate: delegate)
         set(pilotingItfProvider: provider)
     }
 
@@ -65,8 +81,11 @@ class PilotingItfProviderContentCell: DeviceContentCell {
 }
 
 class InstrumentProviderContentCell: DeviceContentCell {
-    func initContent(provider: InstrumentProvider, tableView: UITableView) {
-        super.initContent(tableView: tableView)
+
+    func initContent(forIndexPath indexPath: IndexPath,
+                     provider: InstrumentProvider,
+                     delegate: DeviceContentCellDelegate) {
+        initContent(forIndexPath: indexPath, delegate: delegate)
         set(instrumentProvider: provider)
     }
 
@@ -74,8 +93,11 @@ class InstrumentProviderContentCell: DeviceContentCell {
 }
 
 class PeripheralProviderContentCell: DeviceContentCell {
-    func initContent(provider: PeripheralProvider, tableView: UITableView) {
-        super.initContent(tableView: tableView)
+
+    func initContent(forIndexPath indexPath: IndexPath,
+                     provider: PeripheralProvider,
+                     delegate: DeviceContentCellDelegate) {
+        initContent(forIndexPath: indexPath, delegate: delegate)
         set(peripheralProvider: provider)
     }
 

@@ -38,18 +38,16 @@ class WifiScannerCell: PeripheralProviderContentCell {
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        selectionStyle = .none
+
         wifiScanner = provider.getPeripheral(Peripherals.wifiScanner) { [unowned self] wifiScanner in
             if let wifiScanner = wifiScanner {
-                let occupationStr = WifiChannel.allCases.map { wifiChannel -> String? in
+                let occupationStr = WifiChannel.allCases.map({ wifiChannel -> String? in
                     let occupation = wifiScanner.getOccupationRate(forChannel: wifiChannel)
                     if occupation > 0 {
                         return "\(wifiChannel.description): \(occupation)"
                     }
                     return nil
-                    }
-                    .compactMap { $0 }
-                    .joined(separator: ", ")
+                }).compactMap({ $0 }).joined(separator: ", ")
                 self.occupation.text = occupationStr
                 self.scanBt.setTitle(wifiScanner.scanning ? "Stop scan" : "Scan", for: .normal)
                 self.show()

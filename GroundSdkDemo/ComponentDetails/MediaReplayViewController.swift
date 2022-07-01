@@ -58,8 +58,8 @@ class MediaReplayViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         timeSlider.minimumValue = 0
+#if !targetEnvironment(simulator)
         if let drone = groundSdk.getDrone(uid: droneUid!) {
             streamServer = drone.getPeripheral(Peripherals.streamServer) { streamServer in
                 streamServer?.enabled = true
@@ -81,6 +81,8 @@ class MediaReplayViewController: UIViewController {
                 }
             }
          }
+#endif
+        super.viewWillAppear(animated)
     }
 
     @objc func refreshStreamPosition() {

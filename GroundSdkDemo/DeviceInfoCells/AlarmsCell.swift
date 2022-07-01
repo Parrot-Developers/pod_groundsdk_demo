@@ -39,6 +39,7 @@ class AlarmsCell: InstrumentProviderContentCell {
 
     override func set(instrumentProvider provider: InstrumentProvider) {
         super.set(instrumentProvider: provider)
+
         selectionStyle = .none
         alarms = provider.getInstrument(Instruments.alarms) { [unowned self] alarms in
             if let alarms = alarms {

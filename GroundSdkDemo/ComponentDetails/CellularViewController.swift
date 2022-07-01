@@ -32,32 +32,37 @@ import GroundSdk
 
 class CellularViewController: UIViewController, DeviceViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var modemStatusLabel: UILabel!
-    @IBOutlet weak var imeiLabel: UILabel!
-    @IBOutlet weak var simStatusLabel: UILabel!
-    @IBOutlet weak var simIccidLabel: UILabel!
-    @IBOutlet weak var simImsiLabel: UILabel!
-    @IBOutlet weak var registrationStatusLabel: UILabel!
-    @IBOutlet weak var networkStatusLabel: UILabel!
-    @IBOutlet weak var operatorLabel: UILabel!
-    @IBOutlet weak var technologyLabel: UILabel!
-    @IBOutlet weak var isRoamingAllowedLabel: UILabel!
-    @IBOutlet weak var isPinCodeRequestedLabel: UILabel!
-    @IBOutlet weak var pinRemainingTriesLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var modemStatusLabel: UILabel!
+    @IBOutlet private weak var imeiLabel: UILabel!
+    @IBOutlet private weak var simStatusLabel: UILabel!
+    @IBOutlet private weak var simIccidLabel: UILabel!
+    @IBOutlet private weak var simImsiLabel: UILabel!
+    @IBOutlet private weak var registrationStatusLabel: UILabel!
+    @IBOutlet private weak var networkStatusLabel: UILabel!
+    @IBOutlet private weak var operatorLabel: UILabel!
+    @IBOutlet private weak var technologyLabel: UILabel!
+    @IBOutlet private weak var isRoamingAllowedLabel: UILabel!
+    @IBOutlet private weak var isPinCodeRequestedLabel: UILabel!
+    @IBOutlet private weak var pinRemainingTriesLabel: UILabel!
 
-    @IBOutlet weak var isApnManualSwitch: UISwitch!
-    @IBOutlet weak var apnUrlLabel: UILabel!
-    @IBOutlet weak var apnUrlTextField: UITextField!
-    @IBOutlet weak var apnUsernameLabel: UILabel!
-    @IBOutlet weak var apnUsernameTextField: UITextField!
-    @IBOutlet weak var apnPasswordLabel: UILabel!
-    @IBOutlet weak var apnPasswordTextField: UITextField!
+    @IBOutlet private weak var isApnManualSwitch: UISwitch!
+    @IBOutlet private weak var apnUrlLabel: UILabel!
+    @IBOutlet private weak var apnUrlTextField: UITextField!
+    @IBOutlet private weak var apnUsernameLabel: UILabel!
+    @IBOutlet private weak var apnUsernameTextField: UITextField!
+    @IBOutlet private weak var apnPasswordLabel: UILabel!
+    @IBOutlet private weak var apnPasswordTextField: UITextField!
 
-    @IBOutlet weak var pincodeLabel: UILabel!
-    @IBOutlet weak var pincodeTextField: UITextField!
-    @IBOutlet weak var pincodeButton: UIButton!
-    @IBOutlet weak var resetStateLabel: UILabel!
+    @IBOutlet private weak var pincodeLabel: UILabel!
+    @IBOutlet private weak var pincodeTextField: UITextField!
+    @IBOutlet private weak var pincodeButton: UIButton!
+    @IBOutlet private weak var resetStateLabel: UILabel!
+
+    @IBOutlet private weak var scrollView: UIScrollView!
+
+    private var keyboardWillShowObserver: NSObjectProtocol?
+    private var keyboardWillHideObserver: NSObjectProtocol?
 
     private let groundSdk = GroundSdk()
     private var deviceUid: String?
@@ -66,38 +71,65 @@ class CellularViewController: UIViewController, DeviceViewController {
     private var indexPathSelected: IndexPath?
 
     func setDeviceUid(_ uid: String) {
-        deviceUid = uid
+        self.deviceUid = uid
+    }
+
+    deinit {
+        self.keyboardWillShowObserver.map { NotificationCenter.default.removeObserver($0) }
+        self.keyboardWillHideObserver.map { NotificationCenter.default.removeObserver($0) }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         if let drone = groundSdk.getDrone(uid: deviceUid!) {
-            cellular = drone.getPeripheral(Peripherals.cellular) { [weak self] cellular in
+            self.cellular = drone.getPeripheral(Peripherals.cellular) { [weak self] cellular in
+                guard let self = self else { return }
                 if let cellular = cellular {
-                    self?.isApnManualSwitch.isOn = cellular.apnConfigurationSetting.isManual
-                    self?.showHideApnsettings()
-                    self?.pincodeLabel.isHidden = !cellular.isPinCodeRequested
-                    self?.pincodeTextField.isHidden = !cellular.isPinCodeRequested
-                    self?.pincodeButton.isHidden = !cellular.isPinCodeRequested
-                    self?.modemStatusLabel.text = "\(cellular.modemStatus.description)"
-                    self?.imeiLabel.text = "\(cellular.imei)"
-                    self?.simStatusLabel.text = "\(cellular.simStatus.description)"
-                    self?.simIccidLabel.text = "\(cellular.simIccid)"
-                    self?.simImsiLabel.text = "\(cellular.simImsi)"
-                    self?.registrationStatusLabel.text = "\(cellular.registrationStatus.description)"
-                    self?.networkStatusLabel.text = "\(cellular.networkStatus.description)"
-                    self?.operatorLabel.text = "\(cellular.operator)"
-                    self?.technologyLabel.text = "\(cellular.technology.description)"
-                    self?.isRoamingAllowedLabel.text = cellular.isRoamingAllowed.value ? "yes" : "no"
-                    self?.isPinCodeRequestedLabel.text = cellular.isPinCodeRequested ? "yes" : "no"
-                    self?.pinRemainingTriesLabel.text = "\(cellular.pinRemainingTries)"
-                    self?.resetStateLabel.text = "\(cellular.resetState)"
-                    self?.tableView.reloadData()
+                    self.isApnManualSwitch.isOn = cellular.apnConfigurationSetting.isManual
+                    self.showHideApnsettings()
+                    self.pincodeLabel.isHidden = !cellular.isPinCodeRequested
+                    self.pincodeTextField.isHidden = !cellular.isPinCodeRequested
+                    self.pincodeButton.isHidden = !cellular.isPinCodeRequested
+                    self.modemStatusLabel.text = "\(cellular.modemStatus.description)"
+                    self.imeiLabel.text = "\(cellular.imei)"
+                    self.simStatusLabel.text = "\(cellular.simStatus.description)"
+                    self.simIccidLabel.text = "\(cellular.simIccid)"
+                    self.simImsiLabel.text = "\(cellular.simImsi)"
+                    self.registrationStatusLabel.text = "\(cellular.registrationStatus.description)"
+                    self.networkStatusLabel.text = "\(cellular.networkStatus.description)"
+                    self.operatorLabel.text = "\(cellular.operator)"
+                    self.technologyLabel.text = "\(cellular.technology.description)"
+                    self.isRoamingAllowedLabel.text = cellular.isRoamingAllowed.value ? "yes" : "no"
+                    self.isPinCodeRequestedLabel.text = cellular.isPinCodeRequested ? "yes" : "no"
+                    self.pinRemainingTriesLabel.text = "\(cellular.pinRemainingTries)"
+                    self.resetStateLabel.text = "\(cellular.resetState)"
+                    self.tableView.reloadData()
                 } else {
-                    self?.performSegue(withIdentifier: "exit", sender: self)
+                    self.performSegue(withIdentifier: "exit", sender: self)
                 }
             }
+        }
+
+        self.keyboardWillShowObserver =
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
+                                               object: nil,
+                                               queue: .main) { [weak self] notification in
+            guard let self = self else { return }
+            let userInfo = notification.userInfo!
+            let keyboardInfo = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+            let keyboardSize = keyboardInfo.cgRectValue.size
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + 20, right: 0)
+            self.scrollView.contentInset = contentInsets
+            self.scrollView.scrollIndicatorInsets = contentInsets
+        }
+        self.keyboardWillHideObserver =
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification,
+                                               object: nil,
+                                               queue: .main) { [weak self] _ in
+            guard let self = self else { return }
+            self.scrollView.contentInset = .zero
+            self.scrollView.scrollIndicatorInsets = .zero
         }
     }
 
@@ -115,7 +147,7 @@ class CellularViewController: UIViewController, DeviceViewController {
     }
 
     @IBAction func sendApnPushed(_ sender: UIButton) {
-        if let cellular = cellular?.value {
+        if let cellular = self.cellular?.value {
             if self.isApnManualSwitch.isOn {
                 _ = cellular.apnConfigurationSetting.setToAuto()
             } else {
@@ -127,15 +159,15 @@ class CellularViewController: UIViewController, DeviceViewController {
     }
 
     @IBAction func sendPinCodePushed(_ sender: UIButton) {
-        if let cellular = cellular?.value {
-            guard let pincode = pincodeTextField.text else {
+        if let cellular = self.cellular?.value {
+            guard let pincode = self.pincodeTextField.text else {
                 return
             }
             if !isPinCodeValid(pinCode: pincode) {
                 let alertController =
-                    UIAlertController(title: "PIN code",
-                                      message: "The PIN code is not in a correct format",
-                                      preferredStyle: .alert)
+                UIAlertController(title: "PIN code",
+                                  message: "The PIN code is not in a correct format",
+                                  preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
                 return
@@ -145,7 +177,7 @@ class CellularViewController: UIViewController, DeviceViewController {
     }
 
     @IBAction func sendResetSettings(_ sender: UIButton) {
-        _ = cellular?.value?.resetSettings()
+        _ = self.cellular?.value?.resetSettings()
     }
 
     func isPinCodeValid(pinCode: String) -> Bool {
@@ -157,8 +189,8 @@ class CellularViewController: UIViewController, DeviceViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cellular = cellular?.value,
            let target = segue.destination as? ChooseEnumViewController,
-           indexPathSelected != nil {
-            if indexPathSelected!.section == 0 {
+           self.indexPathSelected != nil {
+            if self.indexPathSelected!.section == 0 {
                 target.title = "Mode"
                 target.initialize(data: ChooseEnumViewController.Data(
                     dataSource: CellularMode.allCases,
@@ -182,8 +214,9 @@ class CellularViewController: UIViewController, DeviceViewController {
 }
 
 extension CellularViewController: UITableViewDataSource, UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        indexPathSelected = indexPath
+        self.indexPathSelected = indexPath
         performSegue(withIdentifier: "selectEnumValue", sender: self)
     }
 

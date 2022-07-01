@@ -32,14 +32,13 @@ import GroundSdk
 
 class MediaStoreDownloadViewController: UIViewController, MediaListViewController {
 
+    @IBOutlet weak var typeControl: UISegmentedControl!
+    @IBOutlet weak var destinationControl: UISegmentedControl!
     @IBOutlet weak var mediaCntView: UILabel!
     @IBOutlet weak var resourceCntView: UILabel!
     @IBOutlet weak var fileProgressView: UIProgressView!
     @IBOutlet weak var totalProgressView: UIProgressView!
-    @IBOutlet weak var galleryButton: UIButton!
-    @IBOutlet weak var tmpButton: UIButton!
-    @IBOutlet weak var docButton: UIButton!
-    @IBOutlet weak var dirButton: UIButton!
+    @IBOutlet weak var downloadButton: UIButton!
 
     private let groundSdk = GroundSdk()
     private var droneUid: String?
@@ -51,19 +50,16 @@ class MediaStoreDownloadViewController: UIViewController, MediaListViewControlle
         self.medias = medias
     }
 
-    func download(destination: DownloadDestination) {
+    func download(type: DownloadType, destination: DownloadDestination) {
         if let medias = medias,
             let drone = groundSdk.getDrone(uid: droneUid!),
             let mediaStore: MediaStore = drone.getPeripheral(Peripherals.mediaStore) {
 
-            // Disable destination buttons
-            galleryButton.isEnabled = false
-            tmpButton.isEnabled = false
-            docButton.isEnabled = false
-            dirButton.isEnabled = false
+            downloadButton.isEnabled = false
 
             downloadRequest = mediaStore.newDownloader(
                 mediaResources: MediaResourceListFactory.listWith(allOf: medias),
+                type: type,
                 destination: destination) { [weak self] mediaDownloader in
                     if let mediaDownloader = mediaDownloader {
                         self?.mediaCntView.text =
@@ -73,8 +69,7 @@ class MediaStoreDownloadViewController: UIViewController, MediaListViewControlle
                         self?.fileProgressView.setProgress(mediaDownloader.currentFileProgress, animated: false)
                         self?.totalProgressView.setProgress(mediaDownloader.totalProgress, animated: false)
                         if mediaDownloader.status != .running {
-                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-                                [weak self] in
+                            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
                                 self?.cancel()
                             }
                         }
@@ -87,23 +82,24 @@ class MediaStoreDownloadViewController: UIViewController, MediaListViewControlle
         }
     }
 
-    @IBAction func downloadInGallery() {
-        if let drone = groundSdk.getDrone(uid: droneUid!) {
-            download(destination: .mediaGallery(albumName: drone.name))
+    @IBAction func download() {
+        let type: DownloadType = typeControl.selectedSegmentIndex == 0 ? .full : .preview
+
+        switch destinationControl.selectedSegmentIndex {
+        case 0:
+            if let drone = groundSdk.getDrone(uid: droneUid!) {
+                download(type: type, destination: .mediaGallery(albumName: drone.name))
+            }
+        case 1:
+            download(type: type, destination: .tmp)
+        case 2:
+            download(type: type, destination: .document(directoryName: "medias"))
+        case 3:
+            let dirPath = (NSTemporaryDirectory() as NSString).appendingPathComponent("medias")
+            download(type: type, destination: .directory(path: dirPath))
+        default:
+            break
         }
-    }
-
-    @IBAction func downloadInTmp() {
-        download(destination: .tmp)
-    }
-
-    @IBAction func downloadInDoc() {
-        download(destination: .document(directoryName: "medias"))
-    }
-
-    @IBAction func downloadInDir() {
-        let dirPath = (NSTemporaryDirectory() as NSString).appendingPathComponent("medias")
-        download(destination: .directory(path: dirPath))
     }
 
     @IBAction func cancel() {

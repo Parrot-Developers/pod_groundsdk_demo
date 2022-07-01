@@ -79,15 +79,7 @@ class SkyCtrl4MappingListViewController: UIViewController, DeviceViewController 
         for supportedDrone in skyCtrl4Gamepad.supportedDroneModels {
             let image: UIImage?
             switch supportedDrone {
-            case .anafi4k:
-                image = #imageLiteral(resourceName: "anafi.png")
-            case .anafi2:
-                image = #imageLiteral(resourceName: "anafi.png")
-            case .anafiThermal:
-                image = #imageLiteral(resourceName: "anafi.png")
-            case .anafiUa:
-                image = #imageLiteral(resourceName: "anafi.png")
-            case .anafiUsa:
+            case .anafi4k, .anafi2, .anafiThermal, .anafiUa, .anafiUsa, .anafi3, .anafi3Usa:
                 image = #imageLiteral(resourceName: "anafi.png")
             default:
                 image = nil

@@ -50,6 +50,7 @@ class MagnetometerWith3StepCalibrationVC: UIViewController, DeviceViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         let peripheralProvider: PeripheralProvider?
         if let drone = groundSdk.getDrone(uid: deviceUid!) {
             peripheralProvider = drone

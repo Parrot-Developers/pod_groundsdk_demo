@@ -37,34 +37,98 @@ class BatteryInfoCell: InstrumentProviderContentCell {
     @IBOutlet weak var batteryHealthLabel: UILabel!
     @IBOutlet weak var cycleCountLabel: UILabel!
     @IBOutlet weak var serialLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var batteryConfigurationDateLabel: UILabel!
+    @IBOutlet weak var batteryCellCountLabel: UILabel!
+    @IBOutlet weak var batteryCellVoltageLabel: UILabel!
+    @IBOutlet weak var designCapacityLabel: UILabel!
+    @IBOutlet weak var fullChargeCapacityLabel: UILabel!
+    @IBOutlet weak var remainingCapacityLabel: UILabel!
+    @IBOutlet weak var cellVoltageContainer: UIStackView!
+    private let unavailableCellVoltagesLabel = UILabel(frame: .zero)
+    private var cellVoltagesStackViews = [UIStackView]()
+
     private var batteryInfo: Ref<BatteryInfo>?
+
+    private static var configurationDateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.locale = Locale.autoupdatingCurrent
+        df.setLocalizedDateFormatFromTemplate("ddMMyyyy")
+        return df
+    }()
 
     override func set(instrumentProvider provider: InstrumentProvider) {
         super.set(instrumentProvider: provider)
-        selectionStyle = .none
+
         batteryInfo = provider.getInstrument(Instruments.batteryInfo) { [unowned self] batteryInfo in
             if let batteryInfo = batteryInfo {
                 self.batteryLevelLabel.text = "\(batteryInfo.batteryLevel)%"
                 self.isChargingLabel.text = batteryInfo.isCharging ? "YES" : "NO"
-                if let batteryHealth = batteryInfo.batteryHealth {
-                    self.batteryHealthLabel.text = "\(batteryHealth)%"
+                self.batteryHealthLabel.text = batteryInfo.batteryHealth.map { "\($0)%"} ?? "-"
+                self.cycleCountLabel.text = batteryInfo.cycleCount.map { "\($0)"} ?? "-"
+                self.serialLabel.text = batteryInfo.batteryDescription?.serial ?? "-"
+                self.temperatureLabel.text = batteryInfo.temperature.map {
+                    "\(Int(Double($0) - 273.15))ºC"
+                } ?? "-"
+                // description
+                self.batteryConfigurationDateLabel.text = batteryInfo
+                    .batteryDescription?.configurationDate.map {
+                        "\(BatteryInfoCell.configurationDateFormatter.string(from: $0))"
+                    } ?? "-"
+                self.batteryCellCountLabel.text = batteryInfo
+                    .batteryDescription.map { "\($0.cellCount)" } ?? "-"
+                self.batteryCellVoltageLabel.text = batteryInfo
+                    .batteryDescription.map {
+                        formatMilliVoltageToVoltage($0.cellMinVoltage)
+                        + "/" + formatMilliVoltageToVoltage($0.cellMaxVoltage)
+                    } ?? "-"
+                // capacity
+                self.designCapacityLabel.text = batteryInfo.batteryDescription
+                    .map { "\($0.designCapacity) mAh" } ?? "-"
+                self.fullChargeCapacityLabel.text = batteryInfo.capacity
+                    .map { "\($0.fullChargeCapacity) mAh" } ?? "-"
+                self.remainingCapacityLabel.text = batteryInfo.capacity
+                    .map { "\($0.remainingCapacity) mAh" } ?? "-"
+                // cell voltages
+                if batteryInfo.cellVoltages.isEmpty {
+                    self.cellVoltagesStackViews.forEach { self.cellVoltageContainer.removeArrangedSubview($0) }
+                    self.cellVoltagesStackViews = []
+                    self.unavailableCellVoltagesLabel.text = "-"
+                    self.cellVoltageContainer.addArrangedSubview(self.unavailableCellVoltagesLabel)
                 } else {
-                    self.batteryHealthLabel.text = "-"
-                }
-                if let cycleCount = batteryInfo.cycleCount {
-                    self.cycleCountLabel.text = "\(cycleCount)"
-                } else {
-                    self.cycleCountLabel.text = "-"
-                }
-                if let serial = batteryInfo.serial {
-                    self.serialLabel.text = "\(serial)"
-                } else {
-                    self.serialLabel.text = "-"
+                    self.cellVoltagesStackViews.forEach { self.cellVoltageContainer.removeArrangedSubview($0) }
+                    self.cellVoltagesStackViews = batteryInfo.cellVoltages
+                        .enumerated()
+                        .map { (index: Int, cellVoltage: UInt?) in
+                            let label = UILabel(frame: .zero)
+                            label.text = "Cell \(index)"
+                            let value = UILabel(frame: .zero)
+                            value.text = cellVoltage.map(formatMilliVoltageToVoltage) ?? "-"
+                            let horizontalContainer = UIStackView(arrangedSubviews: [label, value])
+                            horizontalContainer.axis = .horizontal
+                            horizontalContainer.alignment = .fill
+                            horizontalContainer.distribution = .fill
+                            horizontalContainer.spacing = 0
+                            return horizontalContainer
+                        }
+                    self.cellVoltagesStackViews.forEach {
+                        self.cellVoltageContainer.addArrangedSubview($0)
+                    }
+                    self.cellVoltageContainer.removeArrangedSubview(self.unavailableCellVoltagesLabel)
                 }
                 self.show()
             } else {
                 self.hide()
             }
         }
+    }
+}
+
+private func formatMilliVoltageToVoltage<N>(_ value: N) -> String where N: BinaryInteger {
+    let voltage = Double(value)/1000.0
+    if #available(iOS 15.0, *) {
+        return "\(voltage.formatted(.number.precision(.fractionLength(2))))V"
+    } else {
+        return "\(String(format: "%.2f", voltage))V"
     }
 }

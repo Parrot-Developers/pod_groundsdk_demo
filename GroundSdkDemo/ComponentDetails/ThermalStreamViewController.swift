@@ -70,11 +70,13 @@ class ThermalStreamViewController: UIViewController, DeviceViewController {
 
     private func initStream() {
         if let drone = groundSdk.getDrone(uid: droneUid!) {
+#if !targetEnvironment(simulator)
             streamServer = drone.getPeripheral(Peripherals.streamServer) { [weak self] streamServer in
                 if let streamServer = streamServer {
                     self?.enableStreamSwitch.isOn = streamServer.enabled
                 }
             }
+#endif
             thermalControl = drone.getPeripheral(Peripherals.thermalControl) { [weak self] thermalControl in
                 if let thermalControl = thermalControl {
                     self?.thermalSwitch.isEnabled = !thermalControl.setting.updating
@@ -131,6 +133,7 @@ class ThermalStreamViewController: UIViewController, DeviceViewController {
             }
         }
         if let streamServer = streamServer {
+#if !targetEnvironment(simulator)
             cameraLive = streamServer.value?.live { [weak self] stream in
                 if let stream = stream {
                     self?.cameraLivePlayPauseBtn.setTitle(stream.playState == .playing ? "Pause" : "Play", for: .normal)
@@ -142,6 +145,7 @@ class ThermalStreamViewController: UIViewController, DeviceViewController {
                     self?.cameraLivePlayStateLabel.text = "stream nil"
                 }
             }
+#endif
         }
     }
 

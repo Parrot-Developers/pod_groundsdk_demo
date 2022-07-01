@@ -68,6 +68,7 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
     }
 
     private func initStream() {
+#if !targetEnvironment(simulator)
         if let droneUid = droneUid, let drone = groundSdk.getDrone(uid: droneUid) {
             streamServer = drone.getPeripheral(Peripherals.streamServer) { [weak self] streamServer in
                 if let streamServer = streamServer {
@@ -75,6 +76,7 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
                 }
             }
         }
+#endif
         if let streamServer = streamServer {
 
             let source = { () -> CameraLiveSource in

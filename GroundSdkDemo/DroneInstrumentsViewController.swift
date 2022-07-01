@@ -1,4 +1,4 @@
-// Copyright (C) 2021 Parrot Drones SAS
+// Copyright (C) 2022 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -30,22 +30,45 @@
 import UIKit
 import GroundSdk
 
-class CellularLinkStatusCell: InstrumentProviderContentCell {
+class DroneInstrumentsViewController: DroneProviderTableViewController {
 
-    @IBOutlet weak var status: UILabel!
-    private var cellularLinkStatusRef: Ref<CellularLinkStatus>?
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    override func set(instrumentProvider provider: InstrumentProvider) {
-        super.set(instrumentProvider: provider)
+        if drone != nil {
+            // Instruments identifiers, sorted
+            let cellIdentifiers = [
+                "alarms",
+                "altimeter",
+                "attitudeIndicator",
+                "batteryInfo",
+                "cameraExposureValues",
+                "cellularLogs",
+                "compass",
+                "flightIndicators",
+                "flightInfo",
+                "flightMeter",
+                "gps",
+                "photoProgressIndicator",
+                "radio",
+                "speedometer"
+            ]
+            loadDataSource(cellIdentifiers: cellIdentifiers)
 
-        cellularLinkStatusRef = provider
-            .getInstrument(Instruments.cellularLinkStatus) { [unowned self] cellularLinkStatus in
-                status.text = cellularLinkStatus?.status?.description ?? "-"
-                if cellularLinkStatus != nil {
-                    show()
-                } else {
-                    hide()
+            // force initContent on each cell so that its isVisible property gets updated
+            dataSource.forEach { (_: String, cells: [DeviceContentCell]) in
+                cells.forEach { cell in
+                    if let instrumentCell = cell as? InstrumentProviderContentCell {
+                        instrumentCell.initContent(forIndexPath: indexPath(forCellIdentifier: cell.identifier),
+                                                   provider: drone!,
+                                                   delegate: self)
+                    }
+                    // cell specific actions
+                    if let attitudeIndicatorCell = cell as? AttitudeIndicatorCell {
+                        attitudeIndicatorCell.viewController = self
+                    }
                 }
             }
+        }
     }
 }

@@ -121,7 +121,6 @@ class CopterHudViewController: UIViewController, DeviceViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         resetAllInstrumentsViews()
         // get the drone
         if let droneUid = droneUid {
@@ -142,20 +141,24 @@ class CopterHudViewController: UIViewController, DeviceViewController {
         } else {
             gamepadControllerIsDisconnected()
         }
+
+        super.viewWillAppear(animated)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         stopListeningToGamecontrollerNotifs()
         GamepadController.sharedInstance.droneUid = self.droneUid
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
         streamView.setStream(stream: nil)
         dropFacilities()
         dropAllInstruments()
         GamepadController.sharedInstance.droneUid = nil
+
+        super.viewWillDisappear(animated)
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -240,9 +243,7 @@ class CopterHudViewController: UIViewController, DeviceViewController {
                 self.zoomVelocitySlider.isHidden = !zoom.isAvailable
             }
         }
-        guard TARGET_OS_SIMULATOR == 0 else {
-            return
-        }
+#if !targetEnvironment(simulator)
         streamServer = drone.getPeripheral(Peripherals.streamServer) { streamServer in
             streamServer?.enabled = true
         }
@@ -252,6 +253,7 @@ class CopterHudViewController: UIViewController, DeviceViewController {
                 _ = stream?.play()
             }
         }
+#endif
     }
 
     private func dropAllInstruments() {

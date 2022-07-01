@@ -234,7 +234,6 @@ class FlightPlanPilotingItfCell: PilotingItfProviderContentCell {
         }
     }
 
-
     @IBAction func activateAtItemV2Pushed(_ sender: Any) {
         if let pilotingItf = pilotingItf?.value,
            pilotingItf.state == .idle && pilotingItf.activateAtMissionItemV2Supported {

@@ -104,19 +104,20 @@ class HmdDemoViewController: HmdViewController, DeviceViewController {
             addCameraSprite(sprite: sprite2)
         }
     }
+
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true)
     }
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
     }
-    override var shouldAutorotate: Bool {
-        return true
-    }
+
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.videoOrigin = .phoneCamera
         initStream()
+
+        super.viewWillAppear(animated)
     }
 
     private func setUpHmdContent() {
@@ -140,6 +141,7 @@ class HmdDemoViewController: HmdViewController, DeviceViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
         streamServerRef?.value?.enabled = true
         playCameraLive()
         moveSpriteOnphoneCamera()
@@ -149,10 +151,11 @@ class HmdDemoViewController: HmdViewController, DeviceViewController {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
         self.setViewForHud(view: nil, refreshRateHz: 0)
         offScreenStreamRender?.contentZoneListener = nil
         deinitStream()
+
+        super.viewWillDisappear(animated)
     }
 
    /// How to change cokpitGlasses when the HMD is active
@@ -177,6 +180,7 @@ class HmdDemoViewController: HmdViewController, DeviceViewController {
     }
 
     private func initStream() {
+#if !targetEnvironment(simulator)
         if let drone = groundSdk.getDrone(uid: droneUid!) {
             streamServerRef = drone.getPeripheral(Peripherals.streamServer) { [weak self] streamServer in
                 if let self = self {
@@ -204,6 +208,7 @@ class HmdDemoViewController: HmdViewController, DeviceViewController {
                 }
             }
         }
+#endif
     }
 
     private func deinitStream() {

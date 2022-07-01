@@ -60,6 +60,9 @@ class GuidedPilotingItfViewController: UIViewController, DeviceViewController {
     @IBOutlet var downwardField: UITextField!
     @IBOutlet var headingField: UITextField!
 
+    private var keyboardWillShowObserver: NSObjectProtocol?
+    private var keyboardWillHideObserver: NSObjectProtocol?
+
     private let groundSdk = GroundSdk()
     private var droneUid: String?
     private var pilotingItf: Ref<GuidedPilotingItf>?
@@ -67,6 +70,11 @@ class GuidedPilotingItfViewController: UIViewController, DeviceViewController {
 
     func setDeviceUid(_ uid: String) {
         droneUid = uid
+    }
+
+    deinit {
+        self.keyboardWillShowObserver.map { NotificationCenter.default.removeObserver($0) }
+        self.keyboardWillHideObserver.map { NotificationCenter.default.removeObserver($0) }
     }
 
     var locationDestination: CLLocationCoordinate2D? {
@@ -99,6 +107,27 @@ class GuidedPilotingItfViewController: UIViewController, DeviceViewController {
                     self.droneLonValue.text = location.coordinate.longitude.description
                 }
             }
+        }
+
+        keyboardWillShowObserver =
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification,
+                                               object: nil,
+                                               queue: .main) { [weak self] notification in
+            guard let self = self else { return }
+            let userInfo = notification.userInfo!
+            let keyboardInfo = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
+            let keyboardSize = keyboardInfo.cgRectValue.size
+            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height + 20, right: 0)
+            self.scrollView.contentInset = contentInsets
+            self.scrollView.scrollIndicatorInsets = contentInsets
+        }
+        keyboardWillHideObserver =
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification,
+                                               object: nil,
+                                               queue: .main) { [weak self] _ in
+            guard let self = self else { return }
+            self.scrollView.contentInset = .zero
+            self.scrollView.scrollIndicatorInsets = .zero
         }
     }
 

@@ -66,7 +66,7 @@ class GamepadController {
     private var backends: [GamepadControllerBackend] = []
 
     private let groundSdk = GroundSdk()
-    var droneUid: String? = nil {
+    var droneUid: String? {
         didSet {
             if let droneUid = droneUid {
                 let drone = groundSdk.getDrone(uid: droneUid)

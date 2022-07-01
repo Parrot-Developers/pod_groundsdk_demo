@@ -69,6 +69,7 @@ class MultiStreamViewController: UIViewController, DeviceViewController {
     }
 
     private func startDroneMonitors() {
+#if !targetEnvironment(simulator)
         if let droneUid = droneUid, let drone = groundSdk.getDrone(uid: droneUid) {
             streamServer = drone.getPeripheral(Peripherals.streamServer) { [unowned self] streamServer in
                 if let streamServer = streamServer {
@@ -84,6 +85,7 @@ class MultiStreamViewController: UIViewController, DeviceViewController {
                 }
             }
         }
+#endif
     }
 
     private func stopDroneMonitors() {
@@ -256,16 +258,15 @@ class MultiStreamViewController: UIViewController, DeviceViewController {
         let alert = UIAlertController(title: "Source Selection",
                                       message: nil,
                                       preferredStyle: .actionSheet)
-
         // Cameras lives
         addCameraLiveSourceChoices(alert: alert)
-
         // Media replays
         addMediaReplaySourceChoices(alert: alert)
-
         // Media files
         addMediaFileSourceChoices(alert: alert)
 
+        alert.modalPresentationStyle = .popover
+        alert.popoverPresentationController?.sourceView = sender
         present(alert, animated: true)
     }
 
