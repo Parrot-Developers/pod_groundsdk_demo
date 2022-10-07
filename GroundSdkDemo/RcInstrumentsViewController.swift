@@ -42,8 +42,8 @@ class RcInstrumentsViewController: RemoteControlProviderTableViewController {
         let cellIdentifiers = [
             // Instruments
             "batteryInfo",
-            "cellularLinkStatus",
             "cellularLogs",
+            "cellularSession",
             "compass"
         ]
         loadDataSource(cellIdentifiers: cellIdentifiers)

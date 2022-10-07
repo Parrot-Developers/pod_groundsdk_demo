@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,9 @@
 		02F39FFB20AC22DA0058890D /* UserAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F39FFA20AC22DA0058890D /* UserAccountViewController.swift */; };
 		02FC4C7F2024C40100D76490 /* FlightMeterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02FC4C7E2024C40100D76490 /* FlightMeterCell.swift */; };
 		1D2194E81EE83883005A6883 /* CrashReportDownloaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D2194E71EE83883005A6883 /* CrashReportDownloaderCell.swift */; };
+		2D1BDD4C28A653F000E175D4 /* DeveloperModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BDD4B28A653F000E175D4 /* DeveloperModeCell.swift */; };
+		2D1BDD4E28A6586900E175D4 /* DeveloperModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BDD4D28A6586900E175D4 /* DeveloperModeViewController.swift */; };
+		2D1BDD5028A65C8D00E175D4 /* DirectConnectionModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1BDD4F28A65C8D00E175D4 /* DirectConnectionModeViewController.swift */; };
 		2D26646C282E997E0030AE5C /* DroneInstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26646B282E997E0030AE5C /* DroneInstrumentsViewController.swift */; };
 		2D26646E282E9E470030AE5C /* DronePilotingInterfacesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26646D282E9E470030AE5C /* DronePilotingInterfacesViewController.swift */; };
 		2D266470282E9F450030AE5C /* DronePeripheralsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26646F282E9F450030AE5C /* DronePeripheralsViewController.swift */; };
@@ -49,6 +52,11 @@
 		2D3ECC1D272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3ECC1C272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift */; };
 		2D7F65632832527C00AF4D91 /* DronePeripherals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7F65622832527C00AF4D91 /* DronePeripherals.storyboard */; };
 		2D7F65652833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F65642833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift */; };
+		2D9A19A228C7683800D0DF4C /* LogControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A19A128C7683800D0DF4C /* LogControl.storyboard */; };
+		2D9A19A428C76DF300D0DF4C /* LogControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9A19A328C76DF300D0DF4C /* LogControlViewController.swift */; };
+		2D9B898928A1148B006252F7 /* DebugShellContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B898828A1148B006252F7 /* DebugShellContentCell.swift */; };
+		2D9B898D28A12E14006252F7 /* DebugShellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B898C28A12E14006252F7 /* DebugShellViewController.swift */; };
+		2D9B898E28A1335F006252F7 /* DeveloperMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B899028A1335F006252F7 /* DeveloperMode.storyboard */; };
 		2DE1986B272C4AF500C19B3D /* vmeta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1986A272C4AF500C19B3D /* vmeta.pb.swift */; };
 		2DFA736D2837A44B0001626B /* RemoteInstruments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA736C2837A44B0001626B /* RemoteInstruments.storyboard */; };
 		2DFA736F2837A4580001626B /* RemotePeripherals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA736E2837A4580001626B /* RemotePeripherals.storyboard */; };
@@ -83,7 +91,7 @@
 		6899F3F624AF2DD50068073A /* MainCamera2EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6899F3F524AF2DD40068073A /* MainCamera2EditorViewController.swift */; };
 		689FC10E247FAE1F007922A0 /* Camera2ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FC10D247FAE1F007922A0 /* Camera2ZoomViewController.swift */; };
 		689FC110247FE14C007922A0 /* Camera2EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689FC10F247FE14C007922A0 /* Camera2EditorViewController.swift */; };
-		68CC73EB26F3A87100584407 /* CellularLinkSatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC73EA26F3A87100584407 /* CellularLinkSatusCell.swift */; };
+		68CC73EB26F3A87100584407 /* CellularSessionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CC73EA26F3A87100584407 /* CellularSessionCell.swift */; };
 		68DA8DA726BD77200003CED1 /* CellularLogsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DA8DA626BD77200003CED1 /* CellularLogsCell.swift */; };
 		68DA8DAA26BD8A1A0003CED1 /* CellularLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DA8DA926BD8A1A0003CED1 /* CellularLogsViewController.swift */; };
 		68DA8DAD26BD91240003CED1 /* CellularLogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68DA8DAB26BD91240003CED1 /* CellularLogs.storyboard */; };
@@ -224,6 +232,8 @@
 		9BF5448D22BA3D1D00452895 /* CopilotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF5448C22BA3D1D00452895 /* CopilotViewController.swift */; };
 		9D93087B27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */; };
 		9D93087D27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */; };
+		9DB998B528B8FDEE00C420E6 /* LogCollector.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DB998B428B8FDEE00C420E6 /* LogCollector.storyboard */; };
+		9DB998B728B9095700C420E6 /* LogCollectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB998B628B9095700C420E6 /* LogCollectorViewController.swift */; };
 		9DDE426A2721D4A10062567A /* MediaStoreUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDE42692721D4A10062567A /* MediaStoreUploadViewController.swift */; };
 		F708932F2534A32D0036AF2B /* SecureElementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F708932E2534A32D0036AF2B /* SecureElementCell.swift */; };
 		F70A52852525CE830042D96B /* FlightCameraRecorderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A52842525CE830042D96B /* FlightCameraRecorderCell.swift */; };
@@ -345,6 +355,9 @@
 		02F39FFA20AC22DA0058890D /* UserAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountViewController.swift; sourceTree = "<group>"; };
 		02FC4C7E2024C40100D76490 /* FlightMeterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightMeterCell.swift; sourceTree = "<group>"; };
 		1D2194E71EE83883005A6883 /* CrashReportDownloaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashReportDownloaderCell.swift; sourceTree = "<group>"; };
+		2D1BDD4B28A653F000E175D4 /* DeveloperModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperModeCell.swift; sourceTree = "<group>"; };
+		2D1BDD4D28A6586900E175D4 /* DeveloperModeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeveloperModeViewController.swift; sourceTree = "<group>"; };
+		2D1BDD4F28A65C8D00E175D4 /* DirectConnectionModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectConnectionModeViewController.swift; sourceTree = "<group>"; };
 		2D26646B282E997E0030AE5C /* DroneInstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroneInstrumentsViewController.swift; sourceTree = "<group>"; };
 		2D26646D282E9E470030AE5C /* DronePilotingInterfacesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronePilotingInterfacesViewController.swift; sourceTree = "<group>"; };
 		2D26646F282E9F450030AE5C /* DronePeripheralsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronePeripheralsViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +366,11 @@
 		2D3ECC1C272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parrot_missions_samples_hello_airsdk_messages.pb.swift; sourceTree = "<group>"; };
 		2D7F65622832527C00AF4D91 /* DronePeripherals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DronePeripherals.storyboard; sourceTree = "<group>"; };
 		2D7F65642833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentPeripheralProviderTableViewController.swift; sourceTree = "<group>"; };
+		2D9A19A128C7683800D0DF4C /* LogControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogControl.storyboard; sourceTree = "<group>"; };
+		2D9A19A328C76DF300D0DF4C /* LogControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogControlViewController.swift; sourceTree = "<group>"; };
+		2D9B898828A1148B006252F7 /* DebugShellContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugShellContentCell.swift; sourceTree = "<group>"; };
+		2D9B898C28A12E14006252F7 /* DebugShellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugShellViewController.swift; sourceTree = "<group>"; };
+		2D9B898F28A1335F006252F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DeveloperMode.storyboard; sourceTree = "<group>"; };
 		2DE1986A272C4AF500C19B3D /* vmeta.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vmeta.pb.swift; sourceTree = "<group>"; };
 		2DFA736C2837A44B0001626B /* RemoteInstruments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteInstruments.storyboard; sourceTree = "<group>"; };
 		2DFA736E2837A4580001626B /* RemotePeripherals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemotePeripherals.storyboard; sourceTree = "<group>"; };
@@ -388,7 +406,7 @@
 		6899F3F524AF2DD40068073A /* MainCamera2EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCamera2EditorViewController.swift; sourceTree = "<group>"; };
 		689FC10D247FAE1F007922A0 /* Camera2ZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera2ZoomViewController.swift; sourceTree = "<group>"; };
 		689FC10F247FE14C007922A0 /* Camera2EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera2EditorViewController.swift; sourceTree = "<group>"; };
-		68CC73EA26F3A87100584407 /* CellularLinkSatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularLinkSatusCell.swift; sourceTree = "<group>"; };
+		68CC73EA26F3A87100584407 /* CellularSessionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularSessionCell.swift; sourceTree = "<group>"; };
 		68DA8DA626BD77200003CED1 /* CellularLogsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellularLogsCell.swift; sourceTree = "<group>"; };
 		68DA8DA926BD8A1A0003CED1 /* CellularLogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellularLogsViewController.swift; path = GroundSdkDemo/ComponentDetails/CellularLogsViewController.swift; sourceTree = SOURCE_ROOT; };
 		68DA8DAC26BD91240003CED1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CellularLogs.storyboard; sourceTree = "<group>"; };
@@ -533,6 +551,8 @@
 		9BF5448C22BA3D1D00452895 /* CopilotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopilotViewController.swift; sourceTree = "<group>"; };
 		9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SkyCtrlCellularLogs.storyboard; sourceTree = "<group>"; };
 		9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyCtrlCellularLogsViewController.swift; sourceTree = "<group>"; };
+		9DB998B428B8FDEE00C420E6 /* LogCollector.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogCollector.storyboard; sourceTree = "<group>"; };
+		9DB998B628B9095700C420E6 /* LogCollectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCollectorViewController.swift; sourceTree = "<group>"; };
 		9DDE42692721D4A10062567A /* MediaStoreUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaStoreUploadViewController.swift; sourceTree = "<group>"; };
 		CF81A475B11244A11059F474 /* Pods-GroundSdkDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GroundSdkDemo.debug.xcconfig"; path = "Target Support Files/Pods-GroundSdkDemo/Pods-GroundSdkDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		F708932E2534A32D0036AF2B /* SecureElementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureElementCell.swift; sourceTree = "<group>"; };
@@ -670,8 +690,8 @@
 				7C32DDDF1F03AE8300B9E8F9 /* Camera.storyboard */,
 				F782717124B4C8E3003F6D5E /* Cellular.storyboard */,
 				68DA8DAB26BD91240003CED1 /* CellularLogs.storyboard */,
-				9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */,
 				9BF5448A22BA3C3900452895 /* Copilot.storyboard */,
+				2D9B899028A1335F006252F7 /* DeveloperMode.storyboard */,
 				682B3A5723DEDDCD001C5D25 /* DevToolbox.storyboard */,
 				680D279E257A779A004EC407 /* Dri.storyboard */,
 				7C5C43461E0156C100B8829C /* DroneFinder.storyboard */,
@@ -679,6 +699,7 @@
 				2D266471282EA3D30030AE5C /* DroneInstruments.storyboard */,
 				2D266473282EB8690030AE5C /* DronePilotingItfs.storyboard */,
 				2D7F65622832527C00AF4D91 /* DronePeripherals.storyboard */,
+				9BC27A3A25FBB439003285AB /* Facilities.storyboard */,
 				712A9F54220447B900BD4DFC /* FileReplay.storyboard */,
 				F8C252F51FD04CCE00A87B5F /* FirmwareManager.storyboard */,
 				F7FA4D9C2487CAA7002A8E7D /* FrontStereoGimbal.storyboard */,
@@ -691,7 +712,8 @@
 				9B5EBEB32459838D00812D7C /* InternalUserStorage.storyboard */,
 				7CA1C99D1C807D5000FE9ED4 /* LaunchScreen.storyboard */,
 				7C5C43401E0151C400B8829C /* LiveStream.storyboard */,
-				70D5A0DE2576A4B300958BF7 /* MultiStream.storyboard */,
+				9DB998B428B8FDEE00C420E6 /* LogCollector.storyboard */,
+				2D9A19A128C7683800D0DF4C /* LogControl.storyboard */,
 				F80065422003A506006669BD /* MagnetometerWith1StepCalib.storyboard */,
 				7C5C433D1E01513100B8829C /* MagnetometerWith3StepCalib.storyboard */,
 				7CA1C9981C807D5000FE9ED4 /* Main.storyboard */,
@@ -702,6 +724,7 @@
 				F7A37C6224D2BDB0000E2869 /* MissionHello.storyboard */,
 				9B5A7B79240FF3BF008D88AD /* MissionManager.storyboard */,
 				9B50C4602487A77E00D9B229 /* MissionUpdater.storyboard */,
+				70D5A0DE2576A4B300958BF7 /* MultiStream.storyboard */,
 				684611B524D3FE6300C87A5C /* NetworkControl.storyboard */,
 				7C816A841CF82CB300393534 /* NumSettingView.xib */,
 				9B5D34FB23CC5AF30098016D /* OnboardTracker.storyboard */,
@@ -709,10 +732,14 @@
 				02BBE9C52051745300476F93 /* PoiPiloting.storyboard */,
 				9B40FAD421620D3400CF6690 /* PreciseHome.storyboard */,
 				686583CB231FBE5A00272549 /* RadioControl.storyboard */,
+				9BC27A3C25FBB7B3003285AB /* RemoteControlInfo.storyboard */,
+				2DFA736C2837A44B0001626B /* RemoteInstruments.storyboard */,
+				2DFA736E2837A4580001626B /* RemotePeripherals.storyboard */,
 				9B48547A217F60B6007D1CFC /* RemovableUserStorage.storyboard */,
 				712A9F5822045EC000BD4DFC /* Replay */,
 				7C5C433A1E014E3900B8829C /* ReturnHomePilotingItf.storyboard */,
 				02CE4474208E1A2B007B9F9F /* SkyCtrl3AxesSetup.storyboard */,
+				9D93087A27CCE343007D9D12 /* SkyCtrlCellularLogs.storyboard */,
 				02CE4477208E1A32007B9F9F /* SkyCtrl3GrabList.storyboard */,
 				02CE447A208E1A3A007B9F9F /* SkyCtrl3MappingList.storyboard */,
 				9B7CB575260E1C730095EB06 /* SkyCtrl4AxesSetup.storyboard */,
@@ -724,10 +751,6 @@
 				68ED066222159FC2007DAECE /* ThermalStream.storyboard */,
 				02F39FF720AC22900058890D /* UserAccount.storyboard */,
 				F828A4B21F01591E00431860 /* WifiAccessPoint.storyboard */,
-				9BC27A3A25FBB439003285AB /* Facilities.storyboard */,
-				9BC27A3C25FBB7B3003285AB /* RemoteControlInfo.storyboard */,
-				2DFA736C2837A44B0001626B /* RemoteInstruments.storyboard */,
-				2DFA736E2837A4580001626B /* RemotePeripherals.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -735,14 +758,6 @@
 		7C5C43491E01588000B8829C /* DeviceInfoCells */ = {
 			isa = PBXGroup;
 			children = (
-				F708932E2534A32D0036AF2B /* SecureElementCell.swift */,
-				F70A52842525CE830042D96B /* FlightCameraRecorderCell.swift */,
-				F7A37C6024D1B33B000E2869 /* MissionHelloDroneCell.swift */,
-				F782716F24B45BA5003F6D5E /* CellularCell.swift */,
-				F7DB2D7C249BB46D00F09AAA /* CertificateUploaderCell.swift */,
-				F7A81AD62472C29E00A2747D /* StereoVisionSensorCell.swift */,
-				F744F9ED24588588004E52D1 /* DriCell.swift */,
-				F7893BE6248F725A009A89FB /* LogControlCell.swift */,
 				7C7CF4DD1D18288D000BB8FC /* AlarmsCell.swift */,
 				7C7CF4DF1D183717000BB8FC /* AltimeterCell.swift */,
 				F86A81701F8D0E2500F7EE60 /* AnimationPilotingItfCell.swift */,
@@ -753,15 +768,22 @@
 				F73982F7247CFCEF00B5E5E6 /* BlendedThermalCameraCell.swift */,
 				02D12B2D2028AAAB002C00BB /* BeeperCell.swift */,
 				7C59BAF31FAB8BC400AB8A6C /* CameraCell.swift */,
-				6828E05E248169CA00E818B4 /* MainCamera2Cell.swift */,
 				F8F2B19E20E3A8D700A1A802 /* CameraExposureValuesCell.swift */,
+				F782716F24B45BA5003F6D5E /* CellularCell.swift */,
+				68CC73EA26F3A87100584407 /* CellularSessionCell.swift */,
+				68DA8DA626BD77200003CED1 /* CellularLogsCell.swift */,
+				F7DB2D7C249BB46D00F09AAA /* CertificateUploaderCell.swift */,
 				7C7CF4E31D1846DB000BB8FC /* CompassCell.swift */,
 				9BF5448822BA2D7C00452895 /* CopilotCell.swift */,
 				F8D32CDA1EF1955600074795 /* CopterMotorsCell.swift */,
 				1D2194E71EE83883005A6883 /* CrashReportDownloaderCell.swift */,
 				F88468801DED8AC900ACE941 /* DeviceContentCell.swift */,
+				2D9B898828A1148B006252F7 /* DebugShellContentCell.swift */,
+				2D1BDD4B28A653F000E175D4 /* DeveloperModeCell.swift */,
 				682B3A5123DB3DE8001C5D25 /* DevToolboxCell.swift */,
+				F744F9ED24588588004E52D1 /* DriCell.swift */,
 				7C1EBC1B1DB0FF41002B4724 /* DroneFinderCell.swift */,
+				F70A52842525CE830042D96B /* FlightCameraRecorderCell.swift */,
 				0237585B209D9F390077F63C /* FlightDataDownloaderCell.swift */,
 				7C4487601CF5FEAB0056F5AC /* FlightIndicatorsCell.swift */,
 				708D7D6D213E87E1009DBD12 /* FlightLogDownloaderCell.swift */,
@@ -770,44 +792,47 @@
 				9B447211257A424F0056A60D /* FlightInfocell.swift */,
 				F89A06441EDEC4E40069ACD4 /* FlightPlanPilotingItfCell.swift */,
 				026B64D62087387100FE5C86 /* FollowMePilotingItfCell.swift */,
+				F7FA4D9A2487C8B4002A8E7D /* FrontStereoGimbalCell.swift */,
 				027364A6209748B300C16142 /* GeofenceCell.swift */,
 				F8A3D0D22051977600AF0126 /* GimbalCell.swift */,
-				F7FA4D9A2487C8B4002A8E7D /* FrontStereoGimbalCell.swift */,
 				7C7CF4E51D184C4C000BB8FC /* GpsCell.swift */,
 				029075F91FE2950800DED655 /* GuidedPilotingItfCell.swift */,
+				7037D18C22C61603002CB93A /* HmdCell.swift */,
+				9B5EBEB12459834F00812D7C /* InternalUserStorageCell.swift */,
 				9B73BDC52216FFF8008DA1F7 /* LedsCell.swift */,
-				68CC73EA26F3A87100584407 /* CellularLinkSatusCell.swift */,
-				68DA8DA626BD77200003CED1 /* CellularLogsCell.swift */,
+				F7893BE6248F725A009A89FB /* LogControlCell.swift */,
 				02D39E1D207E0DD200494EC4 /* LookAtPilotingItfCell.swift */,
+				6828E05E248169CA00E818B4 /* MainCamera2Cell.swift */,
+				F7A81AD62472C29E00A2747D /* StereoVisionSensorCell.swift */,
 				F8DB46441D33F25E00297E15 /* MagnetometerCell.swift */,
 				7C4487621CF60C9A0056F5AC /* ManualCopterPilotingItfCell.swift */,
 				7C5F9D241DEC3BDF00E846D8 /* MediaStoreCell.swift */,
 				6884134925627F340086F153 /* MicrohardCell.swift */,
+				F7A37C6024D1B33B000E2869 /* MissionHelloDroneCell.swift */,
 				9B5A7B77240FE294008D88AD /* MissionManagerCell.swift */,
 				9B50C46B2487DE4F00D9B229 /* MissionUpdaterCell.swift */,
+				70D5A0DC2576A2B700958BF7 /* MultiStreamCell.swift */,
 				684611B124D3F57F00C87A5C /* NetworkControlCell.swift */,
 				9B60AE5D24B3250C00296A2F /* ObstacleAvoidanceCell.swift */,
 				9B5778B223C71C9F00E6C7A0 /* OnboardTrackerCell.swift */,
+				70ABC3A223157FD700327AB0 /* PilotingControlCell.swift */,
 				9BBD415A222FBEA20006CBAF /* PhotoProgressIndicatorCell.swift */,
 				0244B4D92056D0A300B701B1 /* PointOfInterestPilotingItfCell.swift */,
 				9B40FAD2215E5CFA00CF6690 /* PreciseHomeCell.swift */,
 				7CA8BDBA1ECC847200B79CCC /* RadioCell.swift */,
 				686583C8231FB39000272549 /* RadioControlCell.swift */,
 				F8123B5D200DFC380071672B /* RemovableUserStorageCell.swift */,
-				9B5EBEB12459834F00812D7C /* InternalUserStorageCell.swift */,
 				7CECF2861D2A8E1A00BF5C84 /* ReturnHomePilotingItfCell.swift */,
 				02CE446A208E17CE007B9F9F /* SkyCtrl3GamepadCell.swift */,
 				9B7CB56F260E1C0B0095EB06 /* SkyCtrl4GamepadCell.swift */,
+				F708932E2534A32D0036AF2B /* SecureElementCell.swift */,
 				7C69031F1D1933C000A8D570 /* SpeedometerCell.swift */,
 				F82C3E9E1DDC6975000804C5 /* StreamServerCell.swift */,
 				F884687C1DEC974200ACE941 /* SystemInfoCell.swift */,
 				02D39E1B207D03B200494EC4 /* TargetTrackerCell.swift */,
 				9BBB950F21DF9DED00CE4322 /* ThermalCameraCell.swift */,
 				9B31E00721C947A7006F389E /* ThermalControlCell.swift */,
-				70ABC3A223157FD700327AB0 /* PilotingControlCell.swift */,
 				681A967422147CFF00172594 /* ThermalStreamCell.swift */,
-				7037D18C22C61603002CB93A /* HmdCell.swift */,
-				70D5A0DC2576A2B700958BF7 /* MultiStreamCell.swift */,
 				F8ED48B91E828D4100C0FFC0 /* UpdaterCell.swift */,
 				F8F1556E1E24ECB700C71718 /* VirtualGamepadCell.swift */,
 				F828A4B01F01508C00431860 /* WifiAccessPoint.swift */,
@@ -836,6 +861,7 @@
 				F821EA16203448A00091C186 /* CameraChangeZoomViewController.swift */,
 				71044D1821524409006BAF88 /* CameraExposureLockViewController.swift */,
 				7CE609E72062C217008E338E /* CameraStyleParametresViewController.swift */,
+				68DA8DA926BD8A1A0003CED1 /* CellularLogsViewController.swift */,
 				F782717424B4C9C6003F6D5E /* CellularViewController.swift */,
 				F878C5F4203357ED0090B7C2 /* ChooseBoolViewController.swift */,
 				684953CA249A619300988B63 /* ChooseDoubleParamViewController.swift */,
@@ -843,6 +869,10 @@
 				6884134E2562BAD90086F153 /* ChooseIntViewController.swift */,
 				F878C5F2203356B90090B7C2 /* ChooseNumberViewController.swift */,
 				9BF5448C22BA3D1D00452895 /* CopilotViewController.swift */,
+				2D9B898C28A12E14006252F7 /* DebugShellViewController.swift */,
+				2D1BDD4D28A6586900E175D4 /* DeveloperModeViewController.swift */,
+				2D1BDD4F28A65C8D00E175D4 /* DirectConnectionModeViewController.swift */,
+				70D5A0E32576B59000958BF7 /* DeviceContainerViewController.swift */,
 				682B3A5323DB4F73001C5D25 /* DevToolboxViewController.swift */,
 				680D2790257A4BD9004EC407 /* DriViewController.swift */,
 				7C1EBC1D1DB10AC0002B4724 /* DroneFinderViewController.swift */,
@@ -856,8 +886,7 @@
 				706070BE22CA461D00006C80 /* HmdHudContent.swift */,
 				9B5EBEAF2459830500812D7C /* InternalUserStorageViewController.swift */,
 				7C32DDE11F03B1C700B9E8F9 /* LiveStreamController.swift */,
-				68DA8DA926BD8A1A0003CED1 /* CellularLogsViewController.swift */,
-				9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */,
+				2D9A19A328C76DF300D0DF4C /* LogControlViewController.swift */,
 				F87D5A421FFFF353005AF079 /* MagnetometerWith1StepCalibrationVC.swift */,
 				F8DB46461D33F6EA00297E15 /* MagnetometerWith3StepCalibrationVC.swift */,
 				6899F3F524AF2DD40068073A /* MainCamera2EditorViewController.swift */,
@@ -874,6 +903,7 @@
 				F7A37C5D24D1B24D000E2869 /* MissionHelloDrone */,
 				9B5A7B7B241003CF008D88AD /* MissionManager */,
 				9B50C4642487C8FF00D9B229 /* MissionUpdater */,
+				70D5A0E12576ACD900958BF7 /* MultiStreamViewController.swift */,
 				684611B324D3FD0E00C87A5C /* NetworkControlViewController.swift */,
 				9B5D6AE223D5E67F00AA08C3 /* OnboardTracker */,
 				70139B4923181C7A0014F200 /* PilotingControlViewController.swift */,
@@ -883,6 +913,7 @@
 				9B48547D21809977007D1CFC /* RemovableUserStorageViewController.swift */,
 				7C92BF321D2BD81A00C1C486 /* ReturnHomePilotingItfViewController.swift */,
 				02CE446C208E18FF007B9F9F /* SkyCtrl3AxisSetupViewController.swift */,
+				9D93087C27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift */,
 				02CE446D208E18FF007B9F9F /* SkyCtrl3GrabViewController.swift */,
 				02CE446E208E18FF007B9F9F /* SkyCtrl3MappingEditViewController.swift */,
 				02CE446F208E1900007B9F9F /* SkyCtrl3MappingListViewController.swift */,
@@ -907,8 +938,6 @@
 				681A967622147E4400172594 /* ThermalStreamViewController.swift */,
 				02F39FFA20AC22DA0058890D /* UserAccountViewController.swift */,
 				F82C3EA01DDC6B6F000804C5 /* VideoStreamViewController.swift */,
-				70D5A0E12576ACD900958BF7 /* MultiStreamViewController.swift */,
-				70D5A0E32576B59000958BF7 /* DeviceContainerViewController.swift */,
 				F828A4B71F0241A500431860 /* WifiAccessPointSettingViewController.swift */,
 				F828A4B51F0162FA00431860 /* WifiAccessPointViewController.swift */,
 			);
@@ -962,11 +991,12 @@
 				F88CD0C21CA43BCA00B4E8FB /* DroneInfoViewController.swift */,
 				2DFA73722837C04F0001626B /* DeviceInfoViewController.swift */,
 				2D26646B282E997E0030AE5C /* DroneInstrumentsViewController.swift */,
-				2D7F65642833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift */,
 				2D26646D282E9E470030AE5C /* DronePilotingInterfacesViewController.swift */,
 				2D26646F282E9F450030AE5C /* DronePeripheralsViewController.swift */,
 				9BEB8A75251A3B03000F5CA7 /* FcrAnonymizerDemo.swift */,
 				F8468C571FBF354500B534FD /* FacilitiesListViewController.swift */,
+				2D7F65642833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift */,
+				9DB998B628B9095700C420E6 /* LogCollectorViewController.swift */,
 				7C816A861CF82E9400393534 /* NumSettingView.swift */,
 				7C8E47A21DA7D86500D72B6D /* RcInfoViewController.swift */,
 				2DFA73702837A4BC0001626B /* RcInstrumentsViewController.swift */,
@@ -986,9 +1016,9 @@
 		9B50C4642487C8FF00D9B229 /* MissionUpdater */ = {
 			isa = PBXGroup;
 			children = (
-				9B50C4672487CC3000D9B229 /* MissionUpdaterViewController.swift */,
 				9B50C4652487C9AD00D9B229 /* MissionUpdaterDetailCell.swift */,
 				9B50C4692487CDB300D9B229 /* MissionUpdaterLocalMissionTVC.swift */,
+				9B50C4672487CC3000D9B229 /* MissionUpdaterViewController.swift */,
 			);
 			path = MissionUpdater;
 			sourceTree = "<group>";
@@ -996,8 +1026,8 @@
 		9B5A7B7B241003CF008D88AD /* MissionManager */ = {
 			isa = PBXGroup;
 			children = (
-				9B5A7B7C241003DF008D88AD /* MissionManagerViewController.swift */,
 				9B5A7B7E24100AA6008D88AD /* MissionManagerDetailCell.swift */,
+				9B5A7B7C241003DF008D88AD /* MissionManagerViewController.swift */,
 			);
 			path = MissionManager;
 			sourceTree = "<group>";
@@ -1039,10 +1069,10 @@
 				F87CC52A1FC73E76007A9AD6 /* CrashReporterCell.swift */,
 				F845CCE31FBF39E700F71BDA /* FacilityCell.swift */,
 				F8C252F11FD017FD00A87B5F /* FirmwareManagerCell.swift */,
-				0237585D209DD6500077F63C /* FlightDataManagerCell.swift */,
-				849ADAF2239AB1B100D9F722 /* GutmaLogManagerCell.swift */,
-				708D7D6F213E87E9009DBD12 /* FlightLogReporterCell.swift */,
 				9B5B360624E3DB6800870B93 /* FlightCameraRecordReporterCell.swift */,
+				0237585D209DD6500077F63C /* FlightDataManagerCell.swift */,
+				708D7D6F213E87E9009DBD12 /* FlightLogReporterCell.swift */,
+				849ADAF2239AB1B100D9F722 /* GutmaLogManagerCell.swift */,
 				02893A05204D9D790025E127 /* ReverseGeocoderCell.swift */,
 				02F39FF520AB46900058890D /* UserAccountCell.swift */,
 				02C1D559200E2DFB0057FA06 /* UserLocationCell.swift */,
@@ -1102,7 +1132,7 @@
 				};
 			};
 			buildConfigurationList = 7CA1C98C1C807D5000FE9ED4 /* Build configuration list for PBXProject "GroundSdkDemo" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1141,12 +1171,15 @@
 				02CE4476208E1A2B007B9F9F /* SkyCtrl3AxesSetup.storyboard in Resources */,
 				680D27A0257A779A004EC407 /* Dri.storyboard in Resources */,
 				7C5C43451E01561500B8829C /* MediaStore.storyboard in Resources */,
+				2D9A19A228C7683800D0DF4C /* LogControl.storyboard in Resources */,
 				9B73B89525FBD16D001239A5 /* DroneInfo.storyboard in Resources */,
 				7C69F8271FC88C9D00838162 /* Podfile in Resources */,
+				9DB998B528B8FDEE00C420E6 /* LogCollector.storyboard in Resources */,
 				7CA1C99F1C807D5000FE9ED4 /* LaunchScreen.storyboard in Resources */,
 				9BBB951421E7786100CE4322 /* ThermalCamera.storyboard in Resources */,
 				F8C252F71FD04CCE00A87B5F /* FirmwareManager.storyboard in Resources */,
 				02CE4479208E1A32007B9F9F /* SkyCtrl3GrabList.storyboard in Resources */,
+				2D9B898E28A1335F006252F7 /* DeveloperMode.storyboard in Resources */,
 				7C5C43421E0151C400B8829C /* LiveStream.storyboard in Resources */,
 				7C5C43481E0156C100B8829C /* DroneFinder.storyboard in Resources */,
 				712A9F55220447B900BD4DFC /* FileReplay.storyboard in Resources */,
@@ -1273,7 +1306,7 @@
 				9BB4FBBC21E88A45005E2E58 /* ThermalCameraStyleParametersViewController.swift in Sources */,
 				F7398305247D1F6D00B5E5E6 /* BlendedThermalCameraCaptureIntervalVC.swift in Sources */,
 				9B5A7B78240FE294008D88AD /* MissionManagerCell.swift in Sources */,
-				68CC73EB26F3A87100584407 /* CellularLinkSatusCell.swift in Sources */,
+				68CC73EB26F3A87100584407 /* CellularSessionCell.swift in Sources */,
 				9BF5448922BA2D7C00452895 /* CopilotCell.swift in Sources */,
 				7C1EBC1E1DB10AC0002B4724 /* DroneFinderViewController.swift in Sources */,
 				689FC10E247FAE1F007922A0 /* Camera2ZoomViewController.swift in Sources */,
@@ -1311,6 +1344,7 @@
 				6899F3F424AF13E20068073A /* MainCamera2ViewController.swift in Sources */,
 				7C6903201D1933C000A8D570 /* SpeedometerCell.swift in Sources */,
 				7C7CF4E61D184C4C000BB8FC /* GpsCell.swift in Sources */,
+				2D9A19A428C76DF300D0DF4C /* LogControlViewController.swift in Sources */,
 				6884134A25627F350086F153 /* MicrohardCell.swift in Sources */,
 				7CC44D1D1CE1FBE20052E10C /* JoystickView.swift in Sources */,
 				7C4487631CF60C9A0056F5AC /* ManualCopterPilotingItfCell.swift in Sources */,
@@ -1323,7 +1357,9 @@
 				680D2791257A4BD9004EC407 /* DriViewController.swift in Sources */,
 				9B5EBEB22459834F00812D7C /* InternalUserStorageCell.swift in Sources */,
 				9BEB8A76251A3B03000F5CA7 /* FcrAnonymizerDemo.swift in Sources */,
+				2D1BDD4C28A653F000E175D4 /* DeveloperModeCell.swift in Sources */,
 				7CF4E8BA20597FC100B5373B /* AntiflickerCell.swift in Sources */,
+				9DB998B728B9095700C420E6 /* LogCollectorViewController.swift in Sources */,
 				9B31E00821C947A7006F389E /* ThermalControlCell.swift in Sources */,
 				7C8A61CF1CF7272200CB9392 /* DeviceViewController.swift in Sources */,
 				9B5D6ADB23D594B100AA08C3 /* OnboardTrackerHudViewController.swift in Sources */,
@@ -1331,6 +1367,7 @@
 				F828A4B81F0241A600431860 /* WifiAccessPointSettingViewController.swift in Sources */,
 				7C7425051F5ED0AA003A396E /* ChooseEnumViewController.swift in Sources */,
 				9B48547E21809977007D1CFC /* RemovableUserStorageViewController.swift in Sources */,
+				2D1BDD4E28A6586900E175D4 /* DeveloperModeViewController.swift in Sources */,
 				F82318731D13F4620058A047 /* AttitudeIndicatorView.swift in Sources */,
 				F82C3EA11DDC6B6F000804C5 /* VideoStreamViewController.swift in Sources */,
 				684953CB249A619300988B63 /* ChooseDoubleParamViewController.swift in Sources */,
@@ -1402,6 +1439,7 @@
 				7CA1C9951C807D5000FE9ED4 /* AppDelegate.swift in Sources */,
 				F845CCE61FBF3CCE00F71BDA /* AutoConnectionCell.swift in Sources */,
 				F8DB46471D33F6EA00297E15 /* MagnetometerWith3StepCalibrationVC.swift in Sources */,
+				2D1BDD5028A65C8D00E175D4 /* DirectConnectionModeViewController.swift in Sources */,
 				F7A81AD72472C29E00A2747D /* StereoVisionSensorCell.swift in Sources */,
 				6828E05F248169CA00E818B4 /* MainCamera2Cell.swift in Sources */,
 				02F39FFB20AC22DA0058890D /* UserAccountViewController.swift in Sources */,
@@ -1454,6 +1492,7 @@
 				2D266470282E9F450030AE5C /* DronePeripheralsViewController.swift in Sources */,
 				F828A4B11F01508E00431860 /* WifiAccessPoint.swift in Sources */,
 				F744F9EE24588588004E52D1 /* DriCell.swift in Sources */,
+				2D9B898928A1148B006252F7 /* DebugShellContentCell.swift in Sources */,
 				F782717024B45BA5003F6D5E /* CellularCell.swift in Sources */,
 				F86866CB208A52DD00A4EAF7 /* MediaStoreResourceThumbnailList.swift in Sources */,
 				020B171C208A0CCC00CB64A8 /* TargetTrackerViewController.swift in Sources */,
@@ -1467,6 +1506,7 @@
 				F8A158EA1D1C2958006E7589 /* GamepadController.swift in Sources */,
 				4D13ED292113324600454E01 /* GimbalCalibrationViewController.swift in Sources */,
 				F884687D1DEC974200ACE941 /* SystemInfoCell.swift in Sources */,
+				2D9B898D28A12E14006252F7 /* DebugShellViewController.swift in Sources */,
 				F708932F2534A32D0036AF2B /* SecureElementCell.swift in Sources */,
 				026B64D72087387200FE5C86 /* FollowMePilotingItfCell.swift in Sources */,
 				9DDE426A2721D4A10062567A /* MediaStoreUploadViewController.swift in Sources */,
@@ -1545,6 +1585,14 @@
 				02F39FF820AC22900058890D /* Base */,
 			);
 			name = UserAccount.storyboard;
+			sourceTree = "<group>";
+		};
+		2D9B899028A1335F006252F7 /* DeveloperMode.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2D9B898F28A1335F006252F7 /* Base */,
+			);
+			name = DeveloperMode.storyboard;
 			sourceTree = "<group>";
 		};
 		680D279E257A779A004EC407 /* Dri.storyboard */ = {
@@ -1917,7 +1965,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1935,7 +1984,10 @@
 				DEVELOPMENT_TEAM = EA523KQ2D9;
 				INFOPLIST_FILE = GroundSdkDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1954,7 +2006,10 @@
 				DEVELOPMENT_TEAM = EA523KQ2D9;
 				INFOPLIST_FILE = GroundSdkDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -32,20 +32,25 @@ import GroundSdk
 
 class BatteryInfoCell: InstrumentProviderContentCell {
 
-    @IBOutlet weak var batteryLevelLabel: UILabel!
-    @IBOutlet weak var isChargingLabel: UILabel!
-    @IBOutlet weak var batteryHealthLabel: UILabel!
-    @IBOutlet weak var cycleCountLabel: UILabel!
-    @IBOutlet weak var serialLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
-    @IBOutlet weak var batteryConfigurationDateLabel: UILabel!
-    @IBOutlet weak var batteryCellCountLabel: UILabel!
-    @IBOutlet weak var batteryCellVoltageLabel: UILabel!
-    @IBOutlet weak var designCapacityLabel: UILabel!
-    @IBOutlet weak var fullChargeCapacityLabel: UILabel!
-    @IBOutlet weak var remainingCapacityLabel: UILabel!
-    @IBOutlet weak var cellVoltageContainer: UIStackView!
-    private let unavailableCellVoltagesLabel = UILabel(frame: .zero)
+    @IBOutlet private weak var batteryLevelLabel: UILabel!
+    @IBOutlet private weak var isChargingLabel: UILabel!
+    @IBOutlet private weak var batteryHealthLabel: UILabel!
+    @IBOutlet private weak var cycleCountLabel: UILabel!
+    @IBOutlet private weak var serialLabel: UILabel!
+    @IBOutlet private weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var batteryConfigurationDateLabel: UILabel!
+    @IBOutlet private weak var batteryCellCountLabel: UILabel!
+    @IBOutlet private weak var batteryCellVoltageLabel: UILabel!
+    @IBOutlet private weak var designCapacityLabel: UILabel!
+    @IBOutlet private weak var fullChargeCapacityLabel: UILabel!
+    @IBOutlet private weak var remainingCapacityLabel: UILabel!
+    @IBOutlet private weak var cellVoltageContainer: UIStackView!
+    // it is not weak on purpose, as it is dynamically being removed from its superview.
+    @IBOutlet private var unavailableCellVoltagesLabel: UILabel!
+    @IBOutlet private weak var hardwareRevisionLabel: UILabel!
+    @IBOutlet private weak var firmwareVersionLabel: UILabel!
+    @IBOutlet private weak var gaugeVersionLabel: UILabel!
+    @IBOutlet private weak var usbVersionLabel: UILabel!
     private var cellVoltagesStackViews = [UIStackView]()
 
     private var batteryInfo: Ref<BatteryInfo>?
@@ -90,37 +95,51 @@ class BatteryInfoCell: InstrumentProviderContentCell {
                 self.remainingCapacityLabel.text = batteryInfo.capacity
                     .map { "\($0.remainingCapacity) mAh" } ?? "-"
                 // cell voltages
+                self.unavailableCellVoltagesLabel.removeFromSuperview()
+                self.cellVoltagesStackViews.forEach {
+                    $0.removeFromSuperview()
+                }
                 if batteryInfo.cellVoltages.isEmpty {
-                    self.cellVoltagesStackViews.forEach { self.cellVoltageContainer.removeArrangedSubview($0) }
                     self.cellVoltagesStackViews = []
                     self.unavailableCellVoltagesLabel.text = "-"
                     self.cellVoltageContainer.addArrangedSubview(self.unavailableCellVoltagesLabel)
                 } else {
-                    self.cellVoltagesStackViews.forEach { self.cellVoltageContainer.removeArrangedSubview($0) }
                     self.cellVoltagesStackViews = batteryInfo.cellVoltages
                         .enumerated()
-                        .map { (index: Int, cellVoltage: UInt?) in
-                            let label = UILabel(frame: .zero)
-                            label.text = "Cell \(index)"
-                            let value = UILabel(frame: .zero)
-                            value.text = cellVoltage.map(formatMilliVoltageToVoltage) ?? "-"
-                            let horizontalContainer = UIStackView(arrangedSubviews: [label, value])
-                            horizontalContainer.axis = .horizontal
-                            horizontalContainer.alignment = .fill
-                            horizontalContainer.distribution = .fill
-                            horizontalContainer.spacing = 0
-                            return horizontalContainer
-                        }
+                        .map(cellVoltage(index:cellVoltage:))
                     self.cellVoltagesStackViews.forEach {
                         self.cellVoltageContainer.addArrangedSubview($0)
                     }
-                    self.cellVoltageContainer.removeArrangedSubview(self.unavailableCellVoltagesLabel)
                 }
+
+                self.hardwareRevisionLabel.text = batteryInfo.version
+                    .map { "\($0.hardwareRevision)" } ?? "-"
+                self.firmwareVersionLabel.text = batteryInfo.version
+                    .map { "\($0.firmwareVersion)" } ?? "-"
+                self.gaugeVersionLabel.text = batteryInfo.version
+                    .map { "\($0.gaugeVersion)" } ?? "-"
+                self.usbVersionLabel.text = batteryInfo.version
+                    .map { "\($0.usbVersion)" } ?? "-"
+
                 self.show()
             } else {
                 self.hide()
             }
         }
+    }
+
+    private func cellVoltage(index: Int, cellVoltage: UInt?) -> UIStackView {
+        let label = UILabel(frame: .zero)
+        label.text = "Cell \(index)"
+        let value = UILabel(frame: .zero)
+        value.text = cellVoltage.map(formatMilliVoltageToVoltage) ?? "-"
+        let horizontalContainer = UIStackView(arrangedSubviews: [label, value])
+        value.setContentHuggingPriority(.init(rawValue: 251), for: .horizontal)
+        horizontalContainer.axis = .horizontal
+        horizontalContainer.alignment = .fill
+        horizontalContainer.distribution = .fill
+        horizontalContainer.spacing = 0
+        return horizontalContainer
     }
 }
 

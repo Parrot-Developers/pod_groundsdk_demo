@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Parrot Drones SAS
+// Copyright (C) 2022 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -30,28 +30,38 @@
 import UIKit
 import GroundSdk
 
-class LogControlCell: PeripheralProviderContentCell {
+class LogControlViewController: UIViewController, DeviceViewController {
 
-    @IBOutlet private weak var logsStateLabel: UILabel!
-    @IBOutlet private weak var missionLogsStateLabel: UILabel!
-    private var logControl: Ref<LogControl>?
+    private let groundSdk = GroundSdk()
+    private var droneUid: String?
+    private var logControlRef: Ref<LogControl>?
 
-    override func set(peripheralProvider provider: PeripheralProvider) {
-        super.set(peripheralProvider: provider)
-        logControl = provider.getPeripheral(Peripherals.logControl) {  [unowned self] logControl in
-            if let logControl = logControl {
-                self.logsStateLabel.text = logControl.areLogsEnabled ? "Enabled" : "Disabled"
-                self.missionLogsStateLabel.text = logControl.missionLogs?.value == true ? "Enabled" : "Disabled"
-                self.show()
-            } else {
-                self.hide()
+    func setDeviceUid(_ uid: String) {
+        droneUid = uid
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        guard let drone = groundSdk.getDrone(uid: droneUid!) else {
+            return
+        }
+        logControlRef = drone.getPeripheral(Peripherals.logControl) { [weak self] logControl in
+            if logControl == nil {
+                self?.performSegue(withIdentifier: "exit", sender: self)
             }
         }
     }
 
-    @IBAction private func deactivateLogsAction(_ sender: Any) {
-        if let logControl = logControl?.value {
-            _ = logControl.deactivateLogs()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectBoolValue",
+           let target = segue.destination as? ChooseBoolViewController,
+           let uid = droneUid,
+           let drone = groundSdk.getDrone(uid: uid),
+           let logControl = drone.getPeripheral(Peripherals.logControl),
+           let missionLogsSetting = logControl.missionLogs {
+            target.initialize(data: ChooseBoolViewController.Data(dataSource: missionLogsSetting,
+                                                                  title: "Mission logs enabled"))
         }
     }
 }

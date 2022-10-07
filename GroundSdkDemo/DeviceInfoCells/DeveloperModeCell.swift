@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Parrot Drones SAS
+// Copyright (C) 2022 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -30,28 +30,32 @@
 import UIKit
 import GroundSdk
 
-class LogControlCell: PeripheralProviderContentCell {
+class DeveloperModeCell: PeripheralProviderContentCell {
 
-    @IBOutlet private weak var logsStateLabel: UILabel!
-    @IBOutlet private weak var missionLogsStateLabel: UILabel!
-    private var logControl: Ref<LogControl>?
+    @IBOutlet private weak var adbStateLabel: UILabel!
+    @IBOutlet private weak var directConnectionLabel: UILabel!
+    private var debugShell: Ref<DebugShell>?
+    private var networkControl: Ref<NetworkControl>?
 
-    override func set(peripheralProvider provider: PeripheralProvider) {
-        super.set(peripheralProvider: provider)
-        logControl = provider.getPeripheral(Peripherals.logControl) {  [unowned self] logControl in
-            if let logControl = logControl {
-                self.logsStateLabel.text = logControl.areLogsEnabled ? "Enabled" : "Disabled"
-                self.missionLogsStateLabel.text = logControl.missionLogs?.value == true ? "Enabled" : "Disabled"
-                self.show()
-            } else {
-                self.hide()
-            }
+    var viewController: UIViewController?
+
+    override func set(peripheralProvider: PeripheralProvider) {
+        super.set(peripheralProvider: peripheralProvider)
+        debugShell = peripheralProvider.getPeripheral(Peripherals.debugShell) { [unowned self] debugShell in
+            adbStateLabel.text = debugShell?.state.value.description ?? "-"
+            updateVisibility()
+        }
+        networkControl = peripheralProvider.getPeripheral(Peripherals.networkControl) { [unowned self] networkControl in
+            directConnectionLabel.text = networkControl?.directConnection.mode.description ?? "-"
+            updateVisibility()
         }
     }
 
-    @IBAction private func deactivateLogsAction(_ sender: Any) {
-        if let logControl = logControl?.value {
-            _ = logControl.deactivateLogs()
+    private func updateVisibility() {
+        if debugShell != nil || networkControl != nil {
+            self.show()
+        } else {
+            self.hide()
         }
     }
 }

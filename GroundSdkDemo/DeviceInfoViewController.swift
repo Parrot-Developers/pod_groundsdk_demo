@@ -101,7 +101,7 @@ where P: InstrumentProvider & PeripheralProvider {
         if let splitViewController = splitViewController, splitViewController.isCollapsed {
             _ = navigationController?.popViewController(animated: true)
         } else {
-            performSegue(withIdentifier: "showDefault", sender: self)
+            performSegue(withIdentifier: "showDefaultDetail", sender: self)
         }
     }
 }

@@ -38,8 +38,8 @@ import UIKit
 
     private let centerRound: UIBezierPath = UIBezierPath(ovalIn: CGRect(x: -centerRadius, y: -centerRadius,
         width: centerRadius * 2, height: centerRadius * 2))
-    private let centerRoundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
-    private let borderColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
+    private let centerRoundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.3)
+    private let borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.05)
 
     private var offset: CGFloat = 0
 

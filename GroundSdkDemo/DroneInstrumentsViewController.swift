@@ -44,6 +44,7 @@ class DroneInstrumentsViewController: DroneProviderTableViewController {
                 "batteryInfo",
                 "cameraExposureValues",
                 "cellularLogs",
+                "cellularSession",
                 "compass",
                 "flightIndicators",
                 "flightInfo",

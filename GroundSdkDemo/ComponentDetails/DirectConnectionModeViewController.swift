@@ -1,4 +1,4 @@
-// Copyright (C) 2020 Parrot Drones SAS
+// Copyright (C) 2022 Parrot Drones SAS
 //
 //    Redistribution and use in source and binary forms, with or without
 //    modification, are permitted provided that the following conditions
@@ -30,28 +30,34 @@
 import UIKit
 import GroundSdk
 
-class LogControlCell: PeripheralProviderContentCell {
+class DirectConnectionModeViewController: UITableViewController, DeviceViewController {
 
-    @IBOutlet private weak var logsStateLabel: UILabel!
-    @IBOutlet private weak var missionLogsStateLabel: UILabel!
-    private var logControl: Ref<LogControl>?
+    private let groundSdk = GroundSdk()
+    private var droneUid: String?
+    private var networkControlRef: Ref<NetworkControl>?
+    @IBOutlet private weak var switchControl: UISwitch!
 
-    override func set(peripheralProvider provider: PeripheralProvider) {
-        super.set(peripheralProvider: provider)
-        logControl = provider.getPeripheral(Peripherals.logControl) {  [unowned self] logControl in
-            if let logControl = logControl {
-                self.logsStateLabel.text = logControl.areLogsEnabled ? "Enabled" : "Disabled"
-                self.missionLogsStateLabel.text = logControl.missionLogs?.value == true ? "Enabled" : "Disabled"
-                self.show()
-            } else {
-                self.hide()
+    func setDeviceUid(_ uid: String) {
+        droneUid = uid
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        guard let drone = groundSdk.getDrone(uid: droneUid!) else {
+            return
+        }
+        networkControlRef = drone.getPeripheral(Peripherals.networkControl) { [weak self] networkControl in
+            guard let networkControl = networkControl, let `self` = self else {
+                self?.performSegue(withIdentifier: "exit", sender: self)
+                return
             }
+            self.switchControl.isOn = networkControl.directConnection.mode == .legacy
         }
     }
 
-    @IBAction private func deactivateLogsAction(_ sender: Any) {
-        if let logControl = logControl?.value {
-            _ = logControl.deactivateLogs()
-        }
+    @IBAction private func changeValue(_ sender: UISwitch) {
+        networkControlRef?.value?.directConnection.mode = sender.isOn ? .legacy : .secure
     }
+
 }

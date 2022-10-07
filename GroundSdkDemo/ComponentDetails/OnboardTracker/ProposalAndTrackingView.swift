@@ -126,11 +126,9 @@ public class ProposalAndTrackingView: UIView {
                 }
 
                 // remove
-                for proposal in proposalViews {
-                    if arrayUId.firstIndex(of: proposal.key) == nil {
-                        proposal.value.removeFromSuperview()
-                        proposalViews.removeValue(forKey: proposal.key)
-                    }
+                for proposal in proposalViews where arrayUId.firstIndex(of: proposal.key) == nil {
+                    proposal.value.removeFromSuperview()
+                    proposalViews.removeValue(forKey: proposal.key)
                 }
             }
         }

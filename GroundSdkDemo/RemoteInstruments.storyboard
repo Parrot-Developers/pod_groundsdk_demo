@@ -18,14 +18,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="batteryInfo" id="cYK-y5-UIK" userLabel="batteryInfo" customClass="BatteryInfoCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="392.5"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="522.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="cYK-y5-UIK" id="Tad-gn-GIa">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="392.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="522.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Awe-2S-Mks" userLabel="batteryInfoVerticalStack">
-                                            <rect key="frame" x="20" y="11" width="374" height="370.5"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="500.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BatteryInfo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqO-Up-pQz" userLabel="batteryInfoTitle">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="23"/>
@@ -192,14 +192,88 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9Y-Ys-Gpe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2x-V7-ros" userLabel="Version:">
                                                     <rect key="frame" x="0.0" y="240" width="374" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="T0I-Rn-6E6" userLabel="batteryInfoDesignCapacityStack">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="MDG-D8-lGm" userLabel="batteryVersionHarwareRevisionStack">
                                                     <rect key="frame" x="0.0" y="262.5" width="374" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Hardware revision" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZG8-yk-V2g" userLabel="hardwareRevisionLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="364.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8Z-2R-yFe" userLabel="hardwareRevisionValue">
+                                                            <rect key="frame" x="365.5" y="0.0" width="8.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="fIh-BP-pm5" userLabel="batteryVersionFirmwareVersionStack">
+                                                    <rect key="frame" x="0.0" y="284" width="374" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Firmware version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nps-Ll-gN7" userLabel="firmwareVersionLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="364.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFh-Up-quQ" userLabel="firmwareVersionValue">
+                                                            <rect key="frame" x="365.5" y="0.0" width="8.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-e5-GqR" userLabel="batteryVersionGaugeVersionStack">
+                                                    <rect key="frame" x="0.0" y="305.5" width="374" height="42"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Gauge version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nM-Rm-t2H" userLabel="gaugeVersionLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xir-fc-m2E" userLabel="gaugeVersionValue">
+                                                            <rect key="frame" x="0.0" y="21.5" width="374" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Q5L-My-VPw" userLabel="batteryVersionUSBVersionStack">
+                                                    <rect key="frame" x="0.0" y="348.5" width="374" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="USB version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIe-eB-k4E" userLabel="USBVersionLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="364.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nQ-MB-PXu" userLabel="USBVersionValue">
+                                                            <rect key="frame" x="365.5" y="0.0" width="8.5" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capacity:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9Y-Ys-Gpe">
+                                                    <rect key="frame" x="0.0" y="370" width="374" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="T0I-Rn-6E6" userLabel="batteryInfoDesignCapacityStack">
+                                                    <rect key="frame" x="0.0" y="392.5" width="374" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="  Design capacity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K4-cO-Ewt" userLabel="designCapacityLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="130.5" height="20.5"/>
@@ -216,7 +290,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ilj-mL-RFF" userLabel="batteryInfoFullChargeCapacityStack">
-                                                    <rect key="frame" x="0.0" y="284" width="374" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="414" width="374" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="  Full charge capacity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UTW-QG-cpD" userLabel="fullChargeCapacityLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="161" height="20.5"/>
@@ -233,7 +307,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="skc-f5-6GI" userLabel="batteryInfoRemainingCapacityStack">
-                                                    <rect key="frame" x="0.0" y="305.5" width="374" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="435.5" width="374" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="  Remaining capacity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7m4-5r-d7b" userLabel="remainingCapacityLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="157" height="20.5"/>
@@ -250,13 +324,13 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Cell voltages:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SH6-9U-auO">
-                                                    <rect key="frame" x="0.0" y="327" width="374" height="22"/>
+                                                    <rect key="frame" x="0.0" y="457" width="374" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="uqp-rF-Oco" userLabel="batteryInfoCellVoltagesStack">
-                                                    <rect key="frame" x="0.0" y="350" width="374" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="480" width="374" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDj-J2-rCe" userLabel="-">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
@@ -286,63 +360,20 @@
                                     <outlet property="cellVoltageContainer" destination="uqp-rF-Oco" id="ydl-Q8-Vpr"/>
                                     <outlet property="cycleCountLabel" destination="otd-up-FA7" id="DVR-s2-5lc"/>
                                     <outlet property="designCapacityLabel" destination="8mb-3c-klW" id="j1a-ag-UFU"/>
+                                    <outlet property="firmwareVersionLabel" destination="GFh-Up-quQ" id="dhu-Gv-LiB"/>
                                     <outlet property="fullChargeCapacityLabel" destination="sDE-gF-aox" id="UWV-Ww-Vlj"/>
+                                    <outlet property="gaugeVersionLabel" destination="xir-fc-m2E" id="FgH-Df-Ce4"/>
+                                    <outlet property="hardwareRevisionLabel" destination="y8Z-2R-yFe" id="mFG-Ba-rJZ"/>
                                     <outlet property="isChargingLabel" destination="uFM-s7-mrn" id="RrO-uR-09i"/>
                                     <outlet property="remainingCapacityLabel" destination="mqq-Vz-bTZ" id="8e9-oc-QSw"/>
                                     <outlet property="serialLabel" destination="OyH-oT-cFU" id="Jrm-mn-cE0"/>
                                     <outlet property="temperatureLabel" destination="kSw-Od-BwU" id="BJJ-5Z-efH"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellularLinkStatus" id="rdW-Yk-UmX" customClass="CellularLinkStatusCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="437" width="414" height="67"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="rdW-Yk-UmX" id="b2O-mN-QeD">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="PEa-aZ-ye8" userLabel="cellularLinkStatusVerticalStack">
-                                            <rect key="frame" x="20" y="11" width="374" height="45"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Cellular link status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjT-dP-QwP" userLabel="cellularLinkStatusTitle">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Gi3-4X-7t5" userLabel="cellularLinkStatusStack">
-                                                    <rect key="frame" x="0.0" y="24.5" width="374" height="20.5"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iy-Tl-kv4" userLabel="cellularLinkStatus">
-                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="running" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOW-AJ-TXa" userLabel="cellularLinkStatusValue">
-                                                            <rect key="frame" x="50" y="0.0" width="324" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="PEa-aZ-ye8" firstAttribute="leading" secondItem="b2O-mN-QeD" secondAttribute="leadingMargin" id="IWJ-cS-cu1"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="PEa-aZ-ye8" secondAttribute="bottom" id="dmk-ZU-wHf"/>
-                                        <constraint firstItem="PEa-aZ-ye8" firstAttribute="top" secondItem="b2O-mN-QeD" secondAttribute="topMargin" id="miS-JY-Oce"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="PEa-aZ-ye8" secondAttribute="trailing" id="r5P-QJ-2Ym"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="bottomConstraint" destination="dmk-ZU-wHf" id="Wi4-US-hzM"/>
-                                    <outlet property="status" destination="rOW-AJ-TXa" id="G1e-zc-dld"/>
+                                    <outlet property="unavailableCellVoltagesLabel" destination="KDj-J2-rCe" id="DNo-Yf-Ida"/>
+                                    <outlet property="usbVersionLabel" destination="0nQ-MB-PXu" id="gWb-IU-yKK"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cellularLogs" id="lgn-xe-F0b" customClass="CellularLogsCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="504" width="414" height="45.5"/>
+                                <rect key="frame" x="0.0" y="567" width="414" height="45.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="lgn-xe-F0b" id="Se3-wk-dze">
                                     <rect key="frame" x="0.0" y="0.0" width="385.5" height="45.5"/>
@@ -372,8 +403,56 @@
                                     <segue destination="yg5-Hw-t2F" kind="showDetail" id="wEQ-J1-Ehs"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="cellularSession" id="85S-yh-hCh" userLabel="cellularSession" customClass="CellularSessionCell" customModule="GroundSdkDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="612.5" width="414" height="67"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="85S-yh-hCh" id="sJZ-2Q-URw">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="jN8-gA-pNa" userLabel="cellularSessionVerticalStack">
+                                            <rect key="frame" x="20" y="11" width="374" height="45"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Cellular session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWo-97-daB" userLabel="cellularSessionTitle">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="R7O-he-uc8" userLabel="cellularSessionStack">
+                                                    <rect key="frame" x="0.0" y="24.5" width="374" height="20.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOO-a1-hS4" userLabel="cellularSession">
+                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="running" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lie-5d-VCn" userLabel="cellularSessionValue">
+                                                            <rect key="frame" x="50" y="0.0" width="324" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jN8-gA-pNa" firstAttribute="leading" secondItem="sJZ-2Q-URw" secondAttribute="leadingMargin" id="0FG-bM-Gyx"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jN8-gA-pNa" secondAttribute="trailing" id="B9l-pF-sTY"/>
+                                        <constraint firstItem="jN8-gA-pNa" firstAttribute="top" secondItem="sJZ-2Q-URw" secondAttribute="topMargin" id="Sc1-Ns-Tqo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="jN8-gA-pNa" secondAttribute="bottom" id="epu-f8-qh6"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bottomConstraint" destination="epu-f8-qh6" id="sDU-Iz-0EB"/>
+                                    <outlet property="status" destination="lie-5d-VCn" id="jry-ub-dGz"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="compass" id="R3c-5Q-dqg" userLabel="compass" customClass="CompassCell" customModule="GroundSdkDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="549.5" width="414" height="67"/>
+                                <rect key="frame" x="0.0" y="679.5" width="414" height="67"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="R3c-5Q-dqg" id="Syn-j3-Xso">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hcQ-Ex-NuV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Debug Shell-->
+        <scene sceneID="mpJ-So-FyW">
+            <objects>
+                <viewController title="Debug Shell" id="7YZ-NP-6Y9" customClass="DebugShellViewController" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sQi-Uf-jHT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ims-WO-Icu" userLabel="verticalContentStack">
+                                <rect key="frame" x="5" y="88" width="404" height="774"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="oCc-1g-Zg1" userLabel="debugShellStateVerticalStack">
+                                        <rect key="frame" x="0.0" y="0.0" width="404" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Debug Shell State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBR-8y-YC5" userLabel="debugShellStateLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="361.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yB-OJ-5Hk" userLabel="debugShellStateValue">
+                                                <rect key="frame" x="362.5" y="0.0" width="41.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developer public key:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXC-ZJ-vZA" userLabel="debugShellKeyLabel">
+                                        <rect key="frame" x="0.0" y="20.5" width="404" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bqn-XT-poQ" userLabel="debugShellKeyValue">
+                                        <rect key="frame" x="0.0" y="41" width="404" height="702"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="7YZ-NP-6Y9" id="g4C-8U-0cR"/>
+                                        </connections>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ry-4A-73K" userLabel="debugShellActions">
+                                        <rect key="frame" x="0.0" y="743" width="404" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmC-yl-4kd" userLabel="disableButton">
+                                                <rect key="frame" x="0.0" y="0.0" width="202" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Disable Debug Shell"/>
+                                                <connections>
+                                                    <action selector="disableAction:" destination="7YZ-NP-6Y9" eventType="touchUpInside" id="y7a-tp-R3X"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6Z-1e-1FF" userLabel="enableButton">
+                                                <rect key="frame" x="202" y="0.0" width="202" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Enable Debug Shell"/>
+                                                <connections>
+                                                    <action selector="enableAction:" destination="7YZ-NP-6Y9" eventType="touchUpInside" id="yaa-gh-Nyo"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oLo-JF-8wE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oLo-JF-8wE" firstAttribute="bottom" secondItem="ims-WO-Icu" secondAttribute="bottom" id="SIW-6l-zFH"/>
+                            <constraint firstItem="oLo-JF-8wE" firstAttribute="trailing" secondItem="ims-WO-Icu" secondAttribute="trailing" constant="5" id="WwZ-ft-aIJ"/>
+                            <constraint firstItem="ims-WO-Icu" firstAttribute="top" secondItem="oLo-JF-8wE" secondAttribute="top" id="idc-Y1-XdV"/>
+                            <constraint firstItem="ims-WO-Icu" firstAttribute="leading" secondItem="oLo-JF-8wE" secondAttribute="leading" constant="5" id="sfc-qv-num"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="7kx-r6-yfX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="bottomConstraint" destination="SIW-6l-zFH" id="Vlo-RE-Imy"/>
+                        <outlet property="disableButton" destination="jmC-yl-4kd" id="9SB-MP-9dE"/>
+                        <outlet property="enableButton" destination="H6Z-1e-1FF" id="4Ll-IF-cmZ"/>
+                        <outlet property="publicKeyTextView" destination="bqn-XT-poQ" id="OY4-Bu-Bej"/>
+                        <outlet property="stateLabel" destination="5yB-OJ-5Hk" id="9qR-M9-CfI"/>
+                        <segue destination="p4n-b1-ftF" kind="unwind" identifier="exit" unwindAction="showDefaultDetailWithUnwindSegue:" id="49b-yx-5AE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tnr-8w-xKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="p4n-b1-ftF" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="-753"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ybY-hY-lFt">
+            <objects>
+                <navigationController id="hcQ-Ex-NuV" sceneMemberID="viewController">
+                    <size key="freeformSize" width="414" height="896"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ThA-re-7ji">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="7Op-ws-iMd" kind="relationship" relationship="rootViewController" id="wKX-DS-hRb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Myf-SC-PKC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-432" y="-421"/>
+        </scene>
+        <!--Developer Mode View Controller-->
+        <scene sceneID="mnG-rW-Pqr">
+            <objects>
+                <tableViewController id="7Op-ws-iMd" customClass="DeveloperModeViewController" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="Xu8-sL-P9B">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Developer Mode" id="8mG-2s-70K">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="debugShell" id="gUv-SO-4AR" userLabel="debugShell">
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="43"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gUv-SO-4AR" id="YtY-g7-fWq">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="ccZ-1O-ZdD" userLabel="debugShellVerticalStack">
+                                                    <rect key="frame" x="20" y="11" width="357.5" height="21"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zjo-7o-eyy" userLabel="debugShellStateStack">
+                                                            <rect key="frame" x="0.0" y="0.0" width="357.5" height="21"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Adb state" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDB-AN-yxW" userLabel="debugShellState">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="73" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="disabled" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMy-Z8-MtN" userLabel="debugShellStateValue">
+                                                                    <rect key="frame" x="74" y="0.0" width="283.5" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ccZ-1O-ZdD" firstAttribute="leading" secondItem="YtY-g7-fWq" secondAttribute="leadingMargin" id="CAS-fU-K6I"/>
+                                                <constraint firstItem="ccZ-1O-ZdD" firstAttribute="top" secondItem="YtY-g7-fWq" secondAttribute="topMargin" id="ODI-Zr-cUW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ccZ-1O-ZdD" secondAttribute="trailing" id="Q0x-tF-61r"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ccZ-1O-ZdD" secondAttribute="bottom" id="S2V-Hb-d18"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="7YZ-NP-6Y9" kind="show" identifier="debugShell" id="Qeo-Pc-j4a"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="directConnectionMode" textLabel="OhZ-Du-6cz" detailTextLabel="r7Y-kh-F7A" style="IBUITableViewCellStyleValue1" id="paD-VT-bgz">
+                                        <rect key="frame" x="0.0" y="92.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="paD-VT-bgz" id="qTz-69-gsw">
+                                            <rect key="frame" x="0.0" y="0.0" width="385.5" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Direct connection mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OhZ-Du-6cz">
+                                                    <rect key="frame" x="20" y="12" width="183" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="legacy" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r7Y-kh-F7A">
+                                                    <rect key="frame" x="327.5" y="12" width="50" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="a6k-Ms-CrQ" kind="show" identifier="directConnectionMode" id="JzM-6B-Q8x"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7Op-ws-iMd" id="spo-0O-vh3"/>
+                            <outlet property="delegate" destination="7Op-ws-iMd" id="8md-bh-bkf"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5Rc-bt-0mQ"/>
+                    <connections>
+                        <outlet property="debugShellStateLabel" destination="PMy-Z8-MtN" id="pVU-CX-i1t"/>
+                        <outlet property="directConnectionModeLabel" destination="r7Y-kh-F7A" id="G0k-aL-fg7"/>
+                        <segue destination="wOo-x7-mLj" kind="unwind" identifier="exit" unwindAction="showDefaultDetailWithUnwindSegue:" id="62B-gl-GxG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VeY-Kw-OqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="wOo-x7-mLj" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="-422"/>
+        </scene>
+        <!--Choose Enum View Controller-->
+        <scene sceneID="tO2-tq-OX4">
+            <objects>
+                <tableViewController id="a6k-Ms-CrQ" customClass="ChooseEnumViewController" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KwT-8a-4N6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="5MZ-u0-sse" style="IBUITableViewCellStyleDefault" id="fen-a4-waj">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fen-a4-waj" id="ZUE-WI-lgk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Enum value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5MZ-u0-sse">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a6k-Ms-CrQ" id="9vm-dx-Zo8"/>
+                            <outlet property="delegate" destination="a6k-Ms-CrQ" id="xnd-Xc-VWt"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Eec-vd-xev"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9x-1s-ptE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="-107"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

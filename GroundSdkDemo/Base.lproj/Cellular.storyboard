@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cellular View Controller-->
+        <!--Cellular-->
         <scene sceneID="DoL-rC-olP">
             <objects>
-                <viewController id="LxW-A5-JTI" customClass="CellularViewController" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Cellular" id="LxW-A5-JTI" customClass="CellularViewController" customModule="GroundSdkDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aIY-df-0YD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </tableView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="pOZ-01-uhR">
-                                <rect key="frame" x="0.0" y="202" width="375" height="416"/>
+                                <rect key="frame" x="0.0" y="202" width="375" height="465"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="RIh-s6-HWI">
                                         <rect key="frame" x="8" y="0.0" width="359" height="543.5"/>
@@ -406,7 +406,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XzP-pO-RHb"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="apnPasswordLabel" destination="F4e-MD-Bmp" id="mZ2-xw-Bss"/>

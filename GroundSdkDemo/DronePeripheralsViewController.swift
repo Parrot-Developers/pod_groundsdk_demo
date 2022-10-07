@@ -46,6 +46,7 @@ class DronePeripheralsViewController: DroneProviderTableViewController {
                 "certificateUploader",
                 "copterMotors",
                 "crashReporter",
+                "developerMode",
                 "devToolbox",
                 "dri",
                 "flightCameraRecordDownloader",

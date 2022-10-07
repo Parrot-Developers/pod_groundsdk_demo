@@ -263,7 +263,7 @@ extension AnnotationMapViewController: MKMapViewDelegate {
             } else {
                 annotationView!.annotation = annotation
             }
-            annotationView!.image = UIImage.init(named: mapAannotation.iconName)
+            annotationView!.image = UIImage(named: mapAannotation.iconName)
             return annotationView
 
         case .destinationPin:

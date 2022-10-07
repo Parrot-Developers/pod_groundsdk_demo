@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h54-hR-FRY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="h54-hR-FRY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -126,11 +126,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Devices" id="31V-H1-78f">
-                        <barButtonItem key="leftBarButtonItem" title="Replay" id="Lgj-w4-0ax">
-                            <connections>
-                                <segue destination="11k-1a-Z8C" kind="show" id="aQr-lg-O27"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Replay" id="Lgj-w4-0ax">
+                                <connections>
+                                    <segue destination="11k-1a-Z8C" kind="show" id="aQr-lg-O27"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="LogCollector" id="LWA-GO-RA0">
+                                <connections>
+                                    <segue destination="SrN-Du-QF6" kind="show" id="cq2-9D-hbs"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <barButtonItem key="rightBarButtonItem" style="done" id="MCu-Mx-WNY">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="FnK-Oc-DxS">
                                 <rect key="frame" x="334" y="7" width="60" height="30"/>
@@ -207,6 +214,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu1-Kp-Hdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1278" y="-395"/>
+        </scene>
+        <!--LogCollector-->
+        <scene sceneID="OQd-v5-d26">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LogCollector" id="SrN-Du-QF6" userLabel="LogCollector" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Xoo-e6-Rs4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iKq-Bl-4o6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="43" y="-1126"/>
         </scene>
     </scenes>
     <resources>
