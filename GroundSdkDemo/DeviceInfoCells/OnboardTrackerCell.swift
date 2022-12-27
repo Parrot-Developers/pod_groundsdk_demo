@@ -32,18 +32,19 @@ import GroundSdk
 
 class OnboardTrackerCell: PeripheralProviderContentCell {
 
-    @IBOutlet weak var trackingListCountValue: UILabel!
-    @IBOutlet weak var trackingAvailabilityValue: UILabel!
-    @IBOutlet weak var activationTrackingEngine: UIButton!
-    @IBOutlet weak var deactivationTrackingEngine: UIButton!
-    @IBOutlet weak var stateTrackingEngine: UILabel!
-    @IBOutlet weak var switchBoxProposals: UISwitch!
+    @IBOutlet private weak var trackingListCountValue: UILabel!
+    @IBOutlet private weak var trackingAvailabilityValue: UILabel!
+    @IBOutlet private weak var activationTrackingEngine: UIButton!
+    @IBOutlet private weak var deactivationTrackingEngine: UIButton!
+    @IBOutlet private weak var stateTrackingEngine: UILabel!
+    @IBOutlet private weak var switchBoxProposals: UISwitch!
 
-    private var onboardTracker: Ref<OnboardTracker>?
+    private var onboardTrackerRef: Ref<OnboardTracker>?
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
-        onboardTracker = provider.getPeripheral(Peripherals.onboardTracker) { [unowned self] onboardTracker in
+
+        onboardTrackerRef = provider.getPeripheral(Peripherals.onboardTracker) { [unowned self] onboardTracker in
             if let onboardTracker = onboardTracker {
                 self.trackingListCountValue.text = "\(onboardTracker.targets.count)"
                 self.trackingAvailabilityValue.text = onboardTracker.isAvailable ?
@@ -58,11 +59,11 @@ class OnboardTrackerCell: PeripheralProviderContentCell {
         }
     }
 
-    @IBAction func startBoxProposal(_ sender: UIButton) {
-        self.onboardTracker?.value?.startTrackingEngine(boxProposals: switchBoxProposals.isOn)
+    @IBAction private func startBoxProposal(_ sender: UIButton) {
+        self.onboardTrackerRef?.value?.startTrackingEngine(boxProposals: switchBoxProposals.isOn)
     }
 
-    @IBAction func stopTrackingEngine(_ sender: UIButton) {
-        self.onboardTracker?.value?.stopTrackingEngine()
+    @IBAction private func stopTrackingEngine(_ sender: UIButton) {
+        self.onboardTrackerRef?.value?.stopTrackingEngine()
     }
 }

@@ -36,9 +36,9 @@ class DriViewController: UITableViewController, DeviceViewController {
     private var droneUid: String?
     private var dri: Ref<Dri>?
 
-    @IBOutlet weak var typeState: UILabel!
-    @IBOutlet weak var typeConfig: UILabel!
-    @IBOutlet weak var typeOperatorId: UITextField!
+    @IBOutlet private weak var typeState: UILabel!
+    @IBOutlet private weak var typeConfig: UILabel!
+    @IBOutlet private weak var typeOperatorId: UITextField!
 
     func setDeviceUid(_ uid: String) {
         droneUid = uid
@@ -47,20 +47,26 @@ class DriViewController: UITableViewController, DeviceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.delaysContentTouches = false
         if let drone = groundSdk.getDrone(uid: droneUid!) {
             dri = drone.getPeripheral(Peripherals.dri) { [weak self] dri in
-                if let dri = dri, let `self` = self {
-                    self.typeState.text = dri.type.state?.description ?? "-"
-                    self.typeConfig.text = dri.type.type?.type.description ?? "-"
-                    if case .en4709_002(let operatorId) = dri.type.type {
+                guard let dri = dri, let `self` = self else {
+                    self?.performSegue(withIdentifier: "exit", sender: self)
+                    return
+                }
+
+                self.typeState.text = dri.type.state?.description ?? "-"
+                self.typeConfig.text = dri.type.type?.type.description ?? "-"
+                if let driConfig = dri.type.type {
+                    switch driConfig {
+                    case .en4709_002(let operatorId),
+                            .astmF3411(let operatorId):
                         self.typeOperatorId.text = operatorId
-                        self.typeOperatorId.isEnabled = true
-                    } else {
+                    default:
                         self.typeOperatorId.text = ""
-                        self.typeOperatorId.isEnabled = false
                     }
                 } else {
-                    self?.performSegue(withIdentifier: "exit", sender: self)
+                    self.typeOperatorId.text = ""
                 }
             }
         }
@@ -76,6 +82,12 @@ class DriViewController: UITableViewController, DeviceViewController {
             }
         case .french:
             return .french
+        case .astmF3411:
+            if let operatorId = operatorId {
+                return .astmF3411(operatorId: operatorId)
+            } else {
+                return nil
+            }
         case .none:
             return nil
         }

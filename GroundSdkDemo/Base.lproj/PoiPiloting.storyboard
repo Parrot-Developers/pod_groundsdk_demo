@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVC-yV-1Qs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bVC-yV-1Qs">
     <device id="retina4_7" orientation="landscape" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -121,6 +122,7 @@
                                                 <rect key="frame" x="0.0" y="391" width="647" height="32"/>
                                                 <segments>
                                                     <segment title="Locked Gimbal"/>
+                                                    <segment title="Locked Once Gimbal"/>
                                                     <segment title="Free Gimbal"/>
                                                 </segments>
                                             </segmentedControl>
@@ -173,24 +175,24 @@
                                                 <rect key="frame" x="0.0" y="450" width="647" height="41"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="2Xt-0S-DSu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="41"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="118" height="41"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fV-JI-LXu">
-                                                                <rect key="frame" x="0.0" y="0.0" width="49.5" height="41"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="49" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="inactive" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kb-Ve-ZhY" userLabel="statusValue">
-                                                                <rect key="frame" x="59.5" y="0.0" width="59" height="41"/>
+                                                                <rect key="frame" x="59" y="0.0" width="59" height="41"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-CF-mR4" userLabel="ACTION BUTTON">
-                                                        <rect key="frame" x="118.5" y="0.0" width="528.5" height="41"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-CF-mR4" userLabel="ACTION BUTTON">
+                                                        <rect key="frame" x="118" y="0.0" width="529" height="41"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                         <state key="normal" title="Action Button">
                                                             <color key="titleColor" red="0.94474355300000001" green="0.0091148824500000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -294,11 +296,8 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6u-AQ-bHP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="647" height="40"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTU-gl-s8e">
-                                                                        <rect key="frame" x="5" y="0.0" width="60" height="40"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="60" id="OXd-tZ-O6E"/>
-                                                                        </constraints>
+                                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTU-gl-s8e">
+                                                                        <rect key="frame" x="5" y="0.0" width="44" height="40"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <state key="normal" title="Reset">
                                                                             <color key="titleColor" red="1" green="0.013297224899054161" blue="0.26094165896262456" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -307,8 +306,8 @@
                                                                             <action selector="resetCommands:" destination="mKM-oK-Vvb" eventType="touchUpInside" id="W1R-Bc-MH8"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXn-HL-OaD" userLabel="UPDATE BUTTON">
-                                                                        <rect key="frame" x="70" y="-0.5" width="577" height="41"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXn-HL-OaD" userLabel="UPDATE BUTTON">
+                                                                        <rect key="frame" x="54" y="-0.5" width="593" height="41"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                                                         <state key="normal" title="Update with New POI">
                                                                             <color key="titleColor" red="0.94474355300000001" green="0.0091148824500000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -499,7 +498,8 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="i7l-AY-tA6"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZAF-Tc-Zgu" firstAttribute="height" secondItem="jEw-5T-cg1" secondAttribute="height" multiplier="0.3" id="GHZ-UG-aAV"/>
                             <constraint firstAttribute="trailing" secondItem="beu-0U-NK1" secondAttribute="trailing" constant="10" id="dQm-2H-WTM"/>
@@ -507,7 +507,6 @@
                             <constraint firstItem="beu-0U-NK1" firstAttribute="top" secondItem="jEw-5T-cg1" secondAttribute="top" id="m8g-Lj-PhS"/>
                             <constraint firstAttribute="bottom" secondItem="beu-0U-NK1" secondAttribute="bottom" id="wL7-3Y-R3e"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="i7l-AY-tA6"/>
                     </view>
                     <navigationItem key="navigationItem" title="Poi Piloting" id="Wbt-9g-c0a"/>
                     <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -576,14 +575,14 @@
                                 </connections>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="DNK-5o-hCp"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="dzV-6C-VJ7" secondAttribute="bottom" id="1bA-PV-ezF"/>
                             <constraint firstItem="dzV-6C-VJ7" firstAttribute="top" secondItem="MMx-Bf-eAX" secondAttribute="top" id="cQo-th-Jog"/>
                             <constraint firstItem="dzV-6C-VJ7" firstAttribute="leading" secondItem="MMx-Bf-eAX" secondAttribute="leading" id="fmW-gg-yIo"/>
                             <constraint firstAttribute="trailing" secondItem="dzV-6C-VJ7" secondAttribute="trailing" id="izi-d7-GLJ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="DNK-5o-hCp"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="dzV-6C-VJ7" id="RGU-sH-swE"/>
@@ -594,4 +593,9 @@
             <point key="canvasLocation" x="3760" y="-371"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

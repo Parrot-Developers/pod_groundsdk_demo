@@ -107,6 +107,7 @@ class MediaReplayViewController: UIViewController {
         super.viewWillDisappear(animated)
         streamView.setStream(stream: nil)
         streamServer = nil
+        mediaReplay = nil
     }
 
     @IBAction func playPauseStream(_ sender: UIBarButtonItem) {

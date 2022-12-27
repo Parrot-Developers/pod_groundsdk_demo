@@ -54,6 +54,7 @@ class OnboardTrackerHudViewController: UIViewController, DeviceViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         proposalAndtrackingView.delegate = self
 
         streamView.contentZoneListener = { [weak self] contentZone in
@@ -61,9 +62,9 @@ class OnboardTrackerHudViewController: UIViewController, DeviceViewController {
 
                 let scaleFactor = UIScreen.main.scale
                 let frame = CGRect(x: contentZone.minX / scaleFactor,
-                               y: contentZone.minY / scaleFactor,
-                               width: contentZone.width / scaleFactor,
-                               height: contentZone.height / scaleFactor)
+                                   y: contentZone.minY / scaleFactor,
+                                   width: contentZone.width / scaleFactor,
+                                   height: contentZone.height / scaleFactor)
                 self?.proposalAndtrackingView.contentZone = frame
                 self?.proposalAndtrackingView.frame = frame
             }
@@ -88,6 +89,10 @@ class OnboardTrackerHudViewController: UIViewController, DeviceViewController {
         removeAllButton.layer.cornerRadius = removeAllButton.frame.height / 2
         removeAllButton.layer.borderWidth = 1
         removeAllButton.layer.borderColor = UIColor.black.cgColor
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        stopImageProcessing()
     }
 
     private func listenPilotingItf() {
@@ -119,7 +124,8 @@ class OnboardTrackerHudViewController: UIViewController, DeviceViewController {
                                 _ = liveStream.play()
                             }
                             if self.sink == nil {
-                                self.sink = liveStream.openYuvSink(queue: DispatchQueue.main, listener: self)
+                                self.sink = liveStream.openSink(
+                                    config: RawVideoSinkConfig(dispatchQueue: DispatchQueue.main, listener: self))
                             }
                         }
                     }
@@ -130,20 +136,11 @@ class OnboardTrackerHudViewController: UIViewController, DeviceViewController {
 
     func stopImageProcessing() {
         streamView.setStream(stream: nil)
-        streamView = nil
-        sink?.close()
         sink = nil
         liveStreamRef = nil
         streamServerRef = nil
-        droneStateRef = nil
-        onboardTracker = nil
-        onboardTrackerRef = nil
         proposalAndtrackingView.clearTracking()
         proposalAndtrackingView.clearProposal()
-    }
-
-    deinit {
-        stopImageProcessing()
     }
 
     @IBAction func dismiss(_ sender: AnyObject) {
@@ -177,11 +174,10 @@ extension OnboardTrackerHudViewController: ProposalAndTrackingDelegate {
 
         if let frameTimeStamp = frameTimeStamp, let onboardTracker = onboardTracker {
             cookie += 1
-                var rectRequest = onboardTracker.ofRect(timestamp: frameTimeStamp, horizontalPosition: x,
-                                                     verticalPosition: y, width: width, height: height)
-                rectRequest.cookie = cookie
-                onboardTracker.replaceAllTargetsBy(trackingRequest: rectRequest)
-
+            var rectRequest = onboardTracker.ofRect(timestamp: frameTimeStamp, horizontalPosition: x,
+                                                    verticalPosition: y, width: width, height: height)
+            rectRequest.cookie = cookie
+            onboardTracker.replaceAllTargetsBy(trackingRequest: rectRequest)
         }
     }
 
@@ -195,21 +191,14 @@ extension OnboardTrackerHudViewController: ProposalAndTrackingDelegate {
     }
 }
 
-extension OnboardTrackerHudViewController: YuvSinkListener {
-    func didStart(sink: StreamSink) {}
+extension OnboardTrackerHudViewController: RawVideoSinkListener {
+    func didStart(sink: RawVideoSink, videoFormat: VideoFormat) {}
 
-    func didStop(sink: StreamSink) {}
+    func didStop(sink: RawVideoSink) {}
 
-    func frameReady(sink: StreamSink, frame: SdkCoreFrame) {
-        if let metadataProtobuf = frame.metadataProtobuf {
-            do {
-                let decodedInfo = try Vmeta_TimedMetadata(serializedData: Data(metadataProtobuf))
-                DispatchQueue.main.async {
-                    self.trackingStatusDidUpdate(decodedInfo)
-                }
-            } catch {
-                print("Failed to extract protobuf data from video frame metadata")
-            }
+    func frameReady(sink: RawVideoSink, frame: RawVideoSinkFrame) {
+        if let metadata = frame.metadata {
+            self.trackingStatusDidUpdate(metadata)
         }
     }
 }

@@ -49,17 +49,16 @@ class OnboardTrackerViewController: UITableViewController, DeviceViewController 
         super.viewDidLoad()
         if let drone = groundSdk.getDrone(uid: droneUid!) {
             onboardTrackerRef = drone.getPeripheral(Peripherals.onboardTracker) { [weak self] onboardTracker in
-                self?.onboardTracker = onboardTracker
-                if onboardTracker != nil, let `self` = self {
+                guard let self = self else { return }
+                self.onboardTracker = onboardTracker
+                if let onboardTracker = onboardTracker {
                     self.arrayKey.removeAll()
-                    if let trackingList = onboardTracker?.targets {
-                        for trackingObj in trackingList {
-                            self.arrayKey.append(trackingObj.key)
-                        }
+                    for trackingObj in onboardTracker.targets {
+                        self.arrayKey.append(trackingObj.key)
                     }
                     self.tableView.reloadData()
                 } else {
-                    self?.performSegue(withIdentifier: "exit", sender: self)
+                    self.performSegue(withIdentifier: "exit", sender: self)
                 }
             }
         }

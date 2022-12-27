@@ -49,7 +49,6 @@
 		2D266470282E9F450030AE5C /* DronePeripheralsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D26646F282E9F450030AE5C /* DronePeripheralsViewController.swift */; };
 		2D266472282EA3D30030AE5C /* DroneInstruments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D266471282EA3D30030AE5C /* DroneInstruments.storyboard */; };
 		2D266474282EB8690030AE5C /* DronePilotingItfs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D266473282EB8690030AE5C /* DronePilotingItfs.storyboard */; };
-		2D3ECC1D272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3ECC1C272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift */; };
 		2D7F65632832527C00AF4D91 /* DronePeripherals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7F65622832527C00AF4D91 /* DronePeripherals.storyboard */; };
 		2D7F65652833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7F65642833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift */; };
 		2D9A19A228C7683800D0DF4C /* LogControl.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9A19A128C7683800D0DF4C /* LogControl.storyboard */; };
@@ -57,7 +56,6 @@
 		2D9B898928A1148B006252F7 /* DebugShellContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B898828A1148B006252F7 /* DebugShellContentCell.swift */; };
 		2D9B898D28A12E14006252F7 /* DebugShellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B898C28A12E14006252F7 /* DebugShellViewController.swift */; };
 		2D9B898E28A1335F006252F7 /* DeveloperMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9B899028A1335F006252F7 /* DeveloperMode.storyboard */; };
-		2DE1986B272C4AF500C19B3D /* vmeta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE1986A272C4AF500C19B3D /* vmeta.pb.swift */; };
 		2DFA736D2837A44B0001626B /* RemoteInstruments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA736C2837A44B0001626B /* RemoteInstruments.storyboard */; };
 		2DFA736F2837A4580001626B /* RemotePeripherals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFA736E2837A4580001626B /* RemotePeripherals.storyboard */; };
 		2DFA73712837A4BC0001626B /* RcInstrumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFA73702837A4BC0001626B /* RcInstrumentsViewController.swift */; };
@@ -204,6 +202,7 @@
 		9B5F2C6B244F2283008CAC34 /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F2C6A244F2283008CAC34 /* AnimationsViewController.swift */; };
 		9B60AE5E24B3250C00296A2F /* ObstacleAvoidanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B60AE5D24B3250C00296A2F /* ObstacleAvoidanceCell.swift */; };
 		9B6ACC7421F0C23F0024B837 /* ThermalEmissivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6ACC7321F0C23F0024B837 /* ThermalEmissivityViewController.swift */; };
+		9B7247DD292540F3006A5AA8 /* parrot_missions_samples_hello_airsdk_messages.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7247DC292540F3006A5AA8 /* parrot_missions_samples_hello_airsdk_messages.pb.swift */; };
 		9B73B89525FBD16D001239A5 /* DroneInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B73B89425FBD16D001239A5 /* DroneInfo.storyboard */; };
 		9B73BDC62216FFF8008DA1F7 /* LedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73BDC52216FFF8008DA1F7 /* LedsCell.swift */; };
 		9B7CB56B260E1B560095EB06 /* SkyCtrl4MappingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7CB567260E1B550095EB06 /* SkyCtrl4MappingListViewController.swift */; };
@@ -363,7 +362,6 @@
 		2D26646F282E9F450030AE5C /* DronePeripheralsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DronePeripheralsViewController.swift; sourceTree = "<group>"; };
 		2D266471282EA3D30030AE5C /* DroneInstruments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DroneInstruments.storyboard; sourceTree = "<group>"; };
 		2D266473282EB8690030AE5C /* DronePilotingItfs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DronePilotingItfs.storyboard; sourceTree = "<group>"; };
-		2D3ECC1C272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parrot_missions_samples_hello_airsdk_messages.pb.swift; sourceTree = "<group>"; };
 		2D7F65622832527C00AF4D91 /* DronePeripherals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DronePeripherals.storyboard; sourceTree = "<group>"; };
 		2D7F65642833A61D00AF4D91 /* InstrumentPeripheralProviderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstrumentPeripheralProviderTableViewController.swift; sourceTree = "<group>"; };
 		2D9A19A128C7683800D0DF4C /* LogControl.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogControl.storyboard; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 		2D9B898828A1148B006252F7 /* DebugShellContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugShellContentCell.swift; sourceTree = "<group>"; };
 		2D9B898C28A12E14006252F7 /* DebugShellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugShellViewController.swift; sourceTree = "<group>"; };
 		2D9B898F28A1335F006252F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DeveloperMode.storyboard; sourceTree = "<group>"; };
-		2DE1986A272C4AF500C19B3D /* vmeta.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = vmeta.pb.swift; sourceTree = "<group>"; };
 		2DFA736C2837A44B0001626B /* RemoteInstruments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemoteInstruments.storyboard; sourceTree = "<group>"; };
 		2DFA736E2837A4580001626B /* RemotePeripherals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RemotePeripherals.storyboard; sourceTree = "<group>"; };
 		2DFA73702837A4BC0001626B /* RcInstrumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RcInstrumentsViewController.swift; sourceTree = "<group>"; };
@@ -523,6 +520,7 @@
 		9B5F2C6A244F2283008CAC34 /* AnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsViewController.swift; sourceTree = "<group>"; };
 		9B60AE5D24B3250C00296A2F /* ObstacleAvoidanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObstacleAvoidanceCell.swift; sourceTree = "<group>"; };
 		9B6ACC7321F0C23F0024B837 /* ThermalEmissivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThermalEmissivityViewController.swift; sourceTree = "<group>"; };
+		9B7247DC292540F3006A5AA8 /* parrot_missions_samples_hello_airsdk_messages.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = parrot_missions_samples_hello_airsdk_messages.pb.swift; path = proto_generated/parrot_missions_samples_hello_airsdk_messages.pb.swift; sourceTree = "<group>"; };
 		9B73B89425FBD16D001239A5 /* DroneInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = DroneInfo.storyboard; path = Base.lproj/DroneInfo.storyboard; sourceTree = "<group>"; };
 		9B73BDC52216FFF8008DA1F7 /* LedsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedsCell.swift; sourceTree = "<group>"; };
 		9B7CB567260E1B550095EB06 /* SkyCtrl4MappingListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkyCtrl4MappingListViewController.swift; sourceTree = "<group>"; };
@@ -649,15 +647,6 @@
 			);
 			name = Pods;
 			path = ../../../products/groundsdk/ios/xcode/Pods;
-			sourceTree = "<group>";
-		};
-		70327894243B638D00D973DA /* proto */ = {
-			isa = PBXGroup;
-			children = (
-				2DE1986A272C4AF500C19B3D /* vmeta.pb.swift */,
-				2D3ECC1C272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift */,
-			);
-			path = proto;
 			sourceTree = "<group>";
 		};
 		712A9F5822045EC000BD4DFC /* Replay */ = {
@@ -982,7 +971,7 @@
 		7CA1C9931C807D5000FE9ED4 /* GroundSdkDemo */ = {
 			isa = PBXGroup;
 			children = (
-				70327894243B638D00D973DA /* proto */,
+				9B0E4CA9291AE00B0068710F /* Proto */,
 				7CA1C9A01C807D5000FE9ED4 /* Info.plist */,
 				7CA1C9941C807D5000FE9ED4 /* AppDelegate.swift */,
 				7C6BD87A1D47626A005D415A /* BoolSettingView.swift */,
@@ -1011,6 +1000,14 @@
 				7C5C42F31E00576700B8829C /* Resources */,
 			);
 			path = GroundSdkDemo;
+			sourceTree = "<group>";
+		};
+		9B0E4CA9291AE00B0068710F /* Proto */ = {
+			isa = PBXGroup;
+			children = (
+				9B7247DC292540F3006A5AA8 /* parrot_missions_samples_hello_airsdk_messages.pb.swift */,
+			);
+			name = Proto;
 			sourceTree = "<group>";
 		};
 		9B50C4642487C8FF00D9B229 /* MissionUpdater */ = {
@@ -1235,13 +1232,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GroundSdkDemo/Pods-GroundSdkDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GroundSdkDemo/Pods-GroundSdkDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GroundSdkDemo/Pods-GroundSdkDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1352,7 +1348,6 @@
 				7C8A61CB1CF7253500CB9392 /* ManualCopterPilotingItfViewController.swift in Sources */,
 				1D2194E81EE83883005A6883 /* CrashReportDownloaderCell.swift in Sources */,
 				F87D5A431FFFF353005AF079 /* MagnetometerWith1StepCalibrationVC.swift in Sources */,
-				2D3ECC1D272C3B3A004B6FFD /* parrot_missions_samples_hello_airsdk_messages.pb.swift in Sources */,
 				9B5D350C23D09A280098016D /* BatteryGaugeUpdaterCell.swift in Sources */,
 				680D2791257A4BD9004EC407 /* DriViewController.swift in Sources */,
 				9B5EBEB22459834F00812D7C /* InternalUserStorageCell.swift in Sources */,
@@ -1424,6 +1419,7 @@
 				689FC110247FE14C007922A0 /* Camera2EditorViewController.swift in Sources */,
 				70D5A0DD2576A2B700958BF7 /* MultiStreamCell.swift in Sources */,
 				02D12B2E2028AAAB002C00BB /* BeeperCell.swift in Sources */,
+				9B7247DD292540F3006A5AA8 /* parrot_missions_samples_hello_airsdk_messages.pb.swift in Sources */,
 				F7398307247D201400B5E5E6 /* BlendedThermalCameraAlignmentViewController.swift in Sources */,
 				7C8E47A31DA7D86500D72B6D /* RcInfoViewController.swift in Sources */,
 				F828A4B61F0162FA00431860 /* WifiAccessPointViewController.swift in Sources */,
@@ -1431,7 +1427,6 @@
 				681A967522147CFF00172594 /* ThermalStreamCell.swift in Sources */,
 				2DFA73732837C04F0001626B /* DeviceInfoViewController.swift in Sources */,
 				2DFA73752837C6610001626B /* RcPeripheralsViewController.swift in Sources */,
-				2DE1986B272C4AF500C19B3D /* vmeta.pb.swift in Sources */,
 				9D93087D27CCFE24007D9D12 /* SkyCtrlCellularLogsViewController.swift in Sources */,
 				02D39E1E207E0DD200494EC4 /* LookAtPilotingItfCell.swift in Sources */,
 				9B60AE5E24B3250C00296A2F /* ObstacleAvoidanceCell.swift in Sources */,

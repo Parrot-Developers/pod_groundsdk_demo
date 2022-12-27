@@ -229,7 +229,7 @@ class MultiStreamViewController: UIViewController, DeviceViewController {
 
     private func updateUiCameraLive(stream: CameraLive) {
         streamPlayPauseBtn.isEnabled = true
-        streamStopBtn.isEnabled = stream.playState == .playing
+        streamStopBtn.isEnabled = stream.playState != .none
         streamPlayPauseBtn.setTitle(stream.playState == .playing ? "Pause" : "Play", for: .normal)
         streamStateLabel.text = stream.state.description
         streamPlayStateLabel.text = stream.playState.description
@@ -238,7 +238,7 @@ class MultiStreamViewController: UIViewController, DeviceViewController {
 
     private func updateUiMediaReplay(stream: MediaReplay) {
         streamPlayPauseBtn.isEnabled = true
-        streamStopBtn.isEnabled = stream.playState == .playing
+        streamStopBtn.isEnabled = stream.playState != .none
         streamPlayPauseBtn.setTitle(stream.playState == .playing ? "Pause" : "Play", for: .normal)
         streamStateLabel.text = stream.state.description
         streamPlayStateLabel.text = stream.playState.description
@@ -247,7 +247,7 @@ class MultiStreamViewController: UIViewController, DeviceViewController {
 
     private func updateUiFileReplay(stream: FileReplay) {
         streamPlayPauseBtn.isEnabled = true
-        streamStopBtn.isEnabled = stream.playState == .playing
+        streamStopBtn.isEnabled = stream.playState != .none
         streamPlayPauseBtn.setTitle(stream.playState == .playing ? "Pause" : "Play", for: .normal)
         streamStateLabel.text = stream.state.description
         streamPlayStateLabel.text = stream.playState.description

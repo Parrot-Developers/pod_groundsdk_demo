@@ -45,6 +45,10 @@ class MissionUpdaterPostponeCell: UITableViewCell {
     @IBOutlet weak var postponeSwitch: UISwitch!
 }
 
+class MissionUpdaterDefaultCell: UITableViewCell {
+    @IBOutlet weak var defaultSwitch: UISwitch!
+}
+
 class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController {
     private let groundSdk = GroundSdk()
     private var droneUid: String?
@@ -54,6 +58,7 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
     private var missionUploadTag: Int?
     private var overwriteBool: Bool = true
     private var postponeValue: Bool = false
+    private var makeDefaultValue: Bool = false
 
     func setDeviceUid(_ uid: String) {
         droneUid = uid
@@ -90,10 +95,16 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
                     cell.overwriteSwitch.isOn = overwriteBool
                 }
                 return cell
-            } else {
+            } else if indexPath.row == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PostponeCell", for: indexPath)
                 if let cell = cell as? MissionUpdaterPostponeCell {
                     cell.postponeSwitch.isOn = postponeValue
+                }
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
+                if let cell = cell as? MissionUpdaterDefaultCell {
+                    cell.defaultSwitch.isOn = makeDefaultValue
                 }
                 return cell
             }
@@ -118,7 +129,7 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 2
+            return 3
         } else {
             return missions.count
         }
@@ -151,8 +162,8 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
         let finalPath = missionsFolderPath.appendingPathComponent(value)
 
         missionUploadTag = sender.tag
-        _ = missionUpdater?.upload(filePath: finalPath, overwrite: overwriteBool, postpone: postponeValue)
-
+        _ = missionUpdater?.upload(filePath: finalPath, overwrite: overwriteBool, postpone: postponeValue,
+                                   makeDefault: makeDefaultValue)
     }
 
     @IBAction func overwrite(_ sender: UISwitch) {
@@ -161,5 +172,9 @@ class MissionUpdaterLocalMissionTVC: UITableViewController, DeviceViewController
 
     @IBAction func postpone(_ sender: UISwitch) {
         postponeValue = sender.isOn
+    }
+
+    @IBAction func makeDefault(_ sender: UISwitch) {
+        makeDefaultValue = sender.isOn
     }
 }

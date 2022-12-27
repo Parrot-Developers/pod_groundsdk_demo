@@ -183,8 +183,7 @@ class PoiPilotingItfViewController: UIViewController, DeviceViewController {
                     pointOfInterestItf.start(
                         latitude: locationDestination.latitude, longitude: locationDestination.longitude,
                         altitude: Double(altitudeSlider.value),
-                        mode: modeControl.selectedSegmentIndex == 0 ?
-                            PointOfInterestMode.lockedGimbal : PointOfInterestMode.freeGimbal)
+                        mode: PointOfInterestMode(rawValue: modeControl.selectedSegmentIndex)!)
                 }
             }
         }
@@ -224,8 +223,7 @@ class PoiPilotingItfViewController: UIViewController, DeviceViewController {
             pointOfInterestItf.start(
                 latitude: locationDestination.latitude, longitude: locationDestination.longitude,
                 altitude: Double(altitudeSlider.value),
-                mode: modeControl.selectedSegmentIndex == 0 ?
-                    PointOfInterestMode.lockedGimbal : PointOfInterestMode.freeGimbal)
+                mode: PointOfInterestMode(rawValue: modeControl.selectedSegmentIndex)!)
         }
     }
 }

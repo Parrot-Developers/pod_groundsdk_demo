@@ -36,10 +36,10 @@ protocol MediaListViewController {
 
 class MediaStoreViewController: UITableViewController, DeviceViewController {
 
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
-    @IBOutlet weak var playButton: UIBarButtonItem!
-    @IBOutlet weak var downloadButton: UIBarButtonItem!
-    @IBOutlet weak var uploadButton: UIBarButtonItem!
+    @IBOutlet private weak var deleteButton: UIBarButtonItem!
+    @IBOutlet private weak var playButton: UIBarButtonItem!
+    @IBOutlet private weak var downloadButton: UIBarButtonItem!
+    @IBOutlet private weak var uploadButton: UIBarButtonItem!
 
     private let groundSdk = GroundSdk()
     private var mediaStoreRef: Ref<MediaStore>?
@@ -187,12 +187,12 @@ extension MediaStoreViewController: UIViewControllerPreviewingDelegate {
 }
 
 class MediaListCell: UITableViewCell {
-    @IBOutlet weak var thumbnailView: UIImageView!
-    @IBOutlet weak var textView: UILabel!
-    @IBOutlet weak var detail1View: UILabel!
-    @IBOutlet weak var detail2View: UILabel!
+    @IBOutlet private weak var thumbnailView: UIImageView!
+    @IBOutlet private weak var textView: UILabel!
+    @IBOutlet private weak var detail1View: UILabel!
+    @IBOutlet private weak var detail2View: UILabel!
 
-    var thumbnail: Ref<UIImage>?
+    private var thumbnail: Ref<UIImage>?
 
     private static var dateFormater: DateFormatter = {
         let dateFormater = DateFormatter()
@@ -220,9 +220,7 @@ class MediaListCell: UITableViewCell {
             accessoryType = .none
         }
         thumbnail = mediaStore.newThumbnailDownloader(media: media) { [weak self] image in
-            if let image = image {
-                self?.thumbnailView.image = image
-            }
+            self?.thumbnailView.image = image
         }
     }
 

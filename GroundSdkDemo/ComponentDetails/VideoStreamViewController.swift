@@ -78,7 +78,6 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
         }
 #endif
         if let streamServer = streamServer {
-
             let source = { () -> CameraLiveSource in
                 switch self.liveSourceView.selectedSegmentIndex {
                 case 0:
@@ -91,7 +90,7 @@ class VideoStreamViewController: UIViewController, DeviceViewController {
                     return CameraLiveSource.disparity
                 case 4:
                     return CameraLiveSource.verticalCamera
-                default :
+                default:
                     return CameraLiveSource.frontCamera
                 }
             }()

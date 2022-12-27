@@ -31,14 +31,15 @@ import UIKit
 import GroundSdk
 
 class ObstacleAvoidanceCell: PeripheralProviderContentCell {
-    @IBOutlet weak var stateLabel: UILabel!
-    @IBOutlet weak var preferredModeButton: UISegmentedControl!
+    @IBOutlet private weak var stateLabel: UILabel!
+    @IBOutlet private weak var preferredModeButton: UISegmentedControl!
     private var obstacleAvoidance: Ref<ObstacleAvoidance>?
 
     private var preferredModeSet: [Int: String] = [:]
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
+
         obstacleAvoidance = provider.getPeripheral(Peripherals.obstacleAvoidance) {  [unowned self] obstacleAvoidance in
             if let obstacleAvoidance = obstacleAvoidance {
                 if preferredModeSet.isEmpty {
@@ -61,14 +62,13 @@ class ObstacleAvoidanceCell: PeripheralProviderContentCell {
         }
     }
 
-    @IBAction func changePreferredValue(_ sender: Any) {
-        if let obstacleAvoidance = obstacleAvoidance?.value {
-            let newPreferredMode = preferredModeSet[preferredModeButton.selectedSegmentIndex]
-            for mode in ObstacleAvoidanceMode.allCases
-            where mode.description == newPreferredMode {
-                obstacleAvoidance.mode.preferredValue = mode
-                    return
-            }
+    @IBAction private func changePreferredValue(_ sender: Any) {
+        guard let obstacleAvoidance = obstacleAvoidance?.value else { return }
+
+        let newPreferredMode = preferredModeSet[preferredModeButton.selectedSegmentIndex]
+        for mode in ObstacleAvoidanceMode.allCases where mode.description == newPreferredMode {
+            obstacleAvoidance.mode.preferredValue = mode
+            return
         }
     }
 }

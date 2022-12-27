@@ -62,6 +62,7 @@
 			<string>skyCtrl4</string>
 			<string>skyCtrl4Black</string>
 			<string>skyCtrlUA</string>
+			<string>skyCtrl5</string>
 		</array>
 		<key>FirmwareServer</key>
 		<string>$(GSDK_INTERNAL_UPDATE_URL)</string>
@@ -122,6 +123,8 @@
 		<string>_arsdk-091e._udp.</string>
 		<string>_arsdk-091b._udp.</string>
 		<string>_arsdk-0914._udp.</string>
+		<string>_arsdk-091f._udp.</string>
+		<string>_arsdk-0920._udp.</string>
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>camera authorization - for HMD</string>

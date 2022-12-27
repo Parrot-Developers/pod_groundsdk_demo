@@ -87,6 +87,7 @@ class FileReplayViewController: UIViewController {
         super.viewWillDisappear(animated)
         streamView.setStream(stream: nil)
         fileReplay?.value?.stop()
+        fileReplay = nil
     }
 
     @IBAction func playPauseStream(_ sender: UIBarButtonItem) {

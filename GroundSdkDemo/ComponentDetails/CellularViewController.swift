@@ -151,7 +151,7 @@ class CellularViewController: UIViewController, DeviceViewController {
             if self.isApnManualSwitch.isOn {
                 _ = cellular.apnConfigurationSetting.setToAuto()
             } else {
-                _ = cellular.apnConfigurationSetting.setToManual(url: self.apnUrlTextField.text ?? "" ,
+                _ = cellular.apnConfigurationSetting.setToManual(url: self.apnUrlTextField.text ?? "",
                                                                  username: self.apnUsernameTextField.text ?? "",
                                                                  password: self.apnPasswordTextField.text ?? "")
             }

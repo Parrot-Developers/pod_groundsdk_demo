@@ -33,14 +33,15 @@ import MobileCoreServices
 
 class CertificateUploaderCell: PeripheralProviderContentCell {
 
+    @IBOutlet weak var state: UILabel!
     private var certificateUploader: Ref<CertificateUploader>?
-    var viewController: UIViewController?
 
     override func set(peripheralProvider provider: PeripheralProvider) {
         super.set(peripheralProvider: provider)
         certificateUploader = provider.getPeripheral(
-        Peripherals.certificateUploader) { [unowned self] certificateUploader in
-            if certificateUploader != nil {
+            Peripherals.certificateUploader) { [unowned self] certificateUploader in
+            if let certificateUploader = certificateUploader {
+                state.text = certificateUploader.state?.description ?? "-"
                 self.show()
             } else {
                 self.hide()
@@ -54,18 +55,35 @@ class CertificateUploaderCell: PeripheralProviderContentCell {
         importMenu.modalPresentationStyle = .formSheet
         self.window?.rootViewController?.present(importMenu, animated: true, completion: nil)
     }
+
+    @IBAction func fetchSignature(_ sender: Any) {
+        certificateUploader?.value?.fetchSignature(completion: { signature in
+            let alert = UIAlertController(title: "Signature", message: signature, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true)
+        })
+    }
+
+    @IBAction func fetchInfo(_ sender: Any) {
+        certificateUploader?.value?.fetchInfo(completion: { info in
+            let message = """
+                Debug features: \(info?.debugFeatures.joined(separator: ", ") ?? "-")
+                Premium features: \(info?.premiumFeatures.joined(separator: ", ") ?? "-")
+                """
+            let alert = UIAlertController(title: "Information", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.window?.rootViewController?.present(alert, animated: true)
+        })
+    }
 }
+
 extension CertificateUploaderCell: UIDocumentPickerDelegate {
     public func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         guard let myURL = urls.first else {
             return
         }
         if let certificateUploader = certificateUploader?.value {
-            certificateUploader.upload(certificate: myURL.absoluteString)
+            _ = certificateUploader.upload(certificate: myURL.path)
         }
-    }
-
-    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        viewController?.dismiss(animated: true, completion: nil)
     }
 }

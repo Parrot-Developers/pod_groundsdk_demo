@@ -32,7 +32,7 @@ import GroundSdk
 
 class MediaStoreDeleteViewController: UIViewController, MediaListViewController {
 
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet private weak var progressView: UIProgressView!
 
     private let groundSdk = GroundSdk()
     private var droneUid: String?

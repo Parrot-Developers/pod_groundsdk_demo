@@ -32,11 +32,11 @@ import GroundSdk
 
 class MediaStoreCell: PeripheralProviderContentCell {
 
-    @IBOutlet weak var indexingStateLabel: UILabel!
-    @IBOutlet weak var photoMediaCountLabel: UILabel!
-    @IBOutlet weak var videoMediaCountLabel: UILabel!
-    @IBOutlet weak var photoResCountLabel: UILabel!
-    @IBOutlet weak var videoResCountLabel: UILabel!
+    @IBOutlet private weak var indexingStateLabel: UILabel!
+    @IBOutlet private weak var photoMediaCountLabel: UILabel!
+    @IBOutlet private weak var videoMediaCountLabel: UILabel!
+    @IBOutlet private weak var photoResCountLabel: UILabel!
+    @IBOutlet private weak var videoResCountLabel: UILabel!
 
     private var mediaStore: Ref<MediaStore>?
 

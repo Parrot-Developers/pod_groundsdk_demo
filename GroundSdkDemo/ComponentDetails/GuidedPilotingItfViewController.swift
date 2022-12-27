@@ -41,7 +41,7 @@ class GuidedPilotingItfViewController: UIViewController, DeviceViewController {
     @IBOutlet var droneLonValue: UILabel!
 
     @IBOutlet var orientationPicker: UIPickerView!
-    let pickerDataSource:[(name: String, value: OrientationDirective)] = [
+    let pickerDataSource: [(name: String, value: OrientationDirective)] = [
         ("None", .none), ("To Target", .toTarget), ("Heading Start", .headingStart(0)),
         ("Heading During", .headingDuring(0))]
 
