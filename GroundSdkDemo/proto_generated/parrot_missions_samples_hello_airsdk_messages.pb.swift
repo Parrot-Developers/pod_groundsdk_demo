@@ -164,6 +164,13 @@ struct Parrot_Missions_Samples_Hello_Airsdk_Messages_Event {
   init() {}
 }
 
+#if swift(>=5.5) && canImport(_Concurrency)
+extension Parrot_Missions_Samples_Hello_Airsdk_Messages_Command: @unchecked Sendable {}
+extension Parrot_Missions_Samples_Hello_Airsdk_Messages_Command.OneOf_ID: @unchecked Sendable {}
+extension Parrot_Missions_Samples_Hello_Airsdk_Messages_Event: @unchecked Sendable {}
+extension Parrot_Missions_Samples_Hello_Airsdk_Messages_Event.OneOf_ID: @unchecked Sendable {}
+#endif  // swift(>=5.5) && canImport(_Concurrency)
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "parrot.missions.samples.hello.airsdk.messages"
